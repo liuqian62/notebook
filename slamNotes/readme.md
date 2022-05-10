@@ -8,3 +8,54 @@
 1. 构建图。机器人位姿作为顶点，位姿间关系作为边。
 2. 优化图。调整机器人的位姿（顶点）来尽量满足边的约束，使得误差最小。
 # 如何使用g2o（General Graphic Optimization）
+![img1](./image.png)
+* 图的核心
+
+
+* 顶点和边
+* 配置SparseOptimizer的优化算法和求解器
+* 如何求解
+
+## 分步骤实现
+
+typedef g2o::BlockSolver< g2o::BlockSolverTraits<3,1> > Block;  // 每个误差项优化变量维度为3，误差值维度为1
+
+// 第1步：创建一个线性求解器LinearSolver
+Block::LinearSolverType* linearSolver = new g2o::LinearSolverDense<Block::PoseMatrixType>(); 
+
+// 第2步：创建BlockSolver。并用上面定义的线性求解器初始化
+Block* solver_ptr = new Block( linearSolver );      
+
+// 第3步：创建总求解器solver。并从GN, LM, DogLeg 中选一个，再用上述块求解器BlockSolver初始化
+g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( solver_ptr );
+
+// 第4步：创建终极大boss 稀疏优化器（SparseOptimizer）
+g2o::SparseOptimizer optimizer;     // 图模型
+optimizer.setAlgorithm( solver );   // 设置求解器
+optimizer.setVerbose( true );       // 打开调试输出
+
+// 第5步：定义图的顶点和边。并添加到SparseOptimizer中
+CurveFittingVertex* v = new CurveFittingVertex(); //往图中增加顶点
+v->setEstimate( Eigen::Vector3d(0,0,0) );
+v->setId(0);
+optimizer.addVertex( v );
+for ( int i=0; i<N; i++ )    // 往图中增加边
+{
+  CurveFittingEdge* edge = new CurveFittingEdge( x_data[i] );
+  edge->setId(i);
+  edge->setVertex( 0, v );                // 设置连接的顶点
+  edge->setMeasurement( y_data[i] );      // 观测数值
+  edge->setInformation( Eigen::Matrix<double,1,1>::Identity()*1/(w_sigma*w_sigma) ); // 信息矩阵：协方差矩阵之逆
+  optimizer.addEdge( edge );
+}
+
+// 第6步：设置优化参数，开始执行优化
+optimizer.initializeOptimization();
+optimizer.optimize(100);
+
+## 创建一个线性求解器LinearSolver
+## 创建BlockSovler。并用上面的定义的线性求解器初始化
+## 创建总和求解器solver。并从GN, LM, DogLeg 中选一个，再用上述块求解器BlockSolver初始化
+## 创建终极大boss 稀疏优化器（SparseOptimizer），并用已定义求解器作为求解方法
+## 定义图的顶点和边。并添加到SparseOptimizer中
+## 设置优化参数，开始执行优化
