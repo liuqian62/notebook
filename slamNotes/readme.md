@@ -1,6 +1,7 @@
 # slam notes
 
 - [参考链接](https://mp.weixin.qq.com/s/j9h9lT14jCu-VvEPHQhtBw)
+- [参考链接](https://www.cnblogs.com/CV-life/p/10449028.html)
 ## slam 后端一般分为两种处理方法
 * 扩展卡尔曼滤波（滤波方法）
 * 图优化（非线性优化方法）
