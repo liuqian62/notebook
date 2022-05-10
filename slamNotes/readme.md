@@ -20,6 +20,7 @@
 
 ## 分步骤实现
 
+```
 typedef g2o::BlockSolver< g2o::BlockSolverTraits<3,1> > Block;  // 每个误差项优化变量维度为3，误差值维度为1
 
 // 第1步：创建一个线性求解器LinearSolver
@@ -54,10 +55,21 @@ for ( int i=0; i<N; i++ )    // 往图中增加边
 // 第6步：设置优化参数，开始执行优化
 optimizer.initializeOptimization();
 optimizer.optimize(100);
+```
 
 ## 创建一个线性求解器LinearSolver
 ## 创建BlockSovler。并用上面的定义的线性求解器初始化
 ## 创建总和求解器solver。并从GN, LM, DogLeg 中选一个，再用上述块求解器BlockSolver初始化
 ## 创建终极大boss 稀疏优化器（SparseOptimizer），并用已定义求解器作为求解方法
 ## 定义图的顶点和边。并添加到SparseOptimizer中
+
+### 重写四个函数
+* virtual bool read(std::istream& is);
+* virtual bool write(std::ostream& os) const;
+* virtual void oplusImpl(const number_t* update);
+
+顶点更新函数。非常重要的一个函数，主要用于优化过程中增量△x 的计算。我们根据增量方程计算出增量之后，就是通过这个函数对估计值进行调整的，因此这个函数的内容一定要重视。
+* virtual void setToOriginImpl();
+
+顶点重置函数，设定被优化变量的原始值。
 ## 设置优化参数，开始执行优化
