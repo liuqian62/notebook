@@ -1,5 +1,6 @@
 # slam notes
 
+- [常用开源方案](https://github.com/liuqian62/notebook/tree/main/slamNotes/slam%E5%BC%80%E6%BA%90%E6%96%B9%E6%A1%88)
 
 ## slam 后端一般分为两种处理方法
 * 扩展卡尔曼滤波（滤波方法）
