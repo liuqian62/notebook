@@ -1,7 +1,6 @@
 # slam notes
 
-- [参考链接](https://mp.weixin.qq.com/s/j9h9lT14jCu-VvEPHQhtBw)
-- [参考链接](https://www.cnblogs.com/CV-life/p/10449028.html)
+
 ## slam 后端一般分为两种处理方法
 * 扩展卡尔曼滤波（滤波方法）
 * 图优化（非线性优化方法）
@@ -10,6 +9,9 @@
 1. 构建图。机器人位姿作为顶点，位姿间关系作为边。
 2. 优化图。调整机器人的位姿（顶点）来尽量满足边的约束，使得误差最小。
 # 如何使用g2o（General Graphic Optimization）
+- [参考链接](https://mp.weixin.qq.com/s/j9h9lT14jCu-VvEPHQhtBw)
+- [参考链接](https://www.cnblogs.com/CV-life/p/10449028.html)
+- [参考链接](https://www.cnblogs.com/CV-life/archive/2019/03/13/10525579.html)
 ![img1](./image.png)
 * 图的核心
 
