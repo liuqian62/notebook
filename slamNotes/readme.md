@@ -22,7 +22,7 @@
 
 ## 分步骤实现
 
-```
+```cpp
 typedef g2o::BlockSolver< g2o::BlockSolverTraits<3,1> > Block;  // 每个误差项优化变量维度为3，误差值维度为1
 
 // 第1步：创建一个线性求解器LinearSolver
