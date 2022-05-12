@@ -4,7 +4,7 @@
 # 计算机组成原理
 * [计组](https://github.com/liuqian62/notebook/blob/main/%E5%9F%BA%E7%A1%80%E5%9B%9B%E5%A4%A7%E4%BB%B6/%E8%AE%A1%E7%BB%84.md)
 # 计算机操作系统
-* [OS]()
+* [OS](https://github.com/liuqian62/notebook/blob/main/%E5%9F%BA%E7%A1%80%E5%9B%9B%E5%A4%A7%E4%BB%B6/OS.md)
 # 计算机网络
 * [计网](https://github.com/liuqian62/notebook/blob/main/%E5%9F%BA%E7%A1%80%E5%9B%9B%E5%A4%A7%E4%BB%B6/%E8%AE%A1%E7%BD%91.md)
 ---
