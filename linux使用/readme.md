@@ -1,4 +1,11 @@
 # Linux使用相关笔记
+## 目录
+### [服务器连接](https://github.com/liuqian62/notebook/edit/main/linux%E4%BD%BF%E7%94%A8/readme.md#:~:text=%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-,%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5,-ssh%20mii%40192.168.0.123)
+### [git 使用](https://github.com/liuqian62/notebook/edit/main/linux%E4%BD%BF%E7%94%A8/readme.md#:~:text=r%20data%20rich%3Adata-,git%20%E4%BD%BF%E7%94%A8,-git%20%2D%2D%3Egit%20bash)
+### [常用命令](https://github.com/liuqian62/notebook/edit/main/linux%E4%BD%BF%E7%94%A8/readme.md#:~:text=branch%20%E2%80%93d%20name-,%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4,-%E5%85%B3%E6%9C%BA/%E9%87%8D%E5%90%AF)
+
+## 服务器连接
+
 ```bash
 ssh mii@192.168.0.123
 ```
@@ -73,6 +80,7 @@ Host rich
 连接时就可以直接用ssh rich   退出用exit
 传输文件时可以直接scp -r data rich:data
 
+## git 使用
 ```
 git -->git bash
 git config --global user.name "lirich674"
@@ -116,6 +124,7 @@ git push origin master
 | 合并某分支到当前分支 | git merge name | 
 | 删除分支 | git branch –d name | 
 
+## 常用命令
 
 # 关机/重启/注销
 
