@@ -1,10 +1,10 @@
 # python 相关笔记
 ## 环境配置
 ```bash
-conda create -n rich python=3.7
-conda activate rich
-conda deactivate rich
-conda remove -n rich --all
+conda create -n rich python=3.7  #创建环境
+conda activate rich  #激活环境
+conda deactivate rich  #退出环境
+conda remove -n rich --all  #删除环境
 ```
 ## requirements
 ```
