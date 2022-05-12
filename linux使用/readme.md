@@ -1,6 +1,8 @@
 # Linux使用相关笔记
 ```bash
-ssh mii@192.168.0.116
+ssh mii@192.168.0.123
+```
+
 软件推荐使用MobaXterm
 新建session    ssh连接   输入ip地址（192.168.0.116）和名字（mii）  端口默认22（ssh服务器是22，web服务器是80） 然后ok 
 密码是123456 （输入时不会显示，输入完成直接enter）
@@ -9,14 +11,15 @@ ssh mii@192.168.0.116
 密码是2 （输入时不会显示，输入完成直接enter）
 
 连接车组的服务器：
+```
 ssh -l dl1 icv-server.tpddns.cn -p 1111
 ssh dl1@icv-server.tpddns.cn -p 1111
 ssh dl4@icv-server.tpddns.cn -p 4444
-
+```
 
 
 创建服务器远程连接：
-
+```
 sudo apt-get install openssh-server
 
 sudo apt-get install net-tools
@@ -26,43 +29,50 @@ sudo apt-get install net-tools
 /etc/init.d/ssh stop
 
 /etc/init.d/ssh restart
-
+```
+```
 ifconfig
-
+```
 得到inet 113.54.217.148  netmask 255.255.224.0  broadcast 113.54.223.255
 
-
+```
 ssh rich@113.54.217.148
 ssh mii@192.168.0.116
-
+```
 
 
 上传文件夹：
+```
 scp -r amono_loop mii@192.168.0.116:/home/mii/extDisk/lq/slam
 scp -r data mii@192.168.0.116:/home/mii/extDisk/lq
-
+```
 下载单个文件：
+```
 scp mii@192.168.0.116:/home/mii/picture1.jpg picture.jpg
-
+```
 下载文件夹加上-r即可、
 
 ssh高级操作：（免密码登陆和配置别名）
+```
 ssh-keygen
 ssh-copy-id rich@113.54.215.241
-
+```
 配置别名
+```
 cd ~/.ssh
 touch config
 gedit config
+```
 在里面输入：
+```
 Host rich
   HostName 113.54.215.241
   User rich
   Port 22
-
+```
 连接时就可以直接用ssh rich   退出用exit
 传输文件时可以直接scp -r data rich:data
-```
+
 ```
 git -->git bash
 git config --global user.name "lirich674"
@@ -83,8 +93,9 @@ git reset --hard HEAD~100
 git reflog
 git reset --hard 6fcfc89
 git checkout --readme.txt
-
+```
 远程厂库：
+```
 ssh-keygen -t rsa –c "lirich674@gmail.com"
 进入/home/rich 下的.ssh 打开id_rsa.pub复制
 在github打开setting-->add ssh key-->填写title 粘贴复制的内容
@@ -93,22 +104,24 @@ new repository
 git remote add origin https://github.com/iredawen/yolo.git
 git push -u origin master （自己的分支）
 git push origin master
-
+```
 
 总结创建与合并分支命令如下：
+| 功能                      | 作用                   |
+| ------------------- | ----------------------|
 
-查看分支：git branch
+| 查看分支：| git branch| 
 
-创建分支：git branch name
+| 创建分支：| git branch name| 
 
-切换分支：git checkout name
+| 切换分支：| git checkout name| 
 
-创建+切换分支：git checkout –b name
+| 创建+切换分支：| git checkout –b name| 
 
-合并某分支到当前分支：git merge name
+| 合并某分支到当前分支：| git merge name| 
 
-删除分支：git branch –d name
-```
+| 删除分支：| git branch –d name| 
+
 
 # 关机/重启/注销
 
