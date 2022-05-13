@@ -5,14 +5,20 @@
 * [各种库的安装]()
 * [安装多个版本OpenCV]()
 * [d435i驱动安装]()
-
+## 标定相关资料
+* [网站1]()
+* [网站1]()
+* [网站1]()
 ## 各种库的使用
 * [Eigen使用]()
 * [g2o使用]()
 * [Ceres使用]()
 * [OpenCV使用]()
 * [Sophus使用]()
-
+## 大佬的博客
+* [高翔](https://www.cnblogs.com/gaoxiang12/)
+* [贺一家](https://blog.csdn.net/heyijia0327?type=blog)
+* [网站1]()
 ## 资料
 - [常用开源方案](https://github.com/liuqian62/notebook/tree/main/slamNotes/slam%E5%BC%80%E6%BA%90%E6%96%B9%E6%A1%88)
 - [视觉SLAM相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
@@ -32,3 +38,8 @@
 * [工具1]()
 * [工具2]()
 * [工具3]()
+
+## SLAM找工作
+* [网站1]()
+* [网站1]()
+* [网站1]()
