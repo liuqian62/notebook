@@ -48,7 +48,8 @@ git push -u origin master （推送）
 
 '''
 * 冲突
-'''
+
+'''python
 git add . 
 
 git rebase --continue
