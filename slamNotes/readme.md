@@ -1,4 +1,10 @@
 # slam notes
+## 资料
+- [常用开源方案](https://github.com/liuqian62/notebook/tree/main/slamNotes/slam%E5%BC%80%E6%BA%90%E6%96%B9%E6%A1%88)
+- [视觉SLAM相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
+- [SLAM十四讲](https://github.com/liuqian62/notebook/blob/main/slamNotes/14%E8%AE%B2.md)
+- [如何使用g2o](https://github.com/liuqian62/notebook/blob/main/slamNotes/use_g2o.md)
+- [如何使用Ceres]()
 ## 环境安装
 * [ubuntu安装]()
 * [ros安装]()
@@ -19,12 +25,7 @@
 * [高翔](https://www.cnblogs.com/gaoxiang12/)
 * [贺一家](https://blog.csdn.net/heyijia0327?type=blog)
 * [网站1]()
-## 资料
-- [常用开源方案](https://github.com/liuqian62/notebook/tree/main/slamNotes/slam%E5%BC%80%E6%BA%90%E6%96%B9%E6%A1%88)
-- [视觉SLAM相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
-- [SLAM十四讲](https://github.com/liuqian62/notebook/blob/main/slamNotes/14%E8%AE%B2.md)
-- [如何使用g2o](https://github.com/liuqian62/notebook/blob/main/slamNotes/use_g2o.md)
-- [如何使用Ceres]()
+
 
 ## slam 后端一般分为两种处理方法
 * 扩展卡尔曼滤波（滤波方法）
