@@ -48,7 +48,7 @@ git push -u origin master （推送）
 
 '''
 * 冲突
-'''bash 
+'''
 git add . 
 
 git rebase --continue
