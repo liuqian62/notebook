@@ -25,6 +25,7 @@
 * [高翔](https://www.cnblogs.com/gaoxiang12/)
 * [贺一家](https://blog.csdn.net/heyijia0327?type=blog)
 * [紫薯萝卜](https://www.zhihu.com/people/mao-shu-yuan/posts)
+* [小吴同学](https://wym.netlify.app/)
 
 
 <!-- ## slam 后端一般分为两种处理方法
