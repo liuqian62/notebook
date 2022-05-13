@@ -24,4 +24,4 @@ python-dateutil==2.8.2
 ```bash
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.douban.com
 ```
-
+# [mmdetetion](https://github.com/liuqian62/notebook/blob/main/python%E7%9B%B8%E5%85%B3/mmdetection.md)
