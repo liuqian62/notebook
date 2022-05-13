@@ -1,5 +1,16 @@
 # slam notes
+## 环境安装
+* [ubuntu安装]()
+* [ros安装]()
+* [各种库的安装]()
+* [d435i驱动安装]()
 
+## 各种库的使用
+* [eigen使用]()
+* [g20使用]()
+
+
+## 资料
 - [常用开源方案](https://github.com/liuqian62/notebook/tree/main/slamNotes/slam%E5%BC%80%E6%BA%90%E6%96%B9%E6%A1%88)
 - [视觉SLAM相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
 - [SLAM十四讲](https://github.com/liuqian62/notebook/blob/main/slamNotes/14%E8%AE%B2.md)
