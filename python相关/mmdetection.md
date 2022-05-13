@@ -7,12 +7,12 @@
 python -m torch.distributed.launch --nproc_per_node=1 --master_port=29500 tools/analysis_tools/benchmark.py $cofig $checkpoint --launcher pytorch
 ```
 ## 分布式训练
-'''python
+```python
 Export CUDA_VISIBLE_DEVICES=”0,1,2,3”
 
 CUDA_VISIBLE_DEVICES=”0,1,2,3” python -m torch.distributed.launch --nproc_per_node=4 tools/train.py $cofig $checkpoint --launcher pytorch
 
-'''
+```
 
 ## 训练
 '''python
