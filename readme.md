@@ -23,4 +23,4 @@
 
 ![4](http://latex.codecogs.com/svg.latex?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6})
 
-# [slam资料](https://github.com/liuqian62/notebook/tree/main/slamNotes)
+# [slam资料和笔记](https://github.com/liuqian62/notebook/tree/main/slamNotes)
