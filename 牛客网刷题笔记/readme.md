@@ -113,3 +113,26 @@ int main(){
     return 0;
 }
 ```
+* 6.A+B(6)
+
+输入：`输入数据有多组, 每行表示一组输入数据。
+每行的第一个整数为整数的个数n(1 <= n <= 100)。
+接下来n个正整数, 即需要求和的每个正整数。`  
+输出：`每组数据输出求和的结果`
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+    int a,t;
+    while(cin>>t){
+        int sum=0;
+        while(--t>=0){
+            cin>>a;
+            sum+=a;
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+}
+```
