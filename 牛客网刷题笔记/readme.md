@@ -136,3 +136,26 @@ int main(){
     return 0;
 }
 ```
+* 7.A+B(7)
+
+输入：`输入数据有多组, 每行表示一组输入数据。
+
+每行不定有n个整数，空格隔开。(1 <= n <= 100)。`  
+输出：`每组数据输出求和的结果`
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+    int a;
+    int sum=0;
+    while(cin>>a){
+        sum+=a;
+        if(cin.get()=='\n'){
+            cout<<sum<<endl;
+            sum=0;
+        }
+    }
+    return 0;
+}
+```
