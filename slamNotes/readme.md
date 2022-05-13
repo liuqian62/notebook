@@ -3,12 +3,15 @@
 * [ubuntu安装]()
 * [ros安装]()
 * [各种库的安装]()
+* [安装多个版本OpenCV]()
 * [d435i驱动安装]()
 
 ## 各种库的使用
 * [eigen使用]()
-* [g20使用]()
-
+* [g2o使用]()
+* [Ceres使用]()
+* [OpenCV使用]()
+* [g2o使用]()
 
 ## 资料
 - [常用开源方案](https://github.com/liuqian62/notebook/tree/main/slamNotes/slam%E5%BC%80%E6%BA%90%E6%96%B9%E6%A1%88)
