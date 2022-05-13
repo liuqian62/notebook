@@ -1,5 +1,6 @@
 # Linux使用相关笔记
 ## 目录
+### [RK3399PRO教程]()
 ### [服务器连接](https://github.com/liuqian62/notebook/tree/main/linux%E4%BD%BF%E7%94%A8#:~:text=%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-,%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5,-ssh%20mii%40192.168.0.123)
 ### [git 使用](https://github.com/liuqian62/notebook/tree/main/linux%E4%BD%BF%E7%94%A8#:~:text=r%20data%20rich%3Adata-,git%20%E4%BD%BF%E7%94%A8,-git%20%2D%2D%3Egit%20bash)
 ### [常用命令](https://github.com/liuqian62/notebook/tree/main/linux%E4%BD%BF%E7%94%A8#:~:text=branch%20%E2%80%93d%20name-,%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4,-%E5%85%B3%E6%9C%BA/%E9%87%8D%E5%90%AF)
