@@ -139,7 +139,6 @@ int main(){
 * 7.A+B(7)
 
 输入：`输入数据有多组, 每行表示一组输入数据。
-
 每行不定有n个整数，空格隔开。(1 <= n <= 100)。`  
 输出：`每组数据输出求和的结果`
 
@@ -156,6 +155,69 @@ int main(){
             sum=0;
         }
     }
+    return 0;
+}
+```
+* 8.字符串排序(1)
+
+输入：`输入有两行，第一行n，
+第二行是n个字符串，字符串之间用空格隔开`  
+输出：`输出一行排序后的字符串，空格隔开，无结尾空格`
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+int main(){
+    int n;
+    vector<string> st;
+    cin>>n;
+    while(n--){
+        string tmp;
+        cin>>tmp;
+        st.push_back(tmp);
+    }
+    sort(st.begin(),st.end());
+    for(uint i=0;i<st.size();i++){
+        if(i<st.size()-1)
+            cout<<st[i]<<' ';
+        else
+            cout<<st[i]<<endl;
+    }
+    return 0;
+}
+```
+* 9.字符串排序(2)
+
+输入：`多个测试用例，每个测试用例一行。
+每行通过空格隔开，有n个字符，n＜100`  
+输出：`对于每组测试用例，输出一行排序过的字符串，每个字符串通过空格隔开`
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+int main(){
+    vector<string> st;
+    string tmp;
+    while(cin>>tmp){
+        st.push_back(tmp);
+        if(cin.get()=='\n'){
+            sort(st.begin(),st.end());
+            for(uint i=0;i<st.size();i++){
+                if(i<st.size()-1)
+                    cout<<st[i]<<' ';
+                else
+                    cout<<st[i]<<endl;
+            }
+            st.clear();
+        }
+    }
+
     return 0;
 }
 ```
