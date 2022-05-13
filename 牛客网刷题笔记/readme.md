@@ -19,6 +19,7 @@ int main()
         }
         cout<<a+b<<endl;
     }
+    return 0;
 }
 ```
 
@@ -218,6 +219,63 @@ int main(){
         }
     }
 
+    return 0;
+}
+```
+* 10.字符串排序(3)
+
+输入：`多个测试用例，每个测试用例一行。
+每行通过,隔开，有n个字符，n＜100`  
+输出：`对于每组用例输出一行排序后的字符串，用','隔开，无结尾空格`
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
+int main(){
+    vector<string> st;
+    string s,tmp;
+    while(cin>>s){
+        for(char i:s){
+            if(i==','){
+                st.push_back(tmp);
+                tmp.clear();
+            }else{
+                tmp.push_back(i);
+            }
+        }
+        st.push_back(tmp);
+        tmp.clear();
+        sort(st.begin(),st.end());
+        for(uint i=0;i<st.size();i++){
+            if(i<st.size()-1)
+                cout<<st[i]<<',';
+            else
+                cout<<st[i]<<endl;
+        }
+        st.clear();
+    }
+
+    return 0;
+}
+```
+* 11.本地自测通过提交为0
+
+输入：`输入有多组测试用例，每组空格隔开两个整数。`  
+输出：`对于每组数据输出一行两个整数的和`
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    long int a,b;
+    while(cin>>a>>b){
+        cout<<a+b<<endl;
+    }
     return 0;
 }
 ```
