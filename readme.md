@@ -4,13 +4,22 @@
 
 # This is my notebook
 
-## 笔记整理
+## 学习笔记
+* [python相关](https://github.com/liuqian62/notebook/tree/main/python%E7%9B%B8%E5%85%B3)
+* [Linux使用](https://github.com/liuqian62/notebook/tree/main/linux%E4%BD%BF%E7%94%A8)
+## 刷题找工作
+### 笔记
+
 * [基础四大件](https://github.com/liuqian62/notebook/tree/main/%E5%9F%BA%E7%A1%80%E5%9B%9B%E5%A4%A7%E4%BB%B6)
 * [c++](https://github.com/liuqian62/notebook/tree/main/learn%20c%2B%2B)
 * [刷题](https://github.com/liuqian62/notebook/tree/main/%E7%89%9B%E5%AE%A2%E7%BD%91%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0)
-* [python相关](https://github.com/liuqian62/notebook/tree/main/python%E7%9B%B8%E5%85%B3)
-* [Linux使用](https://github.com/liuqian62/notebook/tree/main/linux%E4%BD%BF%E7%94%A8)
-## some useful website
+
+### 资源网站
+* [代码随想录](https://programmercarl.com/)
+* [力扣](https://leetcode.cn/problemset/all/)
+* [牛客网](https://www.nowcoder.com/exam/oj)
+* [菜鸟](https://www.runoob.com/)
+### 求职网站
 * [代码随想录](https://programmercarl.com/)
 * [力扣](https://leetcode.cn/problemset/all/)
 * [牛客网](https://www.nowcoder.com/exam/oj)
