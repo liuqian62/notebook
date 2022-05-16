@@ -13,7 +13,8 @@
 * [基础四大件](https://github.com/liuqian62/notebook/tree/main/%E5%9F%BA%E7%A1%80%E5%9B%9B%E5%A4%A7%E4%BB%B6)
 * [c++](https://github.com/liuqian62/notebook/tree/main/learn%20c%2B%2B)
 * [刷题](https://github.com/liuqian62/notebook/tree/main/%E7%89%9B%E5%AE%A2%E7%BD%91%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0)
-
+本来想自己总结的，但是别人已经弄好了，哈哈哈
+* [别人的总结](https://github.com/liuqian62/offerMachine)
 ### 资源网站
 * [代码随想录](https://programmercarl.com/)
 * [力扣](https://leetcode.cn/problemset/all/)
