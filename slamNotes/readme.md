@@ -12,7 +12,7 @@
 * [安装多个版本OpenCV](https://heyijia.blog.csdn.net/article/details/54575245?spm=1001.2014.3001.5502)
 * [d435i驱动安装和标定](https://blog.csdn.net/qq_35616298/article/details/116171823?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162942123216780271562120%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162942123216780271562120&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-1-116171823.first_rank_v2_pc_rank_v29&utm_term=%E9%94%99%E8%AF%AF%3A+%E6%97%A0%E6%B3%95%E9%AA%8C%E8%AF%81+faculty.cse.tamu.edu+%E7%9A%84%E7%94%B1+%E2%80%9CCN%3DInCommon+RSA+Server+CA%2COU%3DInCommon%2CO%3DInternet2%2CL%3DAnn+Arbor%2CST%3DMI%2CC%3DUS%E2%80%9D+%E9%A2%81%E5%8F%91%E7%9A%84%E8%AF%81%E4%B9%A6%3A&spm=1018.2226.3001.4187)
 
-## 各种库的使用
+## 各种库的使用--[代码](https://github.com/liuqian62/lib_use)
 * [Eigen使用](https://blog.csdn.net/yxpandjay/article/details/80587916?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266842616782248567999%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266842616782248567999&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-80587916-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=eigen%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
   * [Eigen平移旋转](https://blog.csdn.net/u011092188/article/details/77430988) 
 * [g2o使用](https://blog.csdn.net/He3he3he/article/details/110007973?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266856216782246426329%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266856216782246426329&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-9-110007973-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=g2o%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
@@ -20,6 +20,7 @@
 * [OpenCV使用](https://blog.csdn.net/zzx2016zzx/article/details/108691235?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266957316781683948705%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266957316781683948705&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-6-108691235-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=opencv%E6%95%99%E7%A8%8Bc%2B%2B&spm=1018.2226.3001.4449)
   * [OpenCV官方文档](https://docs.opencv.org/3.4.4/index.html)
 * [Sophus使用](https://blog.csdn.net/u011092188/article/details/77833022?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165267053516780357263815%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165267053516780357263815&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-5-77833022-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=Sophus%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
+
 ## 大佬的博客
 * [高翔](https://www.cnblogs.com/gaoxiang12/)
 * [贺一家](https://blog.csdn.net/heyijia0327?type=blog)
