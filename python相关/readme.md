@@ -25,3 +25,6 @@ python-dateutil==2.8.2
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.douban.com
 ```
 # [mmdetetion](https://github.com/liuqian62/notebook/blob/main/python%E7%9B%B8%E5%85%B3/mmdetection.md)
+# OpenCV教程
+* [OpenCV中文官方文档](https://woshicver.com/)
+* [OpenCV 4.0 中文文档](https://opencv.apachecn.org/#/)
