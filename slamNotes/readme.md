@@ -10,15 +10,12 @@
 * [ros安装](https://blog.csdn.net/weixin_50060664/article/details/121781535?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266766216782350951349%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266766216782350951349&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-3-121781535-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=ubuntu%E5%AE%89%E8%A3%85ros&spm=1018.2226.3001.4449)
 * [各种库的安装](https://blog.csdn.net/Night___Raid/article/details/105113617?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266819116782350993650%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266819116782350993650&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-3-105113617-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=slam%E7%9A%84%E5%90%84%E7%A7%8D%E5%BA%93%E5%AE%89%E8%A3%85&spm=1018.2226.3001.4449)
 * [安装多个版本OpenCV](https://heyijia.blog.csdn.net/article/details/54575245?spm=1001.2014.3001.5502)
-* [d435i驱动安装](https://blog.csdn.net/qq_35616298/article/details/116171823?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162942123216780271562120%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162942123216780271562120&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-1-116171823.first_rank_v2_pc_rank_v29&utm_term=%E9%94%99%E8%AF%AF%3A+%E6%97%A0%E6%B3%95%E9%AA%8C%E8%AF%81+faculty.cse.tamu.edu+%E7%9A%84%E7%94%B1+%E2%80%9CCN%3DInCommon+RSA+Server+CA%2COU%3DInCommon%2CO%3DInternet2%2CL%3DAnn+Arbor%2CST%3DMI%2CC%3DUS%E2%80%9D+%E9%A2%81%E5%8F%91%E7%9A%84%E8%AF%81%E4%B9%A6%3A&spm=1018.2226.3001.4187)
-## 标定相关资料
-* [网站1]()
-* [网站1]()
-* [网站1]()
+* [d435i驱动安装和标定](https://blog.csdn.net/qq_35616298/article/details/116171823?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162942123216780271562120%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162942123216780271562120&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-1-116171823.first_rank_v2_pc_rank_v29&utm_term=%E9%94%99%E8%AF%AF%3A+%E6%97%A0%E6%B3%95%E9%AA%8C%E8%AF%81+faculty.cse.tamu.edu+%E7%9A%84%E7%94%B1+%E2%80%9CCN%3DInCommon+RSA+Server+CA%2COU%3DInCommon%2CO%3DInternet2%2CL%3DAnn+Arbor%2CST%3DMI%2CC%3DUS%E2%80%9D+%E9%A2%81%E5%8F%91%E7%9A%84%E8%AF%81%E4%B9%A6%3A&spm=1018.2226.3001.4187)
+
 ## 各种库的使用
-* [Eigen使用]()
-* [g2o使用]()
-* [Ceres使用]()
+* [Eigen使用](https://blog.csdn.net/yxpandjay/article/details/80587916?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266842616782248567999%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266842616782248567999&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-80587916-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=eigen%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
+* [g2o使用](https://blog.csdn.net/He3he3he/article/details/110007973?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266856216782246426329%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266856216782246426329&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-9-110007973-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=g2o%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
+* [Ceres使用](https://blog.csdn.net/zzyczzyc/article/details/88937558?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266905516782395383342%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266905516782395383342&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-5-88937558-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=ceres%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
 * [OpenCV使用]()
 * [Sophus使用]()
 ## 大佬的博客
