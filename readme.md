@@ -3,7 +3,7 @@
 @github ：[liuqian62](https://github.com/liuqian62)
 
 # This is my notebook
-
+# [slam资料和笔记](https://github.com/liuqian62/notebook/tree/main/slamNotes)
 ## 学习笔记
 * [python相关](https://github.com/liuqian62/notebook/tree/main/python%E7%9B%B8%E5%85%B3)
 * [Linux使用](https://github.com/liuqian62/notebook/tree/main/linux%E4%BD%BF%E7%94%A8)
@@ -32,4 +32,4 @@
 
 ![4](http://latex.codecogs.com/svg.latex?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6})
 
-# [slam资料和笔记](https://github.com/liuqian62/notebook/tree/main/slamNotes)
+
