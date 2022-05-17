@@ -55,5 +55,5 @@
 
 ## SLAM找工作
 * [面试问题整理](https://github.com/liuqian62/notebook/blob/main/slamNotes/SLAM%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86.md)
-* [网站1]()
-* [网站1]()
+* [视觉slam面试题总结](https://blog.csdn.net/weixin_44580210/article/details/91790044)
+* [slam常见面试题](https://zhuanlan.zhihu.com/p/46694678)
