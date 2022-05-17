@@ -38,7 +38,7 @@
 
 
 ## 我的主要工作
-* [SLAM学习笔记]()
+* [SLAM学习笔记](https://github.com/liuqian62/notebook/blob/main/slamNotes/slam%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
 * [2021]()
   * MSCKF加回环检测
   * MSCKF双目改单目
