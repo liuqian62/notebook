@@ -3,8 +3,8 @@
 - [常用开源方案](https://github.com/liuqian62/notebook/tree/main/slamNotes/slam%E5%BC%80%E6%BA%90%E6%96%B9%E6%A1%88)
 - [视觉SLAM相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
 - [SLAM十四讲](https://github.com/liuqian62/notebook/blob/main/slamNotes/14%E8%AE%B2.md)
-- [如何使用g2o](https://github.com/liuqian62/notebook/blob/main/slamNotes/use_g2o.md)
-- [如何使用Ceres]()
+- [如何使用g2o](use_g2o.md)
+- [如何使用Ceres](use_ceres.md)
 ## 环境安装
 * [ubuntu安装](https://blog.csdn.net/baidu_36602427/article/details/86548203?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266749016782395341493%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266749016782395341493&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-86548203-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=ubuntu18.04%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4449)
 * [ros安装](https://blog.csdn.net/weixin_50060664/article/details/121781535?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266766216782350951349%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266766216782350951349&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-3-121781535-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=ubuntu%E5%AE%89%E8%A3%85ros&spm=1018.2226.3001.4449)
