@@ -73,6 +73,6 @@
   <br /><img src="https://latex.codecogs.com/svg.image?i^{2}=-1" title="https://latex.codecogs.com/svg.image?i^{2}=-1" />
   <br /><img src="https://latex.codecogs.com/svg.image?e^{i\pi&space;}&plus;1=0" title="https://latex.codecogs.com/svg.image?e^{i\pi }+1=0" />
   <br /><img src="https://latex.codecogs.com/svg.image?P(A|B)=\frac{P(B|A)P(A)}{P(B)}" title="https://latex.codecogs.com/svg.image?P(A|B)=\frac{P(B|A)P(A)}{P(B)}" />
-  <br /><img src="https://latex.codecogs.com/svg.image?\Phi(X)&space;=\frac{1}{\sqrt{2\pi\sigma&space;}}e^{\frac{(x-u)^{2}}{2\sigma&space;^{2}}}" title="https://latex.codecogs.com/svg.image?\Phi(X) =\frac{1}{\sqrt{2\pi }\sigma}e^{\frac{(x-u)^{2}}{2\sigma ^{2}}}" />
+  <br /><img src="https://latex.codecogs.com/svg.image?\Phi(X)&space;=\frac{1}{\sqrt{2\pi&space;}\sigma}e^{\frac{(x-u)^{2}}{2\sigma&space;^{2}}}" title="https://latex.codecogs.com/svg.image?\Phi(X) =\frac{1}{\sqrt{2\pi }\sigma}e^{\frac{(x-u)^{2}}{2\sigma ^{2}}}" />
 </div>
 
