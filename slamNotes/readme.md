@@ -4,6 +4,8 @@
 - [视觉SLAM相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
 - [SLAM十四讲](https://github.com/liuqian62/notebook/blob/main/slamNotes/14%E8%AE%B2.md)
 - [多传感器融合定位知乎专栏](https://zhuanlan.zhihu.com/c_1114864226103037952)
+- [深蓝学院视觉slam](https://github.com/zhouyong1234/VIO-Course)
+- [深蓝学院激光slam](https://github.com/zhouyong1234/Laser-SLAM-Course)
 <!-- - [如何使用g2o](use_g2o.md)
 - [如何使用Ceres](use_ceres.md) -->
 ## 环境安装
