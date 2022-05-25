@@ -5,9 +5,8 @@
 - [算法基本应用篇](#算法基本应用篇)
 - [算法高级应用篇](#算法高级应用篇)
 
-* ## [代码随想录笔记](https://github.com/liuqian62/notebook/blob/main/learn%20c%2B%2B/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95.md)
-* ## [面经八股文](https://github.com/liuqian62/notebook/blob/main/learn%20c%2B%2B/%E9%9D%A2%E7%BB%8F%E5%85%AB%E8%82%A1%E6%96%87.md)
-
+- [代码随想录笔记](代码随想录.md)
+- [面经八股文](面经八股文.md)
   ---
   
   
@@ -17,8 +16,7 @@
   * [核心编程](https://blog.csdn.net/ClaireSy/article/details/108423047)
   * [提高编程](https://blog.csdn.net/ClaireSy/article/details/108423061)
   ---
-    
-# 代码随想率学习笔记
+
 
 
 # 算法基础篇
