@@ -84,6 +84,11 @@ Host rich
 连接时就可以直接用ssh rich   退出用exit
 传输文件时可以直接scp -r data rich:data
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 ## git 使用
 ```
 git -->git bash
@@ -128,6 +133,11 @@ git push origin master
 | 合并某分支到当前分支 | git merge name | 
 | 删除分支 | git branch –d name | 
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 ## 常用命令
 
 # 关机/重启/注销
@@ -150,6 +160,11 @@ git push origin master
 | halt              | 关机                     |
 | sync              | buff数据同步到磁盘       |
 | logout            | 退出登录Shell            |
+
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
 
 # 系统信息和性能查看
 
@@ -183,6 +198,11 @@ git push origin master
 | 查看io读写/cpu使⽤情况      | 查询cpu使⽤情况（1秒⼀次，共10次） |
 | sar -d 1 10                 | 查询磁盘性能                       |
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 # 磁盘和分区
 
 | 常用命令                            | 作用                           |
@@ -199,6 +219,11 @@ git push origin master
 | umount -v /dev/sda1                 | 通过设备名卸载                 |
 | umount -v /mnt/mymnt                | 通过挂载点卸载                 |
 | fuser -km /mnt/hda1                 | 强制卸载(慎⽤)                 |
+
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
 
 # ⽤户和⽤户组
 
@@ -222,6 +247,11 @@ git push origin master
 | crontab -l                                            | 查看当前⽤户的计划任务                         |
 | cut -d: -f1 /etc/passwd                               | 查看系统所有⽤户                               |
 | cut -d: -f1 /etc/group                                | 查看系统所有组                                 |
+
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
 
 # ⽹络和进程管理
 
@@ -254,6 +284,11 @@ git push origin master
 | sar -u 1 10                                                  | 查询cpu使⽤情况（1秒⼀次，共10次）   |
 | sar -d 1 10                                                  | 查询磁盘性能                         |
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 # 常⻅系统服务命令
 
 | 常用命令                   | 作用         |
@@ -269,6 +304,11 @@ git push origin master
 | systemctl restart <服务名> | 重启某个服务 |
 | systemctl enable <服务名>  | 关闭⾃启动   |
 | systemctl disable <服务名> | 关闭⾃启动   |
+
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
 
 # ⽂件和⽬录操作
 
@@ -315,6 +355,11 @@ git push origin master
 | chgrp group1 file1       | 改变⽂件群组                                                 |
 | chown user1:group1 file1 | 改变⽂件的所有⼈和群组                                       |
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 # ⽂件查看和处理
 
 | 常用命令                      | 作用                                    |
@@ -346,6 +391,11 @@ git push origin master
 | comm -2 file1 file2           | ⽐较两个⽂件的内容(去除'file2'所含内容  |
 | comm -3 file1 file2           | ⽐较两个⽂件的内容(去除两⽂件共有部分)  |
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 # 打包和解压
 
 | 常用命令                          | 作用                     |
@@ -367,6 +417,11 @@ git push origin master
 | gunzip xxx.gz                     | 解压gzip压缩包           |
 | gzip filename                     | 压缩⽂件                 |
 | gzip -9 filename                  | 最⼤程度压缩             |
+
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
 
 # RPM包管理命令
 
@@ -391,6 +446,11 @@ git push origin master
 | rpm -Uvh pkg_name         | 升级rpm包(若未安装则会安装)   |
 | rpm -V pkg_name           | RPM包详细信息校验             |
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 # YUM包管理命令
 
 | 常用命令                            | 作用                 |
@@ -411,6 +471,11 @@ git push origin master
 | yum clean packages                  | 清除缓存的软件包     |
 | yum clean headers                   | 清除缓存的header     |
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 # DPKG包管理命令
 
 | 常用命令             | 作用                  |
@@ -425,6 +490,11 @@ git push origin master
 | dpkg -s pkg_name     | 查看包的详细信息      |
 | dpkg –unpack xxx.deb | 解开deb包的内容       |
 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
+
 # APT软件⼯具
 
 | 常用命令                  | 作用                   |
@@ -437,3 +507,8 @@ git push origin master
 | apt-get update            | 更新包索引信息         |
 | apt-get upgrade           | 更新已安装软件包       |
 | apt-get clean             | 清理缓存               |
+
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
+
