@@ -204,6 +204,7 @@ git push origin master
 | free -m                     | 查看内存⽤量和交换区⽤量           |
 | date                        | 显示系统⽇期时间                   |
 | cal 2021                    | 显示2021⽇历表                     |
+| htop                        | 人性化动态显示cpu/内存/进程等情况  |
 | top                         | 动态显示cpu/内存/进程等情况        |
 | vmstat 1 20                 | 每1秒采⼀次系统状态，采20次        |
 | iostat                      | 查看io读写/cpu使⽤情况             |
