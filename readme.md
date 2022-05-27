@@ -36,7 +36,7 @@
 |[力扣](https://leetcode.cn/problemset/all/)|[智联招聘](http://www.zhaopin.com/)| 
 | [牛客网](https://www.nowcoder.com/exam/oj) | [BOSS直聘](https://www.zhipin.com/chengdu/) |
 | [菜鸟](https://www.runoob.com/)  | [拉钩网](http://www.lagou.com/) |
-|  | [猎聘网](http://www.liepin.com/) |
+| [电子书](https://github.com/imarvinle/awesome-cs-books) | [猎聘网](http://www.liepin.com/) |
 |  | [百度百聘](https://zhaopin.baidu.com/) |
 |  | [58同城](http://www.58.com/) |
 </div>
@@ -47,6 +47,7 @@
 * [力扣](https://leetcode.cn/problemset/all/)
 * [牛客网](https://www.nowcoder.com/exam/oj)
 * [菜鸟](https://www.runoob.com/) 
+* [电子书](https://github.com/imarvinle/awesome-cs-books)
 ### 求职网站
 
 * [前程无忧](http://www.51job.com/)
