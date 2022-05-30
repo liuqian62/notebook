@@ -107,6 +107,7 @@
 * [视觉slam面试题总结](https://blog.csdn.net/weixin_44580210/article/details/91790044)
 * [slam常见面试题](https://zhuanlan.zhihu.com/p/46694678)
 * [slam求职分享](https://zhuanlan.zhihu.com/p/68858564)
+* [面试SLAM算法实习生总结](https://zhuanlan.zhihu.com/p/76280626)
 
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
