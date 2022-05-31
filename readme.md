@@ -6,8 +6,9 @@
 ## I created this repository to learn to write readme files and take some notes
 # [slam资料和笔记](https://github.com/liuqian62/notebook/tree/main/slamNotes)
 ## 学习笔记
-* [python相关](https://github.com/liuqian62/notebook/tree/main/python%E7%9B%B8%E5%85%B3)
-* [Linux使用](https://github.com/liuqian62/notebook/tree/main/linux%E4%BD%BF%E7%94%A8)
+* [python相关](./python相关)
+* [Linux使用](./Linux使用)
+* [vscode使用教程](./vscode.md)
 ## 刷题找工作
 ### 笔记
 
