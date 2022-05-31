@@ -7,7 +7,7 @@
 # [slam资料和笔记](https://github.com/liuqian62/notebook/tree/main/slamNotes)
 ## 学习笔记
 * [python相关](./python相关)
-* [Linux使用](./Linux使用)
+* [Linux使用](./linux使用)
 * [vscode使用教程](./vscode.md)
 ## 刷题找工作
 ### 笔记
