@@ -4,7 +4,9 @@
 
 # This is my notebook
 ## I created this repository to learn to write readme files and take some notes
-# [slam资料和笔记](https://github.com/liuqian62/notebook/tree/main/slamNotes)
+# [slam资料和笔记](/slamNotes)
+# [毕业设计](./slamNotes/毕业设计.md)
+
 ## 学习笔记
 * [python相关](./python相关)
 * [Linux使用](./linux使用)
