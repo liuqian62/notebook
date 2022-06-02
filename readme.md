@@ -81,7 +81,7 @@
 - [插入公式](https://blog.csdn.net/qq_42951560/article/details/116501075)
 
 ![4](http://latex.codecogs.com/svg.latex?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6})
-<div align="center">
+<div align="center" style="background-color:Violet;">
   <img src="https://latex.codecogs.com/svg.image?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}" title="https://latex.codecogs.com/svg.image?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}" />  
   <br /><img src="https://latex.codecogs.com/svg.image?a^{2}&plus;b^{2}=c^{2}" title="https://latex.codecogs.com/svg.image?a^{2}+b^{2}=c^{2}" />
   <br /><img src="https://latex.codecogs.com/svg.image?logxy=logx&plus;logy" title="https://latex.codecogs.com/svg.image?logxy=logx+logy" />
