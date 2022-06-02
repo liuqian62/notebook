@@ -28,6 +28,8 @@ $A_{m,n} =
   \vdots  & \vdots  & \ddots & \vdots  \\
   a_{m,1} & a_{m,2} & \cdots & a_{m,n}
  \end{pmatrix}$
+ 
+ 
 ## 学习笔记
 * [python相关](./python相关)
 * [Linux使用](./linux使用)
