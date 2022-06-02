@@ -14,6 +14,8 @@
 # [slam资料和笔记](/slamNotes)
 # [毕业设计](./slamNotes/毕业设计.md)
 
+$y=x^2$
+
 ## 学习笔记
 * [python相关](./python相关)
 * [Linux使用](./linux使用)
