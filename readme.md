@@ -1,9 +1,7 @@
 <div align=center>
 <img src="./slamNotes/images/uestc1.png"/>
 </div>
-
-****  
-<br />
+ 
 <br />
 <br />
   
