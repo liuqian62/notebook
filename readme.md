@@ -93,6 +93,7 @@
   <br /><img src="https://latex.codecogs.com/svg.image?\Phi(X)&space;=\frac{1}{\sqrt{2\pi&space;}\sigma}e^{-\frac{(x-u)^{2}}{2\sigma&space;^{2}}}" title="https://latex.codecogs.com/svg.image?\Phi(X) =\frac{1}{\sqrt{2\pi }\sigma}e^{-\frac{(x-u)^{2}}{2\sigma ^{2}}}" />
   <br /><img src="https://latex.codecogs.com/svg.image?P(X)&space;=\frac{1}{|\sqrt{2\pi&space;}\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" title="https://latex.codecogs.com/svg.image?P(X) =\frac{1}{|\sqrt{2\pi }\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" />
 </div>
+
 <!-- $y=x^2$
 
 $e^{i\pi} + 1 = 0$
@@ -100,6 +101,7 @@ $e^{i\pi} + 1 = 0$
 $e^x=\sum_{i=0}^\infty \frac{1}{i!}x^i$
 
 $\frac{n!}{k!(n-k)!} = {n \choose k}$ -->
+
 <div align="right">
     <b><a href="#This-is-my-notebook">↥ Back To Top</a></b>
 </div>
