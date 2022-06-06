@@ -102,6 +102,7 @@ Host rich
 
 
 ## git 使用
+* windows
 ```
 git -->git bash
 git config --global user.name "lirich674"
@@ -123,7 +124,24 @@ git reflog
 git reset --hard 6fcfc89
 git checkout --readme.txt
 ```
-远程厂库：
+* ubuntu
+```
+
+git config --global user.name "lirich674"
+git config --global user.email "lirich674@gmail.com"
+
+cd src #代码所在位置
+git init
+git add -A （添加全部）
+git add .  （添加全部）
+git commit -m 'some information'
+
+git reflog
+git reset --hard 6fcfc89 #根据reflog内容填写
+
+```
+
+* 远程厂库：
 ```
 ssh-keygen -t rsa –c "lirich674@gmail.com"
 进入/home/rich 下的.ssh 打开id_rsa.pub复制
