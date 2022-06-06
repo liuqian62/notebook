@@ -80,7 +80,7 @@
 - [各种公式符号](https://blog.nowcoder.net/n/7d5d9ff47af74c288d19ba29e88c5643)
 - [插入公式](https://blog.csdn.net/qq_42951560/article/details/116501075)
 
-![4](http://latex.codecogs.com/svg.latex?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6})
+<!-- ![4](http://latex.codecogs.com/svg.latex?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}) -->
 <div align="center">
   <img src="https://latex.codecogs.com/svg.image?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}" title="https://latex.codecogs.com/svg.image?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}" />  
   <br /><img src="https://latex.codecogs.com/svg.image?a^{2}&plus;b^{2}=c^{2}" title="https://latex.codecogs.com/svg.image?a^{2}+b^{2}=c^{2}" />
@@ -93,13 +93,13 @@
   <br /><img src="https://latex.codecogs.com/svg.image?\Phi(X)&space;=\frac{1}{\sqrt{2\pi&space;}\sigma}e^{-\frac{(x-u)^{2}}{2\sigma&space;^{2}}}" title="https://latex.codecogs.com/svg.image?\Phi(X) =\frac{1}{\sqrt{2\pi }\sigma}e^{-\frac{(x-u)^{2}}{2\sigma ^{2}}}" />
   <br /><img src="https://latex.codecogs.com/svg.image?P(X)&space;=\frac{1}{|\sqrt{2\pi&space;}\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" title="https://latex.codecogs.com/svg.image?P(X) =\frac{1}{|\sqrt{2\pi }\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" />
 </div>
-$y=x^2$
+<!-- $y=x^2$
 
 $e^{i\pi} + 1 = 0$
 
 $e^x=\sum_{i=0}^\infty \frac{1}{i!}x^i$
 
-$\frac{n!}{k!(n-k)!} = {n \choose k}$
+$\frac{n!}{k!(n-k)!} = {n \choose k}$ -->
 <div align="right">
     <b><a href="#This-is-my-notebook">↥ Back To Top</a></b>
 </div>
