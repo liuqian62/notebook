@@ -83,15 +83,15 @@
 <!-- ![4](http://latex.codecogs.com/svg.latex?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}) -->
 <div align="center">
   <img src="https://latex.codecogs.com/svg.image?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}" title="https://latex.codecogs.com/svg.image?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}" />  
-  <br /><img src="https://latex.codecogs.com/svg.image?a^{2}&plus;b^{2}=c^{2}" title="https://latex.codecogs.com/svg.image?a^{2}+b^{2}=c^{2}" />
-  <br /><img src="https://latex.codecogs.com/svg.image?logxy=logx&plus;logy" title="https://latex.codecogs.com/svg.image?logxy=logx+logy" />
-  <br /><img src="https://latex.codecogs.com/svg.image?\frac{df}{dt}=\displaystyle&space;\lim_{h&space;\to&space;0}\frac{f(t&plus;h)-f(t)}{h}" title="https://latex.codecogs.com/svg.image?\frac{df}{dt}=\displaystyle \lim_{h \to 0}\frac{f(t+h)-f(t)}{h}" />
-  <br /><img src="https://latex.codecogs.com/svg.image?F=G\frac{m_{1}m_{2}}{d^{2}}" title="https://latex.codecogs.com/svg.image?F=G\frac{m_{1}m_{2}}{d^{2}}" />
-  <br /><img src="https://latex.codecogs.com/svg.image?i^{2}=-1" title="https://latex.codecogs.com/svg.image?i^{2}=-1" />
-  <br /><img src="https://latex.codecogs.com/svg.image?e^{i\pi&space;}&plus;1=0" title="https://latex.codecogs.com/svg.image?e^{i\pi }+1=0" />
-  <br /><img src="https://latex.codecogs.com/svg.image?P(A|B)=\frac{P(B|A)P(A)}{P(B)}" title="https://latex.codecogs.com/svg.image?P(A|B)=\frac{P(B|A)P(A)}{P(B)}" />
-  <br /><img src="https://latex.codecogs.com/svg.image?\Phi(X)&space;=\frac{1}{\sqrt{2\pi&space;}\sigma}e^{-\frac{(x-u)^{2}}{2\sigma&space;^{2}}}" title="https://latex.codecogs.com/svg.image?\Phi(X) =\frac{1}{\sqrt{2\pi }\sigma}e^{-\frac{(x-u)^{2}}{2\sigma ^{2}}}" />
-  <br /><img src="https://latex.codecogs.com/svg.image?P(X)&space;=\frac{1}{|\sqrt{2\pi&space;}\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" title="https://latex.codecogs.com/svg.image?P(X) =\frac{1}{|\sqrt{2\pi }\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?a^{2}&plus;b^{2}=c^{2}" title="https://latex.codecogs.com/svg.image?a^{2}+b^{2}=c^{2}" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?logxy=logx&plus;logy" title="https://latex.codecogs.com/svg.image?logxy=logx+logy" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?\frac{df}{dt}=\displaystyle&space;\lim_{h&space;\to&space;0}\frac{f(t&plus;h)-f(t)}{h}" title="https://latex.codecogs.com/svg.image?\frac{df}{dt}=\displaystyle \lim_{h \to 0}\frac{f(t+h)-f(t)}{h}" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?F=G\frac{m_{1}m_{2}}{d^{2}}" title="https://latex.codecogs.com/svg.image?F=G\frac{m_{1}m_{2}}{d^{2}}" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?i^{2}=-1" title="https://latex.codecogs.com/svg.image?i^{2}=-1" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?e^{i\pi&space;}&plus;1=0" title="https://latex.codecogs.com/svg.image?e^{i\pi }+1=0" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?P(A|B)=\frac{P(B|A)P(A)}{P(B)}" title="https://latex.codecogs.com/svg.image?P(A|B)=\frac{P(B|A)P(A)}{P(B)}" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?\Phi(X)&space;=\frac{1}{\sqrt{2\pi&space;}\sigma}e^{-\frac{(x-u)^{2}}{2\sigma&space;^{2}}}" title="https://latex.codecogs.com/svg.image?\Phi(X) =\frac{1}{\sqrt{2\pi }\sigma}e^{-\frac{(x-u)^{2}}{2\sigma ^{2}}}" />
+  <br /><br /><img src="https://latex.codecogs.com/svg.image?P(X)&space;=\frac{1}{|\sqrt{2\pi&space;}\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" title="https://latex.codecogs.com/svg.image?P(X) =\frac{1}{|\sqrt{2\pi }\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" />
 </div>
 
 <!-- $y=x^2$
