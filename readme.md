@@ -81,6 +81,7 @@
 - [链接到文档标题](https://blog.csdn.net/henryhu712/article/details/110261893?ops_request_misc=&request_id=&biz_id=102&utm_term=markdown%E9%93%BE%E6%8E%A5%E5%88%B0%E6%A0%87%E9%A2%98&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-110261893.142^v10^pc_search_result_control_group,157^v12^control&spm=1018.2226.3001.4449)
 - [各种公式符号](https://blog.nowcoder.net/n/7d5d9ff47af74c288d19ba29e88c5643)
 - [插入公式](https://blog.csdn.net/qq_42951560/article/details/116501075)
+- [Equation Editor](https://latex.codecogs.com/)
 
 <!-- ![4](http://latex.codecogs.com/svg.latex?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}) -->
 <div align="center">
