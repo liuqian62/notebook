@@ -94,7 +94,7 @@
   <br /><br /><img src="https://latex.codecogs.com/svg.image?P(A|B)=\frac{P(B|A)P(A)}{P(B)}" title="https://latex.codecogs.com/svg.image?P(A|B)=\frac{P(B|A)P(A)}{P(B)}" />
   <br /><br /><img src="https://latex.codecogs.com/svg.image?\Phi(X)&space;=\frac{1}{\sqrt{2\pi&space;}\sigma}e^{-\frac{(x-u)^{2}}{2\sigma&space;^{2}}}" title="https://latex.codecogs.com/svg.image?\Phi(X) =\frac{1}{\sqrt{2\pi }\sigma}e^{-\frac{(x-u)^{2}}{2\sigma ^{2}}}" />
   <br /><br /><img src="https://latex.codecogs.com/svg.image?P(X)&space;=\frac{1}{|\sqrt{2\pi&space;}\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" title="https://latex.codecogs.com/svg.image?P(X) =\frac{1}{|\sqrt{2\pi }\Sigma|}e^{(-\frac{1}{2}(x-u)^{T}\Sigma^{-1}(x-u))" />
- <br /><br /><img src="https://latex.codecogs.com/svg.image?p=\hbar&space;k" title="https://latex.codecogs.com/svg.image?p=\hbar k" />
+ <br /><br /><img src="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}&space;p=\hbar&space;k\\E=\hbar&space;\omega\end{matrix}\right." title="https://latex.codecogs.com/svg.image?\left\{\begin{matrix} p=\hbar k\\E=\hbar \omega\end{matrix}\right." />
 </div>
 
 <!-- $y=x^2$
