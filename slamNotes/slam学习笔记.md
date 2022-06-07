@@ -82,7 +82,7 @@
 
 <div align="center">
     <br /><img src="https://latex.codecogs.com/svg.image?\Omega&space;=\Sigma&space;^{-1}" title="https://latex.codecogs.com/svg.image?\Omega =\Sigma ^{-1}" />
-<div>
+</div>
 
 
 <div align="right">
