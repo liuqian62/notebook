@@ -100,6 +100,7 @@
  <br /><br /><img src="https://latex.codecogs.com/svg.image?E_{0}=mc^{2}" title="https://latex.codecogs.com/svg.image?E_{0}=mc^{2}" />
  <br /><br /><img src="https://latex.codecogs.com/svg.image?F=ma" title="https://latex.codecogs.com/svg.image?F=ma" />
  <br /><br /><img src="https://latex.codecogs.com/svg.image?e^{ix}=conx&plus;isinx" title="https://latex.codecogs.com/svg.image?e^{ix}=conx+isinx" />
+ <br /><br /><img src="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}\oint_{l}H\cdot&space;dl=\int_{s}J&space;\cdot&space;ds&plus;\int_{s}\frac{\partial&space;D}{\partial&space;t}&space;\cdot&space;ds&space;\\\oint_{l}E\cdot&space;dl=-\int_{s}\frac{\partial&space;B}{\partial&space;t}&space;\cdot&space;ds&space;\\\oint_{s}B\cdot&space;ds=0&space;\\\oint_{s}D\cdot&space;ds=\int_{v}\rho&space;\cdot&space;dv\end{matrix}\right." title="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}\oint_{l}H\cdot dl=\int_{s}J \cdot ds+\int_{s}\frac{\partial D}{\partial t} \cdot ds \\\oint_{l}E\cdot dl=-\int_{s}\frac{\partial B}{\partial t} \cdot ds \\\oint_{s}B\cdot ds=0 \\\oint_{s}D\cdot ds=\int_{v}\rho \cdot dv\end{matrix}\right." />
 </div>
 
 <!-- $y=x^2$
