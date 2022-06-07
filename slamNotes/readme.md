@@ -94,6 +94,7 @@
 ## SLAM评估工具
 * [evo](https://github.com/MichaelGrupp/evo)
   * [evo使用教程](https://blog.csdn.net/u011341856/article/details/104594392?spm=1001.2014.3001.5501) 
+* [rpg_trajectory_evaluation](https://github.com/uzh-rpg/rpg_trajectory_evaluation) 
 * [数据集](https://blog.csdn.net/crp997576280/article/details/103340020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165284191416781432971813%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165284191416781432971813&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-103340020-null-null.142^v10^pc_search_result_control_group,157^v4^control&utm_term=slam%E6%95%B0%E6%8D%AE%E9%9B%86%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98&spm=1018.2226.3001.4187)
 * [tum](https://vision.in.tum.de/data/datasets/rgbd-dataset/download)
 
