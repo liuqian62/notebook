@@ -83,6 +83,20 @@
 - [插入公式](https://blog.csdn.net/qq_42951560/article/details/116501075)
 - [Equation Editor](https://latex.codecogs.com/)
 
+
+$$
+Y = \begin{cases}1\quad \text {if \textcolor{orange}{stoke}}  \\
+2\quad \text{if \textcolor{orange}{drug overdose};}\\
+3 \quad\text{if \textcolor{orange}{drug epileptic seizure}}
+\end{cases} 
+$$
+
+$$
+Y = \textcolor{green}{\frac{x^2}{1+x^2}}
+$$
+
+
+
 <!-- ![4](http://latex.codecogs.com/svg.latex?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}) -->
 <div align="center">
   <img src="https://latex.codecogs.com/svg.image?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}" title="https://latex.codecogs.com/svg.image?\sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}" />  
