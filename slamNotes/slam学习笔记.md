@@ -39,7 +39,14 @@
 * 回环检测(Loop Closing):回环检测判断机器人是否曾经到达过先前的位置。如果检测到回环，它会把信息提供给后端进行处理。
 * 建图(Mapping):它根据估计的轨迹，建立与任务要求对应的地图。
 
- 
+### SLAM问题的数学表述
+运动方程
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?x_{k}=f(x_{k-1},u_{k},w_{k})" title="https://latex.codecogs.com/svg.image?x_{k}=f(x_{k-1},u_{k},w_{k})" />
+</div>
+
+- $$ u_{k} $$为
+
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
