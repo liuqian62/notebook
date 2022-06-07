@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./joinus2.png"/>
+  <img src="./joinus3.png"/>
 </div>
 
 # How to join us
