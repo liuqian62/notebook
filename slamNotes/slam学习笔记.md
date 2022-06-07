@@ -45,7 +45,14 @@
     <img src="https://latex.codecogs.com/svg.image?x_{k}=f(x_{k-1},u_{k},w_{k})" title="https://latex.codecogs.com/svg.image?x_{k}=f(x_{k-1},u_{k},w_{k})" />
 </div>
 
-- $ u_{k} $为
+- $ u_{k} $为传感器的读数
+- $ w_{k} $为噪声
+
+观测方程
+
+$$
+z_{k,j}=h(y_{j},x_{k},v_{k,j})
+$$
 
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
