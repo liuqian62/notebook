@@ -45,8 +45,13 @@
     <img src="https://latex.codecogs.com/svg.image?x_{k}=f(x_{k-1},u_{k},w_{k})" title="https://latex.codecogs.com/svg.image?x_{k}=f(x_{k-1},u_{k},w_{k})" />
 </div>
 
-- $$ u_{k} $$为
-
+- $ u_{k} $为
+$$
+Y = \begin{cases}1\quad \text {if \textcolor{orange}{stoke}}  \\
+2\quad \text{if \textcolor{orange}{drug overdose};}\\
+3 \quad\text{if \textcolor{orange}{drug epileptic seizure}}
+\end{cases} 
+$$
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
