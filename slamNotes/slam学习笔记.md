@@ -1,3 +1,67 @@
 # slam学习笔记
+
+## 目录
+- [slam简介](#slam简介)
+- [三维空间刚体运动](#三维空间刚体运动)
+- [Eigen基本使用](Eigen基本使用)
+- [相机与图像](#相机与图像)
+
+
+- [非线性优化](#非线性优化)
+- [特征点法](#特征点法)
+- [直接法](#直接法)
+- [协方差矩阵](#协方差矩阵)
+- [卡尔曼滤波](#卡尔曼滤波)
+- [图优化](#图优化)
+- [回环检测](#回环检测)
+
 ## 卡尔曼滤波
-* [协方差矩阵](https://blog.csdn.net/qq_25458977/article/details/111597163?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165277069516780366540200%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165277069516780366540200&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-111597163-null-null.142^v10^pc_search_result_control_group,157^v4^control&utm_term=%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5&spm=1018.2226.3001.4187)
+
+
+* [卡尔曼滤波推导](https://blog.csdn.net/qq_25458977/article/details/111597163?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165277069516780366540200%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165277069516780366540200&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-111597163-null-null.142^v10^pc_search_result_control_group,157^v4^control&utm_term=%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5&spm=1018.2226.3001.4187)
+
+
+- 方差
+<div align="center">
+ 
+  <br /><img src="https://latex.codecogs.com/svg.image?{\sigma&space;_{x}}^{2}=\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}" title="https://latex.codecogs.com/svg.image?{\sigma _{x}}^{2}=\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}" />
+  
+</div>
+
+- 协方差
+
+
+<div align="center">
+ 
+  <br /><img src="https://latex.codecogs.com/svg.image?\sigma(x,y)=\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})" title="https://latex.codecogs.com/svg.image?\sigma(x,y)=\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?Cov(X,Y)=E[(X-\bar{x})(Y-\bar{y})]" title="https://latex.codecogs.com/svg.image?Cov(X,Y)=E[(X-\bar{x})(Y-\bar{y})]" />
+  
+</div>
+
+- 相关系数
+
+<div align="center">
+ 
+  <br /><img src="https://latex.codecogs.com/svg.image?\rho&space;=\frac{Cov(X,Y)}{\sigma&space;_{X}\sigma_{Y}}" title="https://latex.codecogs.com/svg.image?\rho =\frac{Cov(X,Y)}{\sigma _{X}\sigma_{Y}}" />
+  
+</div>
+
+- 协方差矩阵
+
+<div align="center">
+ 
+  <br /><img src="https://latex.codecogs.com/svg.image?\sigma(x_{m},x_{k})=\frac{1}{n-1}\sum_{i=1}^{n}(x_{mi}-\bar{x_{m}})(x_{ki}-\bar{x_{k}})" title="https://latex.codecogs.com/svg.image?\sigma(x_{m},x_{k})=\frac{1}{n-1}\sum_{i=1}^{n}(x_{mi}-\bar{x_{m}})(x_{ki}-\bar{x_{k}})" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?\sum=\begin{bmatrix}\sigma(x_{1},x_{1})&space;&...&space;&space;&\sigma(x_{1},x_{d})&space;&space;\\...&space;&...&space;&space;&...&space;&space;\\\sigma(x_{d},x_{1})&space;&...&space;&space;&\sigma(x_{d},x_{d})&space;&space;\\\end{bmatrix}\in&space;\mathbb{R}^{d\times&space;d}" title="https://latex.codecogs.com/svg.image?\sum=\begin{bmatrix}\sigma(x_{1},x_{1}) &... &\sigma(x_{1},x_{d}) \\... &... &... \\\sigma(x_{d},x_{1}) &... &\sigma(x_{d},x_{d}) \\\end{bmatrix}\in \mathbb{R}^{d\times d}" />
+  
+</div>
+
+- 信息矩阵
+
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?\Omega&space;=\Sigma&space;^{-1}" title="https://latex.codecogs.com/svg.image?\Omega =\Sigma ^{-1}" />
+<div>
+
+
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
