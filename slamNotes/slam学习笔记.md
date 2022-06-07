@@ -54,6 +54,10 @@ $$
 z_{k, j}=h(y_{j}, x_{k}, v_{k, j})
 $$
 
+- 在$ x_{k} $位置看到路标点$ y_{i} $产生观测数据$ z_{k, j} $
+- $ v_{k, j}) $为观测噪声
+
+
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
