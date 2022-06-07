@@ -63,7 +63,7 @@
 * [力扣](https://leetcode.cn/problemset/all/)
 * [牛客网](https://www.nowcoder.com/exam/oj)
 * [菜鸟](https://www.runoob.com/) 
-* [电子书](https://github.com/imarvinle/awesome-cs-books)
+* [电子书(4321)](https://github.com/imarvinle/awesome-cs-books)
 ### 求职网站
 
 * [前程无忧](http://www.51job.com/)
