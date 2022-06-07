@@ -97,6 +97,9 @@
  <br /><br /><img src="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}&space;p=\hbar&space;k\\E=\hbar&space;\omega\end{matrix}\right." title="https://latex.codecogs.com/svg.image?\left\{\begin{matrix} p=\hbar k\\E=\hbar \omega\end{matrix}\right." />
  <br /><br /><img src="https://latex.codecogs.com/svg.image?c=2\pi&space;r" title="https://latex.codecogs.com/svg.image?c=2\pi r" />
  <br /><br /><img src="https://latex.codecogs.com/svg.image?F(\omega)=\mathcal{F}[f(t)]=\int_{-\infty}^{\infty}f(t)e^{-i\omega&space;t}dt" title="https://latex.codecogs.com/svg.image?F(\omega)=\mathcal{F}[f(t)]=\int_{-\infty}^{\infty}f(t)e^{-i\omega t}dt" />
+ <br /><br /><img src="https://latex.codecogs.com/svg.image?E_{0}=mc^{2}" title="https://latex.codecogs.com/svg.image?E_{0}=mc^{2}" />
+ <br /><br /><img src="https://latex.codecogs.com/svg.image?F=ma" title="https://latex.codecogs.com/svg.image?F=ma" />
+ <br /><br /><img src="https://latex.codecogs.com/svg.image?e^{ix}=conx&plus;isinx" title="https://latex.codecogs.com/svg.image?e^{ix}=conx+isinx" />
 </div>
 
 <!-- $y=x^2$
