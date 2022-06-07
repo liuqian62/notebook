@@ -51,7 +51,7 @@
 观测方程
 
 $$
-z_{k,j}=h(y_{j},x_{k},v_{k,j})
+z_{k, j}=h(y_{j}, x_{k}, v_{k, j})
 $$
 
 <div align="right">
