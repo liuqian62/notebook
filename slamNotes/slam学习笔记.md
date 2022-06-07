@@ -57,6 +57,51 @@ $$
 - 在$ x_{k} $位置看到路标点$ y_{i} $产生观测数据$ z_{k, j} $
 - $ v_{k, j} $为观测噪声
 
+### 编程基础
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argv){
+    cout<<"Hello SLAM!"<<endl;
+    return 0;
+}
+```
+编译
+```
+g++ helloSLAM.cpp
+```
+
+CMakeLists.txt
+```cmake
+# 声明要求的 cmake 最低版本
+cmake_minimum_required( VERSION 2.8 )
+
+# 声明一个 cmake 工程
+project( HelloSLAM )
+
+# 添加一个可执行程序
+# 语法：add_executable( 程序名 源代码文件 ）
+add_executable( helloSLAM helloSLAM.cpp )
+
+```
+
+使用库
+```cmake
+cmake_minimum_required( VERSION 2.8 )
+
+# 声明一个 cmake 工程
+project( HelloSLAM )
+
+add_library( hello_shared SHARED libHelloSLAM.cpp )
+
+# 添加一个可执行程序
+# 语法：add_executable( 程序名 源代码文件 ）
+add_executable( useHello useHello.cpp )
+target_link_libraries( useHello hello_shared )
+
+```
 
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
