@@ -19,7 +19,9 @@
 
 
 ## 协方差矩阵
+
 - 方差
+- 
 <div align="center">
  
   <br /><img src="https://latex.codecogs.com/svg.image?{\sigma&space;_{x}}^{2}=\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}" title="https://latex.codecogs.com/svg.image?{\sigma _{x}}^{2}=\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}" />
