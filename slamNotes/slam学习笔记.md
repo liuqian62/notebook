@@ -167,15 +167,74 @@ target_link_libraries( useHello hello_shared )
     <br /><br /><img src="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}&space;i^{2}=j^{2}=k^{2}=-1\\&space;ij=k,ji=-k\\&space;jk=i,kj=-i\\&space;ki=j,ik=-j\end{matrix}\right." title="https://latex.codecogs.com/svg.image?\left\{\begin{matrix} i^{2}=j^{2}=k^{2}=-1\\ ij=k,ji=-k\\ jk=i,kj=-i\\ ki=j,ik=-j\end{matrix}\right." />
 </div>
 
+由轴角$ n $, $ \theta $指定旋转，三维点p旋转后变成p'。
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?p=[0,x,y,z]=[0,v]" title="https://latex.codecogs.com/svg.image?p=[0,x,y,z]=[0,v]" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?q=[cos\frac{\theta}{2},nsin\frac{\theta}{2}]" title="https://latex.codecogs.com/svg.image?q=[cos\frac{\theta}{2},nsin\frac{\theta}{2}]" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?p'=qpq^{-1}" title="https://latex.codecogs.com/svg.image?p'=qpq^{-1}" />
+</div>
+
 ### 相似、仿射、射影变换
- 
+欧式变换（6自由度）
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?T=\begin{bmatrix}R&space;&t&space;&space;\\0^{T}&space;&1&space;&space;\\\end{bmatrix}" title="https://latex.codecogs.com/svg.image?T=\begin{bmatrix}R &t \\0^{T} &1 \\\end{bmatrix}" />
+</div>
+相似变换（7自由度）
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?T_{s}=\begin{bmatrix}sR&space;&t&space;&space;\\0^{T}&space;&1&space;&space;\\\end{bmatrix}" title="https://latex.codecogs.com/svg.image?T_{s}=\begin{bmatrix}sR &t \\0^{T} &1 \\\end{bmatrix}" />
+</div>
+仿射变换（12自由度）
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?T_{A}=\begin{bmatrix}A&space;&t&space;&space;\\0^{T}&space;&1&space;&space;\\\end{bmatrix}" title="https://latex.codecogs.com/svg.image?T_{A}=\begin{bmatrix}A &t \\0^{T} &1 \\\end{bmatrix}" />
+</div>
+射影变换（15自由度）
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?T_{P}=\begin{bmatrix}A&space;&t&space;&space;\\a^{T}&space;&v&space;&space;\\\end{bmatrix}" title="https://latex.codecogs.com/svg.image?T_{P}=\begin{bmatrix}A &t \\a^{T} &v \\\end{bmatrix}" />
+</div>
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
 
 
 ## Eigen基本使用
- 
+CMakeLists.txt
+```cmake
+include_directories("/usr/include/eigen3")
+```
+各个模块
+
+<div align="center">
+
+| 模块 | 头文件 | 描述|
+| :---: | :---: |  :---: |
+| Core | #include<Eigen/Core> |Martix和Array类，基础的线性代数运算和数组操作 |
+| Geometry | #include<Eigen/Geometry> |旋转、平移、缩放、2维和3维的各种变换 |
+| LU | #include<Eigen/LU> |求逆，行列式，LU分解 |
+| Cholesky | #include<Eigen/Cholesky> |LLT和DLT Cholesky分解 |
+| Householder | #include<Eigen/Householder> |豪斯霍尔德变换，用于线性代数运算 |
+| SVD | #include<Eigen/SVD> |SVD分解 |
+| QR | #include<Eigen/QR> |QR分解 |
+| Eigenvalues | #include<Eigen/Eigenvalues> |特征值，特征向量分解 |   
+| Spares | #include<Eigen/Spares> |稀疏矩阵的存储和一些基本的线性运算 |
+| Dense | #include<Eigen/Dense> |包括了Core/Geometry/LU/Cholesky/SVD/QR/Eigenvalues模块 |
+| Eigen | #include<Eigen/Eigen> |包括Dense和Sparse(整合库) |
+  
+</div>
+
+ ```
+旋转矩阵（3 × 3）：Eigen::Matrix3d。
+旋转向量（3 × 1）：Eigen::AngleAxisd。
+欧拉角（3 × 1）：Eigen::Vector3d。
+四元数（4 × 1）：Eigen::Quaterniond。
+欧氏变换矩阵（4 × 4）：Eigen::Isometry3d。
+仿射变换（4 × 4）：Eigen::Affine3d。
+射影变换（4 × 4）：Eigen::Projective3d。
+```
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
