@@ -8,4 +8,4 @@
 ```
 lirich674@gmail.com
 ```
-## You will receive an invitation message in your github registered email
+## You will receive an invitation message in your github registered email.
