@@ -166,6 +166,7 @@ target_link_libraries( useHello hello_shared )
     <img src="https://latex.codecogs.com/svg.image?q=q_{0}&plus;q_{1}i&plus;q_{2}j&plus;q_{3}k" title="https://latex.codecogs.com/svg.image?q=q_{0}+q_{1}i+q_{2}j+q_{3}k" />
     <br /><br /><img src="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}&space;i^{2}=j^{2}=k^{2}=-1\\&space;ij=k,ji=-k\\&space;jk=i,kj=-i\\&space;ki=j,ik=-j\end{matrix}\right." title="https://latex.codecogs.com/svg.image?\left\{\begin{matrix} i^{2}=j^{2}=k^{2}=-1\\ ij=k,ji=-k\\ jk=i,kj=-i\\ ki=j,ik=-j\end{matrix}\right." />
 </div>
+
 ### 相似、仿射、射影变换
  
 <div align="right">
