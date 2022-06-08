@@ -147,9 +147,25 @@ target_link_libraries( useHello hello_shared )
 </div>
 
 ### 旋转向量和欧拉角
+旋转向量
+```
+方向与旋转轴一致，长度等于旋转角。（轴角）
+```
+欧拉角
+```
+绕物体的 Z 轴旋转，得到偏航角 yaw；
+绕旋转之后的 Y 轴旋转，得到俯仰角 pitch；
+绕旋转之后的 X 轴旋转，得到滚转角 roll。
 
+万向锁问题（Gimbal Lock）:在俯仰角为±90◦ 时，第一次旋转与第三次旋转将使用同一个轴，使得系统丢失了一个自由度（由三次
+旋转变成了两次旋转）。这被称为奇异性问题，在其他形式的欧拉角中也同样存在。
+```
 ### 四元数
-
+一个四元数 q 拥有一个实部和三个虚部
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?q=q_{0}&plus;q_{1}i&plus;q_{2}j&plus;q_{3}k" title="https://latex.codecogs.com/svg.image?q=q_{0}+q_{1}i+q_{2}j+q_{3}k" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}&space;i^{2}=j^{2}=k^{2}=-1\\&space;ij=k,ji=-k\\&space;jk=i,kj=-i\\&space;ki=j,ik=-j\end{matrix}\right." title="https://latex.codecogs.com/svg.image?\left\{\begin{matrix} i^{2}=j^{2}=k^{2}=-1\\ ij=k,ji=-k\\ jk=i,kj=-i\\ ki=j,ik=-j\end{matrix}\right." />
+</div>
 ### 相似、仿射、射影变换
  
 <div align="right">
