@@ -120,6 +120,12 @@ target_link_libraries( useHello hello_shared )
     <img src="https://latex.codecogs.com/svg.image?a\cdot&space;b=a^{T}b=\sum_{i=1}^{3}a_{i}b_{i}=\left|a&space;\right|\left|b&space;\right|cos\left<a,b&space;\right>"   />
 </div>
 
+外积
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?a\times&space;b=\begin{bmatrix}i&space;&j&space;&space;&k&space;&space;\\a_{1}&space;&a_{2}&space;&space;&a_{3}&space;&space;\\b_{1}&space;&b_{2}&space;&space;&b_{3}&space;&space;\\\end{bmatrix}=\begin{bmatrix}a_{2}b_{3}-a_{3}b_{2}&space;\\a_{3}b_{1}-a_{1}b_{3}\\a_{1}b_{2}-a_{2}b_{1}\\\end{bmatrix}=\begin{bmatrix}0&space;&-a_{3}&space;&space;&a_{2}&space;&space;\\a_{3}&space;&0&space;&space;&-a_{1}&space;&space;\\-a_{2}&space;&a_{1}&space;&space;&0&space;&space;\\\end{bmatrix}b\triangleq&space;a^{\land}b&space;" title="https://latex.codecogs.com/svg.image?a\times b=\begin{bmatrix}i &j &k \\a_{1} &a_{2} &a_{3} \\b_{1} &b_{2} &b_{3} \\\end{bmatrix}=\begin{bmatrix}a_{2}b_{3}-a_{3}b_{2} \\a_{3}b_{1}-a_{1}b_{3}\\a_{1}b_{2}-a_{2}b_{1}\\\end{bmatrix}=\begin{bmatrix}0 &-a_{3} &a_{2} \\a_{3} &0 &-a_{1} \\-a_{2} &a_{1} &0 \\\end{bmatrix}b\triangleq a^{\land}b " />
+</div>
+
 
 ### 旋转向量和欧拉角
 
