@@ -112,8 +112,13 @@ target_link_libraries( useHello hello_shared )
 
 ### 旋转矩阵
 内积
-<div align="center">
+
+<!-- <div align="center">
  <img src="https://latex.codecogs.com/svg.image?a\cdot&space;b=a^{T}b=\sum_{i=1}^{3}a_{i}b_{i}=\left|a&space;\right|\left|b&space;\right|cos\left<a,b&space;\right>" title="https://latex.codecogs.com/svg.image?a\cdot b=a^{T}b=\sum_{i=1}^{3}a_{i}b_{i}=\left|a \right|\left|b \right|cos\left<a,b \right>" />
+</div> -->
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?a\cdot&space;b=a^{T}b=\sum_{i=1}^{3}a_{i}b_{i}=\left|a&space;\right|\left|b&space;\right|cos\left<a,b&space;\right>" title="https://latex.codecogs.com/svg.image?a\cdot b=a^{T}b=\sum_{i=1}^{3}a_{i}b_{i}=\left|a \right|\left|b \right|cos\left<a,b \right>" />
 </div>
 
 ### 旋转向量和欧拉角
