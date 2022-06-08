@@ -126,6 +126,12 @@ target_link_libraries( useHello hello_shared )
     <img src="https://latex.codecogs.com/svg.image?a\times&space;b=\begin{bmatrix}i&space;&j&space;&space;&k&space;&space;\\a_{1}&space;&a_{2}&space;&space;&a_{3}&space;&space;\\b_{1}&space;&b_{2}&space;&space;&b_{3}&space;&space;\\\end{bmatrix}=\begin{bmatrix}a_{2}b_{3}-a_{3}b_{2}&space;\\a_{3}b_{1}-a_{1}b_{3}\\a_{1}b_{2}-a_{2}b_{1}\\\end{bmatrix}=\begin{bmatrix}0&space;&-a_{3}&space;&space;&a_{2}&space;&space;\\a_{3}&space;&0&space;&space;&-a_{1}&space;&space;\\-a_{2}&space;&a_{1}&space;&space;&0&space;&space;\\\end{bmatrix}b\triangleq&space;a^{\land}b&space;" title="https://latex.codecogs.com/svg.image?a\times b=\begin{bmatrix}i &j &k \\a_{1} &a_{2} &a_{3} \\b_{1} &b_{2} &b_{3} \\\end{bmatrix}=\begin{bmatrix}a_{2}b_{3}-a_{3}b_{2} \\a_{3}b_{1}-a_{1}b_{3}\\a_{1}b_{2}-a_{2}b_{1}\\\end{bmatrix}=\begin{bmatrix}0 &-a_{3} &a_{2} \\a_{3} &0 &-a_{1} \\-a_{2} &a_{1} &0 \\\end{bmatrix}b\triangleq a^{\land}b " />
 </div>
 
+坐标系的欧式变换
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}e_{1}&space;&e_{2}&space;&space;&e_{3}&space;&space;\\\end{bmatrix}\begin{bmatrix}&space;a_{1}\\&space;a_{2}\\a_{3}\\\end{bmatrix}=\begin{bmatrix}e_{1}'&space;&e_{2}'&space;&space;&e_{3}'&space;&space;\\\end{bmatrix}\begin{bmatrix}&space;a_{1}'\\&space;a_{2}'\\a_{3}'\\\end{bmatrix}" title="https://latex.codecogs.com/svg.image?\begin{bmatrix}e_{1} &e_{2} &e_{3} \\\end{bmatrix}\begin{bmatrix} a_{1}\\ a_{2}\\a_{3}\\\end{bmatrix}=\begin{bmatrix}e_{1}' &e_{2}' &e_{3}' \\\end{bmatrix}\begin{bmatrix} a_{1}'\\ a_{2}'\\a_{3}'\\\end{bmatrix}" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}&space;a_{1}\\&space;a_{2}\\a_{3}\\\end{bmatrix}=\begin{bmatrix}e_{1}^{T}e_{1}'&space;&e_{1}^{T}e_{2}'&space;&space;&e_{1}^{T}e_{3}'&space;&space;\\e_{2}^{T}e_{1}'&space;&e_{2}^{T}e_{2}'&space;&space;&e_{2}^{T}e_{3}'&space;&space;\\e_{3}^{T}e_{1}'&space;&e_{3}^{T}e_{2}'&space;&space;&e_{3}^{T}e_{3}'&space;&space;\\\end{bmatrix}\begin{bmatrix}&space;a_{1}'\\&space;a_{2}'\\a_{3}'\\\end{bmatrix}\triangleq&space;Ra'" title="https://latex.codecogs.com/svg.image?\begin{bmatrix} a_{1}\\ a_{2}\\a_{3}\\\end{bmatrix}=\begin{bmatrix}e_{1}^{T}e_{1}' &e_{1}^{T}e_{2}' &e_{1}^{T}e_{3}' \\e_{2}^{T}e_{1}' &e_{2}^{T}e_{2}' &e_{2}^{T}e_{3}' \\e_{3}^{T}e_{1}' &e_{3}^{T}e_{2}' &e_{3}^{T}e_{3}' \\\end{bmatrix}\begin{bmatrix} a_{1}'\\ a_{2}'\\a_{3}'\\\end{bmatrix}\triangleq Ra'" />
+</div>
 
 ### 旋转向量和欧拉角
 
