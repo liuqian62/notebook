@@ -111,6 +111,12 @@ target_link_libraries( useHello hello_shared )
 ## 三维空间刚体运动
 
 ### 旋转矩阵
+内积
+
+$$
+ a\cdot b=a^{T}b=\sum_{i=1}^{3}a_{i}b_{i}=\left|a \right|\left|b \right|cos\left<a,b \right>
+$$
+
 
 ### 旋转向量和欧拉角
 
