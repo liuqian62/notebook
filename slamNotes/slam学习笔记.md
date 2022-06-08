@@ -133,7 +133,17 @@ target_link_libraries( useHello hello_shared )
     <br /><br /><img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}&space;a_{1}\\&space;a_{2}\\a_{3}\\\end{bmatrix}=\begin{bmatrix}e_{1}^{T}e_{1}'&space;&e_{1}^{T}e_{2}'&space;&space;&e_{1}^{T}e_{3}'&space;&space;\\e_{2}^{T}e_{1}'&space;&e_{2}^{T}e_{2}'&space;&space;&e_{2}^{T}e_{3}'&space;&space;\\e_{3}^{T}e_{1}'&space;&e_{3}^{T}e_{2}'&space;&space;&e_{3}^{T}e_{3}'&space;&space;\\\end{bmatrix}\begin{bmatrix}&space;a_{1}'\\&space;a_{2}'\\a_{3}'\\\end{bmatrix}\triangleq&space;Ra'" title="https://latex.codecogs.com/svg.image?\begin{bmatrix} a_{1}\\ a_{2}\\a_{3}\\\end{bmatrix}=\begin{bmatrix}e_{1}^{T}e_{1}' &e_{1}^{T}e_{2}' &e_{1}^{T}e_{3}' \\e_{2}^{T}e_{1}' &e_{2}^{T}e_{2}' &e_{2}^{T}e_{3}' \\e_{3}^{T}e_{1}' &e_{3}^{T}e_{2}' &e_{3}^{T}e_{3}' \\\end{bmatrix}\begin{bmatrix} a_{1}'\\ a_{2}'\\a_{3}'\\\end{bmatrix}\triangleq Ra'" />
     <br /><br /><img src="https://latex.codecogs.com/svg.image?SO(n)=\begin{Bmatrix}R\in&space;\mathbb{R}^{n\times&space;n}|RR^{T}=I,det(R)=1\end{Bmatrix}" title="https://latex.codecogs.com/svg.image?SO(n)=\begin{Bmatrix}R\in \mathbb{R}^{n\times n}|RR^{T}=I,det(R)=1\end{Bmatrix}" />
     <br /><br /><img src="https://latex.codecogs.com/svg.image?a'=R^{-1}a=R^{T}a" title="https://latex.codecogs.com/svg.image?a'=R^{-1}a=R^{T}a" />
-    <br /><br />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?a'=Ra&plus;t" title="https://latex.codecogs.com/svg.image?a'=Ra+t" />
+</div>
+
+
+变换矩阵与齐次坐标
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?b=R_{1}a&plus;t_{1},c=R_{2}b&plus;t_{2}" title="https://latex.codecogs.com/svg.image?b=R_{1}a+t_{1},c=R_{2}b+t_{2}" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?c=R_{2}(R_{1}a&plus;t_{1})&plus;t{2}" title="https://latex.codecogs.com/svg.image?c=R_{2}(R_{1}a+t_{1})+t{2}" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?\begin{bmatrix}&space;a'\\1\end{bmatrix}=\begin{bmatrix}R&space;&t&space;&space;\\0^{T}&space;&1&space;&space;\\\end{bmatrix}\begin{bmatrix}&space;a\\1\end{bmatrix}\triangleq&space;T\begin{bmatrix}&space;a\\1\end{bmatrix}" title="https://latex.codecogs.com/svg.image?\begin{bmatrix} a'\\1\end{bmatrix}=\begin{bmatrix}R &t \\0^{T} &1 \\\end{bmatrix}\begin{bmatrix} a\\1\end{bmatrix}\triangleq T\begin{bmatrix} a\\1\end{bmatrix}" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?SE(3)=\begin{Bmatrix}T=\begin{bmatrix}R&space;&t&space;&space;\\0^{T}&space;&1&space;&space;\\\end{bmatrix}\in&space;\mathbb{R}^{4\times&space;4}|R&space;\in&space;SO(3),t\in&space;\mathbb{R}^{3}\end{Bmatrix}" title="https://latex.codecogs.com/svg.image?SE(3)=\begin{Bmatrix}T=\begin{bmatrix}R &t \\0^{T} &1 \\\end{bmatrix}\in \mathbb{R}^{4\times 4}|R \in SO(3),t\in \mathbb{R}^{3}\end{Bmatrix}" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?T^{-1}=\begin{bmatrix}R^{T}&space;&-R^{T}t&space;&space;\\0^{T}&space;&1&space;&space;\\\end{bmatrix}" title="https://latex.codecogs.com/svg.image?T^{-1}=\begin{bmatrix}R^{T} &-R^{T}t \\0^{T} &1 \\\end{bmatrix}" />
 </div>
 
 ### 旋转向量和欧拉角
