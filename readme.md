@@ -1,9 +1,9 @@
 <div align=center>
- <b><a  herf="https://www.uestc.edu.cn/">![uestc1](./slamNotes/images/uestc1.png)</a></b>
+ <a  herf="https://www.uestc.edu.cn/">![uestc1](./slamNotes/images/uestc1.png)</a>
 
 </div>
 
- ![uestc1](./slamNotes/images/uestc1.png)
+ [![uestc1](./slamNotes/images/uestc1.png)](https://www.uestc.edu.cn/)
  
  <div align=center>
 <img src="./slamNotes/images/uestc1.png"/>
