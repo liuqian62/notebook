@@ -29,7 +29,7 @@
 * [slam学习笔记](./slamNotes/slam学习笔记.md)
 * [vscode使用教程](./vscode.md)
 ## 刷题找工作
-### 笔记
+
 
 * [基础四大件](https://github.com/liuqian62/notebook/tree/main/%E5%9F%BA%E7%A1%80%E5%9B%9B%E5%A4%A7%E4%BB%B6)
 * [c++](https://github.com/liuqian62/notebook/tree/main/learn%20c%2B%2B)
