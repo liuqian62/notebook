@@ -1,5 +1,5 @@
 <div align=center>
-[<img src="./slamNotes/images/uestc1.png"/>](https://www.uestc.edu.cn/)
+<img src="./slamNotes/images/uestc1.png"(https://www.uestc.edu.cn/)/>
 </div>
  
 <br />
