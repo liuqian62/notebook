@@ -26,6 +26,7 @@
 ## 学习笔记
 * [python相关](./python相关)
 * [Linux使用](./linux使用)
+* [slam学习笔记](./slamNotes/slam学习笔记.md)
 * [vscode使用教程](./vscode.md)
 ## 刷题找工作
 ### 笔记
