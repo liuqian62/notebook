@@ -1,7 +1,11 @@
 <div align=center>
-<img src="./slamNotes/images/uestc1.png"(https://www.uestc.edu.cn/)/>
+ <a  herf="https://www.uestc.edu.cn/"  target="_blank"><img  src="src="./slamNotes/images/uestc1.png"></a>
+
 </div>
  
+ <div align=center>
+<img src="./slamNotes/images/uestc1.png"/>
+</div>
 <br />
 <br />
   
