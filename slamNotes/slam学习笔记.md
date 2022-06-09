@@ -207,7 +207,7 @@ include_directories("/usr/include/eigen3")
 ```
 各个模块
 
-<div align="center">
+<!-- <div align="center">
 
 | 模块 | 头文件 | 描述|
 | :---: | :---: |  :---: |
@@ -223,7 +223,7 @@ include_directories("/usr/include/eigen3")
 | Dense | #include<Eigen/Dense> |包括了Core/Geometry/LU/Cholesky/SVD/QR/Eigenvalues模块 |
 | Eigen | #include<Eigen/Eigen> |包括Dense和Sparse(整合库) |
   
-</div>
+</div> -->
 
     
  运动相关
@@ -258,15 +258,54 @@ include_directories("/usr/include/eigen3")
 
 
 ## 特征点法
- 
+### 特征点
+#### 常用特征点
+- SIFT(尺度不变特征变换，Scale-Invariant Feature Transform) （1000个特征5228.7ms)
+- SURF（1000个特征217.3ms)
+- ORB（Oriented FAST and Rotated BRIEF）（1000个特征15.3ms)
+
+#### 人工特征点的性质
+- 可重复性（Repeatability）：相同的“区域”可以在不同的图像中被找到。
+- 可区别性（Distinctiveness）：不同的“区域”有不同的表达。
+- 高效率（Efficiency）：同一图像中，特征点的数量应远小于像素的数量。
+- 本地性（Locality）：特征仅与一小片图像区域相关。
+
+
+#### 特征点的构成
+ - 关键点（Key-point）
+ - 描述子（Descriptor）
+
+#### ORB特征
+- FAST角点
+
+- BRIEF描述子（Binary Robust Independent Elementary Features）
+
+#### 特征匹配
+- 暴力匹配（Brute-Force Matcher）
+- 快速近似最近邻（FLANN）
+
+### 2D-2D：对极几何
+
+### 三角测量
+
+### 3D-2D：PnP
+
+### 3D-3D：ICP
+
+
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
 
 
 ## 直接法
+### 引入
 
+### 光流（Optical Flow）
 
+### 直接法（Direct Methods）
+
+### 直接法优缺点总结
 
  
 <div align="right">
