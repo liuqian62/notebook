@@ -15,9 +15,9 @@
 @github ：[liuqian62](https://github.com/liuqian62) -->
 
 # This is my notebook
-## I created this repository to learn to write readme files and take some notes
-# [slam资料和笔记](/slamNotes)
-# [毕业设计](./slamNotes/毕业设计.md)
+
+## [slam资料和笔记](/slamNotes)
+## [毕业设计](./slamNotes/毕业设计.md)
 
 
 
