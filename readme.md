@@ -1,5 +1,5 @@
 <div align=center>
- <a  herf="https://www.uestc.edu.cn/"  target="_blank"><img  src="src="./slamNotes/images/uestc1.png"></a>
+ <a  herf="https://www.uestc.edu.cn/"  target="_blank"><img  src="./slamNotes/images/uestc1.png"></a>
 
 </div>
  
