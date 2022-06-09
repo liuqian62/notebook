@@ -1,13 +1,10 @@
-<div align=center>
- <a  herf="https://www.uestc.edu.cn/">![uestc1](./slamNotes/images/uestc1.png)</a>
-
-</div>
 
  [![uestc1](./slamNotes/images/uestc1.png)](https://www.uestc.edu.cn/)
  
- <div align=center>
+<!--  <div align=center>
 <img src="./slamNotes/images/uestc1.png"/>
-</div>
+</div> -->
+
 <br />
 <br />
   
