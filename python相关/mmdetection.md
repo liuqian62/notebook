@@ -1,6 +1,8 @@
 # mmdetection
 ## 教程
-* [链接](https://blog.csdn.net/qq_16137569/article/details/121316235)
+* [博客链接](https://blog.csdn.net/qq_16137569/article/details/121316235)
+* [官网链接](https://github.com/open-mmlab/mmdetection)
+* [官方文档](https://mmdetection.readthedocs.io/en/latest/)
 ## 测试程序用时
 
 ```bash
