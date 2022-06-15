@@ -37,6 +37,7 @@
 
 本来想自己总结的，但是别人已经弄好了，哈哈哈
 * [别人的总结](https://github.com/liuqian62/offerMachine)
+* [csnote非常全面](https://github.com/liuqian62/CS-Notes)
 
 <!-- <div align="center">
 
