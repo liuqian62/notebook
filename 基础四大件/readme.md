@@ -8,6 +8,8 @@
 # 计算机网络
 * [计网](计网.md)
 * [笔记](https://blog.csdn.net/weixin_45067603/article/details/106974036)
+* [思维导图](https://www.edrawsoft.cn/viewer/public/s/17118661591967)
+* 
 ---
 ---
 ---
