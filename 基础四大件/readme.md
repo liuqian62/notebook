@@ -1,4 +1,4 @@
-## [思维导图] (https://drive.google.com/file/d/12FKERzhgy8p-49OsuRP5yudUIFHx3Z57/view?usp=sharing, https://drive.google.com/file/d/16wdP66lp9EEhSB-eCvHSqmkyaWyTplBN/view?usp=sharing, https://drive.google.com/file/d/1AFpv2-wFKLBPCpV6tHmfoJD2jojJclHV/view?usp=sharing)
+
 
 # 数据结构和算法
 * [数据结构](./数据结构.md)
