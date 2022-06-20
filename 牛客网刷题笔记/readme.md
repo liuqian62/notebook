@@ -1,6 +1,7 @@
-# 刷题笔记
+# 牛客网刷题笔记
 * [前往牛客网刷题](https://www.nowcoder.com/exam/oj)
 * [前往力扣刷题](https://leetcode.cn/problemset/all/)
+* [力扣刷题笔记](https://github.com/liuqian62/offerMachine/blob/main/algorithm.md)
 ## 输入输出练习
 * [输入输出](./输入输出练习.md)
 ## 面试必刷TOP101
@@ -38,5 +39,4 @@
 
 ## [按顺序刷题](顺序刷题.md)
 
-## [力扣刷题笔记](https://github.com/liuqian62/offerMachine/blob/main/algorithm.md)
 
