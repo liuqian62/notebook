@@ -4,7 +4,7 @@
 ## 输入输出练习
 * [输入输出](https://github.com/liuqian62/notebook/blob/main/%E7%89%9B%E5%AE%A2%E7%BD%91%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%BB%83%E4%B9%A0.md)
 ## 面试必刷TOP101
-* [01 链表](https://github.com/liuqian62/notebook/blob/main/%E7%89%9B%E5%AE%A2%E7%BD%91%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%88%B7TOP101/%E9%93%BE%E8%A1%A8.md)
+* [01 链表](./面试必刷TOP101/链表.md)
 * [02 二分查找/排序](https://github.com/liuqian62/notebook/blob/main/%E7%89%9B%E5%AE%A2%E7%BD%91%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%88%B7TOP101/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%92%8C%E6%8E%92%E5%BA%8F.md)
 * [03 二叉树](https://github.com/liuqian62/notebook/blob/main/%E7%89%9B%E5%AE%A2%E7%BD%91%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%88%B7TOP101/%E4%BA%8C%E5%8F%89%E6%A0%91.md)
 * [04 堆/栈/队列](https://github.com/liuqian62/notebook/blob/main/%E7%89%9B%E5%AE%A2%E7%BD%91%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%88%B7TOP101/%E5%A0%86%E6%A0%88%E9%98%9F%E5%88%97.md)
