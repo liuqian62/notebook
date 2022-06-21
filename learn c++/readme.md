@@ -10,7 +10,8 @@
 
 
   ---
-  
+  ## [大佬对所有算法的总结1](https://blog.csdn.net/u011815404/article/details/79919616?spm=1001.2014.3001.5502)
+  ## [大佬对所有算法的总结2](https://blog.csdn.net/u011815404/article/details/79324003?spm=1001.2014.3001.5502)
   
   ## 黑马C++教程
   * [视频教程](https://www.bilibili.com/video/BV1et411b73Z?p=1)
