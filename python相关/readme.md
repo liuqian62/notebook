@@ -32,3 +32,8 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/ --t
 # pyechart
 * [pyechart中文文档](https://gallery.pyecharts.org/#/README)
 * [pyechart的github地址](https://github.com/pyecharts/pyecharts)
+* [pyechart图库](https://github.com/pyecharts/pyecharts-gallery)
+
+
+
+
