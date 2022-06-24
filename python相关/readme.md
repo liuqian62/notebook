@@ -29,4 +29,6 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/ --t
 * [OpenCV中文官方文档](https://woshicver.com/)
 * [OpenCV 4.0 中文文档](https://opencv.apachecn.org/#/)
 
-# [pyechart](https://gallery.pyecharts.org/#/README)
+# pyechart
+* [pyechart中文文档](https://gallery.pyecharts.org/#/README)
+* [pyechart的github地址](https://github.com/pyecharts/pyecharts)
