@@ -7,6 +7,7 @@
 * [计组](./计组.md)
 # 计算机操作系统
 * [OS](./OS.md)
+* [操作系统总结](https://www.cnblogs.com/cxuanBlog/p/13297199.html)
 # 计算机网络
 * [计网](计网.md)
 * [笔记](https://blog.csdn.net/weixin_45067603/article/details/106974036)
