@@ -16,6 +16,8 @@
 - [多传感器融合定位知乎专栏](https://zhuanlan.zhihu.com/c_1114864226103037952)
 - [深蓝学院视觉slam](https://github.com/zhouyong1234/VIO-Course)
 - [深蓝学院激光slam](https://github.com/zhouyong1234/Laser-SLAM-Course)
+- [古月居](https://www.guyuehome.com/)
+
 <!-- - [如何使用g2o](use_g2o.md)
 - [如何使用Ceres](use_ceres.md) -->
 
