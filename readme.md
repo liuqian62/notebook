@@ -40,16 +40,7 @@
 * [别人的总结](https://github.com/liuqian62/offerMachine)
 * [csnote非常全面](https://github.com/liuqian62/CS-Notes)
 
-<!-- <div align="center">
 
-| 资源网站 | C/C++ | 数据结构 | 操作系统与Linux | 计算机网络|网络编程| 信息安全| 
-| :---: | :---: |  :---: | :---: |:---: |:---: |:---: |
-|求职网站|[前程无忧](http://www.51job.com/)| 📦 | 💻 |☁️ | 🎨| 💡|
-
-
-
-
-</div> -->
 
 
 <div align="center">
@@ -61,7 +52,7 @@
 | [牛客网](https://www.nowcoder.com/exam/oj) | [BOSS直聘](https://www.zhipin.com/chengdu/) |
 | [菜鸟](https://www.runoob.com/)  | [拉钩网](http://www.lagou.com/) |
 | [电子书(4321)](https://github.com/imarvinle/awesome-cs-books) | [猎聘网](http://www.liepin.com/) |
-|  | [百度百聘](https://zhaopin.baidu.com/) |
+| [河畔就业](https://bbs.uestc.edu.cn/forum.php?mod=forumdisplay&fid=174) | [百度百聘](https://zhaopin.baidu.com/) |
 |  | [58同城](http://www.58.com/) |
 </div>
 
