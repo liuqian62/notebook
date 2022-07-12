@@ -576,16 +576,49 @@ int main()
 </div>
 
 
-### DP1
-* DP1 dosomething
+### DP11
+* DP11 矩阵的最小路径和
 
 描述
 ```
+给定一个 n * m 的矩阵 a，从左上角开始每次只能向右或者向下走，最后到达右下角的位置，路径上所有的数字累加起来就是路径和，输出所有的路径中最小的路径和。
 
+数据范围: 1≤n,m≤500，矩阵中任意值都满足0≤ai,j ≤100
+要求：时间复杂度 O(nm)
+
+例如：当输入[[1,3,5,9],[8,1,3,4],[5,0,6,1],[8,8,4,0]]时，对应的返回值为12，
+所选择的最小累加和路径如下图所示：
 ```
-<!-- ![img]() -->
-```cpp
+![img](https://uploadfiles.nowcoder.com/images/20220122/423483716_1642823916509/06EB123C153852AF55ED51448BEAD1BA)
 
+    到达出口只能从出口左边或者上边来，这样就很容易写出递归式,并且进行记忆化搜索。
+    也可以使用状态方程dp[i][j]=min(dp[i−1][j],dp[i][j−1])+v[i][j]进行递推，处理好边界即可。
+```cpp
+#include <iostream>
+#include <vector>
+ 
+using namespace std;
+int main(){
+    int n,m;
+    cin>>n>>m;
+    vector<vector<int>> mat(n,vector<int>(m,0));
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>mat[i][j];
+        }
+    }
+    vector<vector<int>> dp(n,vector<int>(m,0));
+    dp[0][0]=mat[0][0];
+    for(int i=1;i<n;i++) dp[i][0] = dp[i-1][0]+mat[i][0];
+    for(int i=1;i<m;i++) dp[0][i] = dp[0][i-1]+mat[0][i];
+    for(int i=1;i<n;i++){
+        for(int j=1;j<n;j++){
+            dp[i][j] = min(dp[i-1][j],dp[i][j-1])+mat[i][j];
+        }
+    }
+    cout<<dp[n-1][m-1]<<endl;
+    return 0;
+}
 ```
 
 <div align="right">
@@ -593,16 +626,51 @@ int main()
 </div>
 
 
-### DP1
-* DP1 dosomething
+### DP12
+* DP12 龙与地下城游戏问题
 
 描述
 ```
-
+给定一个二维数组map，含义是一张地图，例如，如下矩阵
+-2 -3  3
+-5 -10 1
+0  30 -5
+游戏的规则如下:
+1）骑士从左上角出发，每次只能向右或向下走，最后到达右下角见到公主。
+2）地图中每个位置的值代表骑士要遭遇的事情。如果是负数，说明此处有怪兽，要让骑士损失血量。如果是非负数，代表此处有血瓶，能让骑士回血。
+3）骑士从左上角到右下角的过程中，走到任何一个位置时，血量都不能少于1。为了保证骑土能见到公主，初始血量至少是多少?
+根据map,输出初始血量。
 ```
+
+    逆推，当某一个位置少于1是，要取1
+    终点：dp[-1][-1]=max(1-nums[-1][-1],1)
+    最后1行： dp[m-1][i-1]=max(dp[m-1][i]-nums[m-1][i-1],1)
+    最后1列：dp[i-1][n-1]=max(dp[i][n-1]-nums[i-1][n-1],0)
+    其它位置：dp[i-1][j-1]=max(min(dp[i-1][j]-nums[i-1][j-1],dp[i][j-1]-nums[i-1][j-1]),1)      
+    结果在dp[0][0]
 <!-- ![img]() -->
 ```cpp
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+     int n,m;
+    cin>>n>>m;
+    vector<vector<int>>map(n,vector<int>(m));
+    for(int i=0;i<n;i++)
+        for(int j=0;j<m;j++)
+            cin>>map[i][j];
+    vector<vector<int>>dp(n,vector<int>(m));
+    dp[n-1][m-1]=max(1-map[n-1][m-1],1);
+    for(int i=n-2;i>=0;i--) dp[i][m-1]=max(dp[i+1][m-1]-map[i][m-1],1);
+    for(int i=m-2;i>=0;i--) dp[n-1][i]=max(dp[n-1][i+1]-map[n-1][i],1);
+    for(int i=n-1;i>0;i--){
+        for(int j=m-1;j>0;j--){
+            dp[i-1][j-1]=max(min(dp[i-1][j]-map[i-1][j-1],dp[i][j-1]-map[i-1][j-1]),1);
+        }
+    }
+    cout<<dp[0][0]<<endl;
+    return 0;
+}
 ```
 
 <div align="right">
