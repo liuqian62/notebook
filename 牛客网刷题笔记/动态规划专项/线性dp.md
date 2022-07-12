@@ -522,9 +522,53 @@ int main(){
 ```
 已知矩阵的大小定义为矩阵中所有元素的和。给定一个矩阵，你的任务是找到最大的非空(大小至少是1 * 1)子矩阵。 比如，如下4 * 4的矩阵 0 -2 -7 0 9 2 -6 2 -4 1 -4 1 -1 8 0 -2 的最大子矩阵是 9 2 -4 1 -1 8 这个子矩阵的大小是15。
 ```
+
+    数组b吧表示数组a的i~j行对应列元素的和，用动态规划计算b的最大子段和。
 <!-- ![img]() -->
 ```cpp
-
+#include <iostream>
+#include <climits>
+#define N 100
+using namespace std;
+int buf[N][N];
+int tmp[N][N];//辅助矩阵，其中tmp[i][j]存储的是前i行的第j列的累加之和
+int b[N];
+int max(int a,int b){return a>b?a:b;}
+int main()
+{
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cin>>buf[i][j];
+        }
+    }
+    for(int i=0;i<n;i++)//初始化第一行
+        tmp[0][i]=buf[0][i];
+    for(int i=1;i<n;i++){
+        for(int k=0;k<n;k++){
+            tmp[i][k]=tmp[i-1][k]+buf[i][k];//累加上一行的值求和
+        }
+    }
+    int maxsum = INT_MIN;
+    for(int i=0;i<n;i++){
+        for(int j=i;j<n;j++){
+            int cursum=0;
+            for(int k=0;k<n;k++){
+                if(i==0){
+                    b[k]=tmp[j][k];
+                }
+                else{
+                    b[k]=tmp[j][k]-tmp[i-1][k];//得到第i行到第j行的累加之和
+                }
+                cursum=max(b[k],b[k]+cursum);
+                maxsum=max(maxsum,cursum);
+            }
+        }
+    }
+    cout<<maxsum<<endl;
+    return 0;
+}
 ```
 
 <div align="right">
