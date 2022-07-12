@@ -335,8 +335,35 @@ int main(){
  
 ```
 <!-- ![img]() -->
-```cpp
 
+    定义 dp[i]为前 i个数中，以第 i个数结尾的子数组最大连续和。
+
+    于是有转移方程：
+
+    dp[i]=max(dp[i−1]+a[i],a[i])
+
+    其中，前面部分代表选择前面的区间的最大值，后面部分代表直接选择a[i]。
+
+    最终答案是所有的dp[i] 的最大值。
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) cin>>v[i];
+    vector<int> dp(n);
+    dp[0] = v[0];
+    int res = dp[0];
+    for (int i = 1; i < n; ++i) {
+        dp[i] = max(dp[i - 1] + v[i], v[i]);
+        res = max(dp[i], res);
+    }
+    cout << res;
+    return 0;
+}
 ```
 
 <div align="right">
@@ -344,16 +371,36 @@ int main(){
 </div>
 
 
-### DP
-* DP1 dosomething
+### DP7
+* DP7 连续子数组的最大乘积
 
 描述
 ```
-
+输入一个长度为 n 的整型数组 nums，数组中的一个或连续多个整数组成一个子数组。求所有子数组的乘积的最大值。
+1.子数组是连续的，且最小长度为 1 ，最大长度为 n
+2.长度为 1 的子数组，乘积视为其本身，比如 [4] 的乘积为 4
+3.该题的数据保证最大的乘积不会超过 int 的范围，即不超过2^{32}-1
+数据范围:
+1 <= n <= 2x10^5
+-100 <= a[i] <= 100
 ```
-<!-- ![img]() -->
+![img](https://uploadfiles.nowcoder.com/images/20220315/691631423_1647345163713/D11A25F36CA3155277D5A75CD576EA8D)
 ```cpp
-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;cin>>n;
+    vector<int>nums(n);
+    for(int i=0;i<n;i++) cin>>nums[i];
+    int maxF=nums[0],minF=nums[0],ans=nums[0];
+    for(int i=1;i<nums.size();i++){
+        int maxf=maxF,minf=minF;
+        maxF=max(maxf*nums[i],max(nums[i],minf*nums[i]));
+        minF=min(minf*nums[i],min(nums[i],maxf*nums[i]));
+        ans=max(maxF,ans);
+    }
+    cout<<ans;
+}
 ```
 
 <div align="right">
@@ -361,16 +408,48 @@ int main(){
 </div>
 
 
-### DP
-* DP1 dosomething
+### DP8
+* DP8 乘积为正数的最长连续子数组
 
 描述
 ```
+给定一个长度为 n 的整数数组，请你找出其中最长的乘积为正数的子数组长度。
+子数组的定义是原数组中一定长度的连续数字组成的数组。
 
+数据范围：1≤n≤10^5, 数组中的元素满足 |val|<=10^9 
+  
 ```
+    pos[i]为到第i个数为止乘积为正数的最长长度；
+    neg[i]为到第i个数为止乘积为负数的最长长度；
 <!-- ![img]() -->
 ```cpp
+#include<bits/stdc++.h>
 
+using namespace std;
+int main(){
+    int n; cin>>n;
+    vector<int> a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    vector<int>pos(n),neg(n);
+    pos[0]=(a[0]>0)? 1:0;
+    neg[0]=(a[0]<0)? 1:0;
+    int res=0;
+    for(int i=1;i<n;i++){
+        if(a[i]>0){
+            pos[i]=pos[i-1]+1;
+            if(neg[i-1]>0) neg[i]=neg[i-1]+1;
+        }else if(a[i]==0){
+            pos[i]=0;
+            neg[i]=0;
+        }else{
+            neg[i]=pos[i-1]+1;
+            if(neg[i-1]>0) pos[i]=neg[i-1]+1;
+        }
+        res = max(res,pos[i]);
+    }
+    cout<<res<<endl;
+    return 0;
+}
 ```
 
 <div align="right">
@@ -378,16 +457,57 @@ int main(){
 </div>
 
 
-### DP
-* DP1 dosomething
+### DP9
+* DP9 环形数组的连续子数组最大和
 
 描述
 ```
+给定一个长度为 nn 的环形整数数组，请你求出该数组的 非空 连续子数组 的最大可能和 。
 
+环形数组 意味着数组的末端将会与开头相连呈环状。例如，对于数组 [1,3,-5,2,-4][1,3,−5,2,−4]而言，
+第一个数1的前一个数是最后一个数−4。
 ```
 <!-- ![img]() -->
-```cpp
 
+    切换看法，按照普通最大连续和的思路，即在dp的过程中可以得到最大的连续子数组和。
+    同理，如果再求一个最小的连续子数组和，就会发现一个特性。
+    假设用sum记录整个数组的和，那么最大连续子数组和dpmax 和最小连续子数组dpmin和一定是相连的两部分，
+    因为假设不想连，中间这一段要么大于0，那么它应该属于最大子数组连续和，
+    否则它应该属于最小连续子数组和。
+    故最后求得sum，dpmax，dpmin以后就可以进行判定。
+    假设dpmax+dpmin<sumdpmax + dpmin < sumdpmax+dpmin<sum这说明数组两边的端点只和是正值，
+    故应该把这一部分留给
+    dpmax(dpmax=sum−dpmin)(dpmax = sum - dpmin)(dpmax=sum−dpmin)，否则直接返回dpmax即可，
+    当然这里有一个特例（在初始化dpmax的时候给予了数组的第一个值v[0]v[0]v[0]，
+    如果其是负数，则必定有dpmax+dpmin<sumdpmax +dpmin < sumdpmax+dpmin<sum 故此处应该特判，
+    如果dpmax<0dpmax < 0dpmax<0直接返回即可）
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+int solve(vector<int> &v){
+    int sum, dpmx, dpmn, mx, mn;
+    dpmx = dpmn = mx = mn = sum = v[0];
+    for(int i = 1; i < v.size(); ++i){
+        mx = max(mx + v[i], v[i]);
+        mn = min(mn + v[i], v[i]);
+        dpmx = max(dpmx, mx);
+        dpmn = min(dpmn, mn);
+        sum += v[i];
+    }
+    if(dpmx< 0) return dpmx;
+    if (dpmx + dpmn < sum) dpmx = sum - dpmn;
+    return dpmx;
+}
+int main(){
+    int n;
+    cin >>n;
+    vector<int> v(n);
+    for(int i = 0; i < n; ++i){
+        cin>>v[i];
+    }
+    cout<<solve(v)<<endl;
+    return 0;
+}
 ```
 
 <div align="right">
