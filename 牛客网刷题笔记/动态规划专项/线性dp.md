@@ -961,16 +961,72 @@ int main(){
 </div>
 
 
-### DP1
-* DP1 dosomething
+### DP17
+* DP17 信封嵌套
 
 描述
 ```
+给 n 个信封的长度和宽度。如果信封 a 的长和宽都小于信封 b ，那么信封 a 可以放到信封 b 里，请求出信封最多可以嵌套多少层。
 
+数据范围：1≤n≤2×10^3, 1≤letters[i][0],letters[i][1]≤2×10^3
+ 
+要求：空间复杂度 O(n)，时间复杂度 O(n^2) 
+要求：空间复杂度 O(n)O(n) ，时间复杂度 O(nlogn)O(nlogn)
 ```
+    先对宽度 w 进行升序排序，如果遇到 w 相同的情况，则按照高度 h 降序排序。
+    之后把所有的 h 作为一个数组，在这个数组上计算 LIS 的长度就是答案。
 <!-- ![img]() -->
 ```cpp
-
+#include <bits/stdc++.h>
+using namespace std;
+ 
+struct node
+{
+    int a; //长
+    int b; //宽
+}arr[2005];
+ 
+int n;
+int dp[2005];
+ 
+//按照a从小到大排序，若a相等按照b从小到大排序
+bool cmp(node x, node y)
+{
+    if(x.a == y.a)
+    {
+        return x.b < y.b;
+    }
+    return x.a < y.a;
+}
+int main()
+{
+    cin >> n;
+    for(int i = 1; i <= n; i++)
+    {
+        cin >> arr[i].a;
+        cin >> arr[i].b;
+    }
+     
+    sort(arr+1, arr+1+n, cmp); //将信封从小到大排序
+    
+     
+    // 求最长上升子序列
+    int ans = 0;
+    for(int i = 1; i <= n; i++)
+    {
+        dp[i] = 1;
+        for(int j = 1; j < i; j++)
+        {
+            if(arr[j].a < arr[i].a && arr[j].b < arr[i].b)
+            {
+                dp[i] = max(dp[i], dp[j]+1);
+            }    
+        }
+        ans = max(ans, dp[i]);
+    }
+    cout << ans << endl;
+    return 0;
+}
 ```
 
 <div align="right">
