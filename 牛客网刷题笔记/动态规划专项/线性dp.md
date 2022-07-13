@@ -678,16 +678,52 @@ int main(){
 </div>
 
 
-### DP1
-* DP1 dosomething
+### DP13
+* DP13 [NOIP2002 普及组] 过河卒
 
 描述
 ```
+棋盘上 A点有一个过河卒，需要走到目标 B点。卒行走的规则：可以向下、或者向右。同时在棋盘上 C 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。
 
+棋盘用坐标表示，A 点 (0, 0)、B点(n,m)，同样马的位置坐标是需要给出的。
+现在要求你计算出卒从 A点能够到达 B点的路径的条数，假设马的位置(x,y)是固定不动的，并不是卒走一步马走一步。
+注：马一次跳跃到达的点(x1,y1)和马原坐标(x,y)的关系是 |x1-x|+|y1-y|=3 ，且x1!= x ,y1!=y 
+
+数据范围：1≤n,m≤20 ，马的坐标 0≤x,y≤20 
 ```
-<!-- ![img]() -->
-```cpp
+![img](https://uploadfiles.nowcoder.com/images/20220311/557336_1646986476229/40254CC5B75C0777974DC1597948729A)
 
+    利用二维数组dp
+    卒子只能两个方向走，一个是向右，一个是向下。可得状态方程dp[i][j]=dp[i−1][j]+dp[i][j−1]。
+    在处理马点的时候，应该做出判断，如果该点是马点或者马可以跳到的点则应该设置为0，
+    即abs(i-x)+abs(j-y) && i != x && j !=y和马点(x,y)(x,y)(x,y)处设置为0
+    初始化dp[0][0]=1,dp[i][0]=dp[i−1][0],dp[0][j]=dp[0][j−1]
+    注意最后一个坑点，int存储不了，得使用long long
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+int check(int i, int j, int x, int y){//判断马点
+    return (abs(i-x) + abs(j-y) == 3 && i != x && j != y) || (i == x && j == y);
+}
+int main(){
+     int n,m,x,y;
+    cin>>n>>m>>x>>y;
+    long long mp[n+1][m+1];
+    mp[0][0] = 1;
+    for(int i = 1; i <= n; ++i){//初始化第一列
+        mp[i][0] = (check(i, 0, x, y)? 0 : mp[i-1][0]);   
+    }
+    for(int j = 1; j <=m; ++j){//初始化第一行
+        mp[0][j] = (check(0,j,x,y)? 0 : mp[0][j-1]);
+    }
+    for(int i = 1; i <= n; ++i){
+        for(int j = 1; j <= m; ++j){//状态转移计算
+            mp[i][j] = (check(i,j,x,y)? 0:mp[i-1][j] + mp[i][j-1]);
+        }
+    }
+    cout<<mp[n][m]<<endl;
+    return 0;
+}
 ```
 
 <div align="right">
@@ -695,15 +731,62 @@ int main(){
 </div>
 
 
-### DP1
-* DP1 dosomething
+### DP14
+* DP14 最长上升子序列(一)
 
 描述
 ```
-
+给定一个长度为 n 的数组 arr，求它的最长严格上升子序列的长度。
+所谓子序列，指一个数组删掉一些数（也可以不删）之后，形成的新数组。例如 [1,5,3,7,3] 数组，其子序列有：[1,3,3]、[7] 等。但 [1,6]、[1,3,5] 则不是它的子序列。
+我们定义一个序列是 严格上升 的，当且仅当该序列不存在两个下标i 和j 满足i<j且 arr_i>=arr_j。
+数据范围：0≤n≤1000 , |arr_i|<=10^9 
+  
+要求：时间复杂度 O(n^2)， 空间复杂度 O(n)
 ```
 <!-- ![img]() -->
+
+    状态设计：dp[i]代表以a[i]结尾的LIS的长度
+    状态转移：dp[i]=max(dp[i], dp[j]+1) (0<=j< i, a[j]< a[i])
+    边界处理：dp[i]=1 (0<=j< n)
+    时间复杂度：O(N^2)
+    举例： 对于序列(1, 7, 3, 5, 9, 4, 8)，dp的变化过程如下
+ <div class="table-box"><table><thead><tr><th>dp[i]</th><th>初始值</th><th>j=0</th><th>j=1</th><th>j=2</th><th>j=3</th><th>j=4</th><th>j=5</th></tr></thead><tbody><tr><td>dp[0]</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>dp[1]</td><td>1</td><td>2</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>dp[2]</td><td>1</td><td>2</td><td>2</td><td></td><td></td><td></td><td></td></tr><tr><td>dp[3]</td><td>1</td><td>2</td><td>2</td><td>3</td><td></td><td></td><td></td></tr><tr><td>dp[4]</td><td>1</td><td>2</td><td>3</td><td>3</td><td>4</td><td></td><td></td></tr><tr><td>dp[5]</td><td>1</td><td>2</td><td>2</td><td>3</td><td>3</td><td>3</td><td></td></tr><tr><td>dp[6]</td><td>1</td><td>2</td><td>3</td><td>3</td><td>4</td><td>4</td><td>4</td></tr></tbody></table></div>   
+
 ```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int MAXX=100000+5;
+const int INF=INT_MAX;
+
+int a[MAXX],dp[MAXX]; // a数组为数据，dp[i]表示以a[i]结尾的最长递增子序列长度
+
+int main()
+{
+    int n;
+    while(cin>>n)
+    {
+        for(int i=0; i<n; i++)
+        {
+            cin>>a[i];
+            dp[i]=1; // 初始化为1，长度最短为自身
+        }
+        int ans=1;
+        for(int i=1; i<n; i++)
+        {
+            for(int j=0; j<i; j++)
+            {
+                if(a[i]>a[j])
+                {
+                    dp[i]=max(dp[i],dp[j]+1);  // 状态转移
+                }
+            }
+            ans=max(ans,dp[i]);  // 比较每一个dp[i],最大值为答案
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}
+
 
 ```
 
