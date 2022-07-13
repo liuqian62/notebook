@@ -795,16 +795,76 @@ int main()
 </div>
 
 
-### DP1
-* DP1 dosomething
+### DP15
+* DP15 拦截导弹
 
 描述
 ```
+某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试用阶段，所以只一套系统，因此有可能不能拦截所有的导弹。
+输入导弹依次飞来的高度（雷达给出的高度数据是不大于1000的正整数），计算这套系统最多能拦截多少导弹，如果要拦截所有导弹最少要配备多少套这种导弹拦截系统。
 
+数据范围：导弹个数 n 满足1≤n≤1000  ，导弹的高度 m 满足1≤m≤1000 
 ```
 <!-- ![img]() -->
+    Dilworth定理:
+    最少的下降序列个数就等于整个序列最长上升子序列的长度
 ```cpp
-
+#include<iostream>
+#define INT_MIN     (-2147483647 - 1)
+#define INT_MAX       2147483647
+using namespace std;
+ 
+int cost(int* hight,int num){
+    int last_min = hight[0];
+    int max_num = INT_MIN;
+    int* long_list = new int[num];
+    for (int i = 0; i < num; i++) long_list[i] = 1;
+    for (int i = 1; i < num; i++) {
+        for (int j = 0; j < i; j++) {
+            if (hight[j] >= hight[i])
+            {
+                long_list[i] = max(long_list[i],long_list[j]+1);
+            }
+        }
+        max_num = max (max_num,long_list[i]);
+         
+    }
+     
+    return max_num;
+}
+ 
+//Dilworth定理 最少的下降序列个数就等于整个序列最长上升子序列的长度
+int times(int* lists, int num){
+    int last_min = lists[0];
+    int max_num = INT_MIN;
+    int* long_list = new int[num];
+    for (int i = 0; i < num; i++) long_list[i] = 1;
+    for (int i = 1; i < num; i++) {
+        for (int j = 0; j < i; j++) {
+            if (lists[j] < lists[i])
+            {
+                long_list[i] = max(long_list[i],long_list[j]+1);
+            }
+        }
+        max_num = max (max_num,long_list[i]);
+         
+    }
+    return max_num;
+}
+ 
+int main(){
+    int num;
+    int* hight;
+    cin >> num;
+    hight = new int[num];
+     
+    for( int i = 0;i < num; i++){
+        cin >> hight[i];
+    }
+     
+    cout << cost(hight,num) << endl;
+    cout << times(hight,num) <<endl;
+}
 ```
 
 <div align="right">
@@ -812,16 +872,88 @@ int main()
 </div>
 
 
-### DP1
-* DP1 dosomething
+### DP16
+* DP16 合唱队形
 
 描述
 ```
+N位同学站成一排，音乐老师要请其中的 (N-K) 位同学出列，使得剩下的K位同学排成合唱队形。
 
+合唱队形是指这样的一种队形：设K位同学从左到右依次编号为 1，2…，K，他们的身高分别为 T1，T2，…，TK，  则他们的身高满足 t_1 < t_2 ... < t_i > t_{i+1} > ... > t_{k-1} > t_k  (1≤i≤k) 
+
+你的任务是，已知所有 n 位同学的身高，计算最少需要几位同学出列，可以使得剩下的同学排成合唱队形。
+
+数据范围：1≤n≤1000  ，身高满足130≤t ≤230 
 ```
+    dp动态规划 题目是求出最少出来几人满足队形，反向思考 求满足队形的最多人数是多少？ 
+    这个题目左边的身高要比当前身高小，右边也是要比当前身高小并且是线性。与求最长的升
+    序子序列问题类似，只不过本题目需要从两个维度去思考，左边和右边，左边是升序，右边降序。
+    思路： 计算每个位置截止的最大上升长度和每个位置开始的最大下降长度，求和减一取最大值。
 <!-- ![img]() -->
 ```cpp
+#include<iostream>
+#define INT_MIN     (-2147483647 - 1)
+#define INT_MAX       2147483647
+using namespace std;
+ 
+int get_down(int* hight,int num,int* long_list){
+    int last_min = hight[0];
+    int max_num = INT_MIN;
+    for (int i = 0; i < num; i++) long_list[i] = 1;
+    for (int i = num-1; i>=0; i--) {
+        for (int j = num-1; j >i; j--) {
+            if (hight[i] > hight[j])
+            {
+                long_list[i] = max(long_list[i],long_list[j]+1);
+            }
+        }
+        max_num = max (max_num,long_list[i]);
+         
+    }
+     
+    return max_num;
+}
 
+ int get_up(int* lists, int num,int* long_list){
+    int last_min = lists[0];
+    int max_num = INT_MIN;
+    for (int i = 0; i < num; i++) long_list[i] = 1;
+    for (int i = 1; i < num; i++) {
+        for (int j = 0; j < i; j++) {
+            if (lists[j] < lists[i])
+            {
+                long_list[i] = max(long_list[i],long_list[j]+1);
+            }
+        }
+        max_num = max (max_num,long_list[i]);
+         
+    }
+    return max_num;
+}
+ 
+int main(){
+    int num;
+    int* hight;
+    cin >> num;
+    hight = new int[num];
+     
+    for( int i = 0;i < num; i++){
+        cin >> hight[i];
+    }
+    int* up_list = new int[num];
+    int* down_list = new int[num];
+    get_up(hight,num, up_list);
+    get_down(hight,num, down_list);
+    int maxUpDown = 1;
+    //记录先上升后下降的最长序列长度
+    for (int i = 0; i < num; ++i){
+        maxUpDown = max(maxUpDown,up_list[i] + down_list[i] -  1);
+    }
+    //求剔除人数
+    int res = num - maxUpDown;
+    cout<<res<<endl;
+     return 0;
+}
 ```
 
 <div align="right">
