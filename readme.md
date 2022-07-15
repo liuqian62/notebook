@@ -53,7 +53,7 @@
 | [菜鸟](https://www.runoob.com/)  | [拉钩网](http://www.lagou.com/) |
 | [电子书(4321)](https://github.com/imarvinle/awesome-cs-books) | [猎聘网](http://www.liepin.com/) |
 | [河畔就业](https://bbs.uestc.edu.cn/forum.php?mod=forumdisplay&fid=174) | [百度百聘](https://zhaopin.baidu.com/) |
-|  | [58同城](http://www.58.com/) |
+| [图解计算机基础](https://xiaolincoding.com/) | [58同城](http://www.58.com/) |
 </div>
 
 
