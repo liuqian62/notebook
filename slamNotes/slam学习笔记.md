@@ -241,7 +241,36 @@ include_directories("/usr/include/eigen3")
 </div>
 
 ## 李群和李代数
-    
+
+### 评估轨迹的误差
+考虑一条估计轨迹$ T_{esti,i} $和真实轨迹$ T_{gt,i} $，其中i =1，...，N，那么我们可以定义
+一些误差指标来描述它们之间的差别。
+* 绝对轨迹误差（Absolute Trajectory Error,ATE）
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?ATE_{all}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left\|log(T_{gt,i}^{-1}T_{esti,i})^{\vee&space;}&space;\right\|_{2}^{2}}" title="ATE_{all}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left\|log(T_{gt,i}^{-1},T_{esti,i})^{\vee } \right\|_{2}^{2}}" />
+</div>
+
+    这实际上是每个位姿李代数的均方根误差（Root-Mean-Squared Error, RMSE）。这种误差可以刻画
+    两条轨迹的旋转和平移误差。
+* 绝对平移误差（Average Translational Error）  
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?ATE_{trans}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left\|trans(T_{gt,i}^{-1}T_{esti,i})&space;\right\|_{2}^{2}}" title="ATE_{trans}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left\|trans(T_{gt,i}^{-1}T_{esti,i}) \right\|_{2}^{2}}" />
+</div>
+
+* 相对位姿误差（Relative Pose Error, RPE）
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?RPE_{all}=\sqrt{\frac{1}{N-\Delta&space;t}\sum_{i=1}^{N-\Delta&space;t}\left\|log((T_{gt,i}^{-1}T_{gt,i&plus;\Delta&space;t})^{-1}(T_{esti,i}T_{esti,i&plus;\Delta&space;t}))^{\vee&space;}&space;\right\|_{2}^{2}}" title="RPE_{all}=\sqrt{\frac{1}{N-\Delta t}\sum_{i=1}^{N-\Delta t}\left\|log((T_{gt,i}^{-1}T_{gt,i+\Delta t})^{-1}(T_{esti,i}T_{esti,i+\Delta t}))^{\vee } \right\|_{2}^{2}}" />
+</div>
+
+* 相对平移误差（Relative Translational Error）
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?RPE_{trans}=\sqrt{\frac{1}{N-\Delta&space;t}\sum_{i=1}^{N-\Delta&space;t}\left\|trans((T_{gt,i}^{-1}T_{gt,i&plus;\Delta&space;t})^{-1}(T_{esti,i}T_{esti,i&plus;\Delta&space;t}))&space;\right\|_{2}^{2}}" title="RPE_{trans}=\sqrt{\frac{1}{N-\Delta t}\sum_{i=1}^{N-\Delta t}\left\|trans((T_{gt,i}^{-1}T_{gt,i+\Delta t})^{-1}(T_{esti,i}T_{esti,i+\Delta t})) \right\|_{2}^{2}}" />
+</div>
+
 ## 相机与图像
  
 <div align="right">
