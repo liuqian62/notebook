@@ -242,6 +242,10 @@ include_directories("/usr/include/eigen3")
 
 ## 李群和李代数
 
+<div align="center">
+    <img src="./images/4_1.png" />
+</div>
+
 ### 评估轨迹的误差
 考虑一条估计轨迹$ T_{esti,i} $和真实轨迹$ T_{gt,i} $，其中i =1，...，N，那么我们可以定义
 一些误差指标来描述它们之间的差别。
