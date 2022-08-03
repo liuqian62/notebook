@@ -29,7 +29,8 @@
 * [slam学习笔记](./slamNotes/slam学习笔记.md)
 * [vscode使用教程](./vscode.md)
 ## 刷题找工作
-
+<details>
+<summary><b>点击查看：readme文件写作教程</b></summary>
 * [面试总结](面经.md)
 
 * [基础四大件](https://github.com/liuqian62/notebook/tree/main/%E5%9F%BA%E7%A1%80%E5%9B%9B%E5%A4%A7%E4%BB%B6)
@@ -56,7 +57,7 @@
 | [图解计算机基础](https://xiaolincoding.com/) | [58同城](http://www.58.com/) |
 </div>
 
-
+</details>
 
 ## latex
 
