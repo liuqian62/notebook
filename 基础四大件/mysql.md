@@ -1,29 +1,30 @@
 # mysql
 
 # 目录
-
-# 黑马程序员（MySQL数据库入门到精通）
-# 基础
-
-## mysql概述
-## 01.mysql课程介绍
-
-| [基础篇](#基础) | [进阶篇](#进阶) | [运维篇](#运维)| 
+| [基础篇](#基础篇) | [进阶篇](#进阶篇) | [运维篇](#运维篇)| 
 | :---: | :---: |  :---: | 
-|mysql概述|存储引擎|日志|
-|sql|索引|主从复制|
-|函数|sql优化|分库分表|
-|约束|视图/存储过程/触发器|读写分离|
-|多表查询|锁||
-|事务|InnoDB核心||
+|[mysql概述](#mysql概述)|[存储引擎](#存储引擎)|日志|
+|[sql](#通用语法及分类)|[索引](#索引)|主从复制|
+|[函数](#函数)|[sql优化](#SQL 优化)|分库分表|
+|[约束](#约束)|视图/存储过程/触发器|读写分离|
+|[多表查询](#多表查询)|锁||
+|[事务](#事务)|InnoDB核心||
 ||mysql管理||
 
-## 02
+
+# 黑马程序员（MySQL数据库入门到精通）
+
+
+
+
+
+
+## mysql概述
 ### 数据库相关概念
 * 数据库`存储数据的仓库，数据是有组织的进行存储`
 * 数据库管理系统`操纵和管理数据库的大型软件`
 * SQL`操作关系型数据库的编程语言，定义了一套操作关系型数据库的统一标准`
-## 03
+
 ### MYSQL数据库
 * 社区版 8.0.26
 
@@ -47,10 +48,7 @@ MYSQL数据库模型
 * 表
 
 
-## 04
 
-## sql
-## 05
 SQL通用语法
 * SQL语句可以单行或多行书写，以分号结尾
 * SQL语句可以使用空格、缩进来增强语句的可读性
@@ -64,23 +62,23 @@ SQL分类
 * DML(data manipulation language)`数据操作语言，用来对数据库表中的数据进行增删改`
 * DQL(data query language)`数据查询语言，用来查询数据库中表的记录`
 * DCL(data control language)`数据控制语言，用来创建数据库用户、控制数据库访问权限`
-## 06
+
 DDL-数据库操作
 查询
-```
+```mysql
 SHOW DATABASES;
 SELECT DATABASE();
 ```
 创建
-```
+```mysql
 CREATE DATABASE [IF NOT EXITES] 数据库名 [DEFAULT CHAREST 字符集] [COLLATE 排序规则];
 ```
 删除
-```
+```mysql
 DROP DATABASE [IF EXISTS] 数据库名;
 ```
 使用
-```
+```mysql
 USE 数据库名;
 ```
 
@@ -92,17 +90,7 @@ USE 数据库名;
 </div>
 
 
-
-
-
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-
-# 运维
-
-
+# 基础篇
 ## 通用语法及分类
 
 - DDL: 数据定义语言，用来定义数据库对象（数据库、表、字段）
@@ -557,6 +545,10 @@ select
 	(case workaddress when '北京市' then '一线城市' when '上海市' then '一线城市' else '二线城市' end) as '工作地址'
 from employee;
 ```
+   
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
 
 ## 约束
 
@@ -627,6 +619,10 @@ alter table emp add constraint fk_emp_dept_id foreign key(dept_id) references de
 
 更改删除/更新行为：
 `ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段) REFERENCES 主表名(主表字段名) ON UPDATE 行为 ON DELETE 行为;`
+   
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
 
 ## 多表查询
 
@@ -833,6 +829,10 @@ select * from employee where (job, salary) in (select job, salary from employee 
 -- 查询入职日期是2006-01-01之后的员工，及其部门信息
 select e.*, d.* from (select * from employee where entrydate > '2006-01-01') as e left join dept as d on e.dept = d.id;
 ```
+   
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
 
 ## 事务
 
@@ -919,6 +919,10 @@ commit;
 设置事务隔离级别：
 `SET [ SESSION | GLOBAL ] TRANSACTION ISOLATION LEVEL {READ UNCOMMITTED | READ COMMITTED | REPEATABLE READ | SERIALIZABLE };`
 SESSION 是会话级别，表示只针对当前会话有效，GLOBAL 表示对所有会话有效
+   
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
 
 # 进阶篇
 
@@ -1026,6 +1030,10 @@ Memory 引擎的表数据是存储在内存中的，受硬件问题、断电问�
 - Memory: 将所有数据保存在内存中，访问速度快，通常用于临时表及缓存。Memory 的缺陷是对表的大小有限制，太大的表无法缓存在内存中，而且无法保障数据的安全性
 
 电商中的足迹和评论适合使用 MyISAM 引擎，缓存适合使用 Memory 引擎。
+   
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
 
 ## 性能分析
 
@@ -1078,6 +1086,10 @@ EXPLAIN 各字段含义：
 - Key_len：表示索引中使用的字节数，该值为索引字段最大可能长度，并非实际使用长度，在不损失精确性的前提下，长度越短越好
 - rows：MySQL认为必须要执行的行数，在InnoDB引擎的表中，是一个估计值，可能并不总是准确的
 - filtered：表示返回结果的行数占需读取行数的百分比，filtered的值越大越好
+   
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
 
 ## 索引
 
@@ -1331,6 +1343,10 @@ show index 里面的sub_part可以看到接取的长度
 5. 尽量使用联合索引，减少单列索引，查询时，联合索引很多时候可以覆盖索引，节省存储空间，避免回表，提高查询效率
 6. 要控制索引的数量，索引并不是多多益善，索引越多，维护索引结构的代价就越大，会影响增删改的效率
 7. 如果索引列不能存储NULL值，请在创建表时使用NOT NULL约束它。当优化器知道每列是否包含NULL值时，它可以更好地确定哪个索引最有效地用于查询
+   
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
 
 ## SQL 优化
 
