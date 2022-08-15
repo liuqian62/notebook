@@ -5,6 +5,7 @@
 # 黑马程序员（MySQL数据库入门到精通）
 # 基础
 
+## mysql概述
 ## 01.mysql课程介绍
 
 | [基础篇](#基础) | [进阶篇](#进阶) | [运维篇](#运维)| 
@@ -18,10 +19,72 @@
 ||mysql管理||
 
 ## 02
+### 数据库相关概念
+* 数据库`存储数据的仓库，数据是有组织的进行存储`
+* 数据库管理系统`操纵和管理数据库的大型软件`
+* SQL`操作关系型数据库的编程语言，定义了一套操作关系型数据库的统一标准`
 ## 03
+### MYSQL数据库
+* 社区版 8.0.26
+
+### 启动与停止
+service.msc
+
+* 启动
+```
+net start mysql80
+```
+* 停止
+```
+net stop mysql80
+```
+### 客户端连接
+```
+mysql -h 127.0.0.1 -p 3306 -u root -p
+```
+MYSQL数据库模型
+* 数据库
+* 表
+
+
 ## 04
+
+## sql
 ## 05
+SQL通用语法
+* SQL语句可以单行或多行书写，以分号结尾
+* SQL语句可以使用空格、缩进来增强语句的可读性
+* MYSQL数据库的SQL语句不区分大小写，关键字建议使用大写
+* 注释
+   * 单行注释：--注释内容 或 # 注释内容（MYSQL特有）
+   * 多行注释：/* 注释内容 * / 
+
+SQL分类
+* DDL(data definition language)`数据定义语言，用来定义数据库对象（数据库，表，字段）`
+* DML(data manipulation language)`数据操作语言，用来对数据库表中的数据进行增删改`
+* DQL(data query language)`数据查询语言，用来查询数据库中表的记录`
+* DCL(data control language)`数据控制语言，用来创建数据库用户、控制数据库访问权限`
 ## 06
+DDL-数据库操作
+查询
+```
+SHOW DATABASES;
+SELECT DATABASE();
+```
+创建
+```
+CREATE DATABASE [IF NOT EXITES] 数据库名 [DEFAULT CHAREST 字符集] [COLLATE 排序规则];
+```
+删除
+```
+DROP DATABASE [IF EXISTS] 数据库名;
+```
+使用
+```
+USE 数据库名;
+```
+
+
 ## 07
 ## 08
 ## 09
