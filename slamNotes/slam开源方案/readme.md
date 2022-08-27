@@ -1,5 +1,5 @@
 # slam 开源方案总结
-
+<div align="center">
 | 开源方案 | 传感器类型 | 测试数据集 | 精度 |
 | :---: | :---: |  :---: |   :---: | 
 |[vins-Mono](https://github.com/HKUST-Aerial-Robotics/VINS-Mono)|mono+IMU| [vins-Mono](https://github.com/HKUST-Aerial-Robotics/VINS-Mono)|  |
@@ -7,6 +7,7 @@
 |[ORB_SLAM](https://github.com/raulmur/ORB_SLAM)|75.05| ？| |
 |[ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2)|74.70| ？|   |
 |[ORB_SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3)|74.70| ？|   |
+</div>
 ## 视觉slam
 ## 回环检测相关项目
 - [ov2slam](https://github.com/ov2slam/ov2slam)
