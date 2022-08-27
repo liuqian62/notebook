@@ -10,7 +10,7 @@
 - [SLAM找工作](#SLAM找工作)
 
 ## 资料
-- [常用开源方案](https://github.com/liuqian62/notebook/tree/main/slamNotes/slam%E5%BC%80%E6%BA%90%E6%96%B9%E6%A1%88)
+- [常用开源方案简介和对比](./slam开源方案)
 - [视觉SLAM相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
 - [SLAM十四讲](https://github.com/liuqian62/notebook/blob/main/slamNotes/14%E8%AE%B2.md)
 - [多传感器融合定位知乎专栏](https://zhuanlan.zhihu.com/c_1114864226103037952)
