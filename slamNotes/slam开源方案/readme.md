@@ -5,7 +5,7 @@
 | 开源方案 | 传感器类型 | 测试数据集 | 精度 |
 | :---: | :---: |  :---: |   :---: | 
 |[vins-Mono](https://github.com/HKUST-Aerial-Robotics/VINS-Mono)|mono+IMU| EuRoC|  |
-|[Vins-Fusion]()|stereo/stereo+IMU/mono+IMU|stereo/stereo+IMU/mono+IMU | EuRoC| |
+|[Vins-Fusion]()|stereo/stereo+IMU/mono+IMU| EuRoC| | 
 |[ORB_SLAM](https://github.com/raulmur/ORB_SLAM)|75.05| ？| |
 |[ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2)|74.70| ？|   |
 |[ORB_SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3)|74.70| ？|   |
