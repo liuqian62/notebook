@@ -784,4 +784,68 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
 
+## 高斯分布的性质
+### 高斯分布
+* 一维高斯分布
+我们说一个随机变量 x 服从高斯分布 N (μ, σ)，那么它的概率密度函数为：
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?p(x)=\frac{1}{\sqrt{2\pi&space;}\sigma&space;}exp(-\frac{1}{2}\frac{(x-u)^{2}}{\sigma&space;^2})" title="https://latex.codecogs.com/svg.image?p(x)=\frac{1}{\sqrt{2\pi }\sigma }exp(-\frac{1}{2}\frac{(x-u)^{2}}{\sigma ^2})" />
+</div>
+
+* 高维高斯分布
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?p(x)=\frac{1}{\sqrt{(2\pi)^{N}det(\Sigma)&space;}&space;}exp(-\frac{1}{2}(x-\mu)^{T}\Sigma&space;^{-1}(x-\mu))" title="https://latex.codecogs.com/svg.image?p(x)=\frac{1}{\sqrt{(2\pi)^{N}det(\Sigma) } }exp(-\frac{1}{2}(x-\mu)^{T}\Sigma ^{-1}(x-\mu))" />
+</div>
+### 高斯分布的运算
+* 线性运算
+设两个独立的高斯分布：
+
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?x\sim&space;N(\mu_{x},\Sigma_{xx}),y\sim&space;N(\mu_{y},\Sigma_{yy})" title="https://latex.codecogs.com/svg.image?x\sim N(\mu_{x},\Sigma_{xx}),y\sim N(\mu_{y},\Sigma_{yy})" />
+</div>
+那么，它们的和仍是高斯分布：
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?x&plus;y\sim&space;N(\mu_{x}&plus;\mu_{y},\Sigma_{xx}&plus;\Sigma_{yy})" title="https://latex.codecogs.com/svg.image?x+y\sim N(\mu_{x}+\mu_{y},\Sigma_{xx}+\Sigma_{yy})" />
+</div>
+如果以常数 a 乘以 x，那么 ax 满足：
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?ax\sim&space;N(a\mu_{x},a^{2}\Sigma_{xx})" title="https://latex.codecogs.com/svg.image?ax\sim N(a\mu_{x},a^{2}\Sigma_{xx})" />
+</div>
+如果取 y = Ax，那么 y 满足:
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?y\sim&space;N(A\mu_{x},A\Sigma_{xx}A^{T})" title="https://latex.codecogs.com/svg.image?y\sim N(A\mu_{x},A\Sigma_{xx}A^{T})" />
+</div>
+* 乘积
+
+设两个高斯分布的乘积满足 p (xy) = N (μ, Σ)，那么:
+
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?\Sigma&space;^{-1}=\Sigma_{xx}^{-1}&plus;\Sigma_{yy}^{-1}" title="https://latex.codecogs.com/svg.image?\Sigma ^{-1}=\Sigma_{xx}^{-1}+\Sigma_{yy}^{-1}" />
+    <br /><br /><img src="https://latex.codecogs.com/svg.image?\Sigma&space;_{\mu}=\Sigma_{xx}^{-1}\mu_{x}&plus;\Sigma_{yy}^{-1}\mu_{y}" title="https://latex.codecogs.com/svg.image?\Sigma _{\mu}=\Sigma_{xx}^{-1}\mu_{x}+\Sigma_{yy}^{-1}\mu_{y}" />
+</div>
+* 复合运算
+
+同样考虑 x 和 y，当它们不独立时，其复合分布为：
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?p(x,y)=N(\begin{bmatrix}&space;\mu_{x}\\\mu_{y}\end{bmatrix},\begin{bmatrix}&space;\Sigma_{xx}&\Sigma_{xy}&space;&space;\\&space;\Sigma_{yx}&\Sigma_{yy}&space;&space;\\\end{bmatrix})" title="https://latex.codecogs.com/svg.image?p(x,y)=N(\begin{bmatrix} \mu_{x}\\\mu_{y}\end{bmatrix},\begin{bmatrix} \Sigma_{xx}&\Sigma_{xy} \\ \Sigma_{yx}&\Sigma_{yy} \\\end{bmatrix})" />
+</div>
+由条件分布展开式 p (x, y) = p (x|y) p (y) 推出可以推出，条件概率 p(x|y) 满足:
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?p(x|y)=N(\mu_{x}&plus;\Sigma_{xy}\Sigma_{yy}^{-1}(y-\mu_{y}),\Sigma_{xx}-\Sigma_{xy}\Sigma_{yy}^{-1}\Sigma_{yx})" title="https://latex.codecogs.com/svg.image?p(x|y)=N(\mu_{x}+\Sigma_{xy}\Sigma_{yy}^{-1}(y-\mu_{y}),\Sigma_{xx}-\Sigma_{xy}\Sigma_{yy}^{-1}\Sigma_{yx})" />
+</div>
+* 复合运算的例子
+
+下面我们举一个和卡尔曼滤波器相关的例子。考虑随机变量 x ∼ N (μx, Σxx)，另一变
+量 y 满足：
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?y=Ax&plus;b&plus;w" title="https://latex.codecogs.com/svg.image?y=Ax+b+w" />
+</div>
+
+<div align="center">
+    <br /><img src="https://latex.codecogs.com/svg.image?p(y)=N(A\mu_{x}&plus;b,A\Sigma_{xx}A^{T}&plus;R)" title="https://latex.codecogs.com/svg.image?p(y)=N(A\mu_{x}+b,A\Sigma_{xx}A^{T}+R)" />
+</div>
+ 
+<div align="right">
+    <b><a href="#目录">↥ Back To Top</a></b>
+</div>
 
