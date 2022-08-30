@@ -815,6 +815,7 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 <div align="center">
     <br /><img src="https://latex.codecogs.com/svg.image?y\sim&space;N(A\mu_{x},A\Sigma_{xx}A^{T})" title="https://latex.codecogs.com/svg.image?y\sim N(A\mu_{x},A\Sigma_{xx}A^{T})" />
 </div>
+
 * 乘积
 
 设两个高斯分布的乘积满足 p (xy) = N (μ, Σ)，那么:
@@ -823,6 +824,7 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
     <br /><img src="https://latex.codecogs.com/svg.image?\Sigma&space;^{-1}=\Sigma_{xx}^{-1}&plus;\Sigma_{yy}^{-1}" title="https://latex.codecogs.com/svg.image?\Sigma ^{-1}=\Sigma_{xx}^{-1}+\Sigma_{yy}^{-1}" />
     <br /><br /><img src="https://latex.codecogs.com/svg.image?\Sigma&space;_{\mu}=\Sigma_{xx}^{-1}\mu_{x}&plus;\Sigma_{yy}^{-1}\mu_{y}" title="https://latex.codecogs.com/svg.image?\Sigma _{\mu}=\Sigma_{xx}^{-1}\mu_{x}+\Sigma_{yy}^{-1}\mu_{y}" />
 </div>
+
 * 复合运算
 
 同样考虑 x 和 y，当它们不独立时，其复合分布为：
@@ -833,6 +835,7 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 <div align="center">
     <br /><img src="https://latex.codecogs.com/svg.image?p(x|y)=N(\mu_{x}&plus;\Sigma_{xy}\Sigma_{yy}^{-1}(y-\mu_{y}),\Sigma_{xx}-\Sigma_{xy}\Sigma_{yy}^{-1}\Sigma_{yx})" title="https://latex.codecogs.com/svg.image?p(x|y)=N(\mu_{x}+\Sigma_{xy}\Sigma_{yy}^{-1}(y-\mu_{y}),\Sigma_{xx}-\Sigma_{xy}\Sigma_{yy}^{-1}\Sigma_{yx})" />
 </div>
+
 * 复合运算的例子
 
 下面我们举一个和卡尔曼滤波器相关的例子。考虑随机变量 x ∼ N (μx, Σxx)，另一变
@@ -840,7 +843,8 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 <div align="center">
     <br /><img src="https://latex.codecogs.com/svg.image?y=Ax&plus;b&plus;w" title="https://latex.codecogs.com/svg.image?y=Ax+b+w" />
 </div>
-
+其中 A, b 为线性变量的系数矩阵和偏移量，w 为噪声项，为零均值的高斯分布：w ∼
+N (0, R)。我们来看 y 的分布。根据前面的介绍，可以推出：
 <div align="center">
     <br /><img src="https://latex.codecogs.com/svg.image?p(y)=N(A\mu_{x}&plus;b,A\Sigma_{xx}A^{T}&plus;R)" title="https://latex.codecogs.com/svg.image?p(y)=N(A\mu_{x}+b,A\Sigma_{xx}A^{T}+R)" />
 </div>
