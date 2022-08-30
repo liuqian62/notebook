@@ -284,7 +284,43 @@ include_directories("/usr/include/eigen3")
 
 
 ## 非线性优化
+### 状态估计问题
+
+### 非线性最小二乘
+
+### 实践曲线拟合问题
+考虑一条满足以下方程的曲线：
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?y=exp(ax^2&plus;bx&plus;c)&plus;w" title="https://latex.codecogs.com/svg.image?y=exp(ax^2+bx+c)+w" />
+</div>
+
+其中a,b,c为曲线方程，w为高斯噪声。假设我们有N个关于x,y的观测数据点，想根据这些数据点求出曲线的参数。那么，可以求解下面的最小二乘问题估计曲线参数：
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?\underset{a,b,c}{min}\frac{1}{2}\sum_{i=1}^{N}\left\|y_{i}-exp(ax_{i}^{2}&plus;bx_{i}&plus;c)&space;\right\|^{2}" title="https://latex.codecogs.com/svg.image?\underset{a,b,c}{min}\frac{1}{2}\sum_{i=1}^{N}\left\|y_{i}-exp(ax_{i}^{2}+bx_{i}+c) \right\|^{2}" />
+</div>
  
+请注意，在这个问题中，待估计的变量是 a, b, c，而不是 x。我们的程序里先根据模型生成 x, y
+的真值，然后在真值中添加高斯分布的噪声。随后，使用高斯牛顿法来从带噪声的数据拟合参数模
+型。定义误差为:
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?e_{i}=y_{i}-exp(ax_{i}^{2}&plus;bx_{i}&plus;c)&space;" title="https://latex.codecogs.com/svg.image?e_{i}=y_{i}-exp(ax_{i}^{2}+bx_{i}+c) " />
+</div>
+那么可以求出每个误差项对于状态变量的导数：
+
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;e_{i}}{\partial&space;a}=-x_{i}^{2}exp(ax_{i}^{2}&plus;bx_{i}&plus;c)&space;" title="https://latex.codecogs.com/svg.image?\frac{\partial e_{i}}{\partial a}=-x_{i}^{2}exp(ax_{i}^{2}+bx_{i}+c) " />
+    <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;e_{i}}{\partial&space;b}=-x_{i}exp(ax_{i}^{2}&plus;bx_{i}&plus;c)&space;" title="https://latex.codecogs.com/svg.image?\frac{\partial e_{i}}{\partial b}=-x_{i}exp(ax_{i}^{2}+bx_{i}+c) " />
+    <img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;e_{i}}{\partial&space;c}=-exp(ax_{i}^{2}&plus;bx_{i}&plus;c)&space;" title="https://latex.codecogs.com/svg.image?\frac{\partial e_{i}}{\partial c}=-exp(ax_{i}^{2}+bx_{i}+c) " />
+</div>
+于是，
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?J_{i}=[\frac{\partial&space;e_{i}}{\partial&space;a},\frac{\partial&space;e_{i}}{\partial&space;b},\frac{\partial&space;e_{i}}{\partial&space;c}]^{T}" title="https://latex.codecogs.com/svg.image?J_{i}=[\frac{\partial e_{i}}{\partial a},\frac{\partial e_{i}}{\partial b},\frac{\partial e_{i}}{\partial c}]^{T}" />
+</div>
+高斯牛顿的增量方程为：
+<div align="center">
+    <img src="https://latex.codecogs.com/svg.image?(\sum_{i=1}^{100}J_{i}(\sigma^{2}&space;)^{-1}J_{i}^{T})\Delta&space;x_{k}=\sum_{i=1}^{100}-J_{i}(\sigma&space;^{2})^{-1}e_{i}" title="https://latex.codecogs.com/svg.image?(\sum_{i=1}^{100}J_{i}(\sigma^{2} )^{-1}J_{i}^{T})\Delta x_{k}=\sum_{i=1}^{100}-J_{i}(\sigma ^{2})^{-1}e_{i}" />
+</div>
+
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
