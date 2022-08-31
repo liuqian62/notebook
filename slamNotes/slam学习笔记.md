@@ -796,7 +796,9 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 <div align="center">
     <br /><img src="https://latex.codecogs.com/svg.image?p(x)=\frac{1}{\sqrt{(2\pi)^{N}det(\Sigma)&space;}&space;}exp(-\frac{1}{2}(x-\mu)^{T}\Sigma&space;^{-1}(x-\mu))" title="https://latex.codecogs.com/svg.image?p(x)=\frac{1}{\sqrt{(2\pi)^{N}det(\Sigma) } }exp(-\frac{1}{2}(x-\mu)^{T}\Sigma ^{-1}(x-\mu))" />
 </div>
+
 ### 高斯分布的运算
+
 * 线性运算
 设两个独立的高斯分布：
 
