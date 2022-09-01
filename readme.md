@@ -129,5 +129,12 @@ $\frac{n!}{k!(n-k)!} = {n \choose k}$ -->
     <b><a href="#This-is-my-notebook">↥ Back To Top</a></b>
 </div>
 
+* 居中
+```
+<div align="center"> 
+  <br />  
+</div>
+```
+
 - [发现一个卷王](https://github.com/LiCaoZ)
 - [体重管理](./体重管理.md)
