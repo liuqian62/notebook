@@ -685,6 +685,13 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 - 暴力匹配（Brute-Force Matcher）
 - 快速近似最近邻（FLANN）
 
+### 根据特征点匹配计算相机运动
+根据特征点匹配计算相机运动.根据相机的成像原理不同,分为以下3种情况：
+
+当相机为单目时,我们只知道匹配点的像素坐标,是为2D-2D匹配,使用对极几何求解.  
+当相机为双目或RGB-D时,我们就知道匹配点的像素坐标和深度坐标,是为3D-3D匹配,使用ICP求解.  
+如果有3D点及其在相机的投影位置,也能估计相机的运动,是为3D-2D匹配,使用PnP求解.  
+
 ### 2D-2D：对极几何
 
 ### 三角测量
@@ -692,8 +699,47 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 ### 3D-2D：PnP
 
 ### 3D-3D：ICP
+对于一组已配对好的3D点:
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?P=\left\{&space;p_{1},\ldots,p_{n}\right\},P'=\left\{&space;p_{1}',\ldots,p_{n}'\right\}" title="https://latex.codecogs.com/svg.image?P=\left\{ p_{1},\ldots,p_{n}\right\},P'=\left\{ p_{1}',\ldots,p_{n}'\right\}" />
+</div>
+现在,想要找一个欧氏变换R,t使得:
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?\forall&space;i,&space;p_{i}=Rp_{i}'&plus;t" title="https://latex.codecogs.com/svg.image?\forall i, p_{i}=Rp_{i}'+t" />
+</div>
+ICP问题的求解包含两种方式:
 
+利用线性代数的求解(主要是SVD)  
+利用非线性优化方式的求解(类似于Bundle Adjustment)  
+* SVD方法
 
+定义第i对点的误差项为：
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?e_{i}=p_{i}-(Rp_{i}'&plus;t)" title="https://latex.codecogs.com/svg.image?e_{i}=p_{i}-(Rp_{i}'+t)" />
+</div>
+定义两组点的质心:
+
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?p=\frac{1}{n}\sum_{i=1}^{n}(p_{i}),p'=\frac{1}{n}\sum_{i=1}^{n}(p_{i}')" title="https://latex.codecogs.com/svg.image?p=\frac{1}{n}\sum_{i=1}^{n}(p_{i}),p'=\frac{1}{n}\sum_{i=1}^{n}(p_{i}')" />
+</div>
+构建最小二乘问题,求取最合适的R,t:
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?\underset{R,t}{min}J&space;=\frac{1}{2}\sum_{i=1}^{n}\left\|(p_{i}-(Rp_{i}'&plus;t))&space;\right\|_{2}^{2}=&space;\frac{1}{2}\sum_{i=1}^{n}\left\|p_{i}-p-R(p_{i}'-p')&space;\right\|^{2}&plus;\left\|p-Rp'-t&space;\right\|^{2}" title="https://latex.codecogs.com/svg.image?\underset{R,t}{min}J =\frac{1}{2}\sum_{i=1}^{n}\left\|(p_{i}-(Rp_{i}'+t)) \right\|_{2}^{2}= \frac{1}{2}\sum_{i=1}^{n}\left\|p_{i}-p-R(p_{i}'-p') \right\|^{2}+\left\|p-Rp'-t \right\|^{2}" />
+</div>
+左边只和旋转矩阵R相关,而右边既有R也有t,但只和质心相关.因此令左边取最小值解出R,代入到右边令式子等于0求出t.
+
+定义去质心坐标qi=pi-p,qi'=pi'-p',则优化目标可写成:
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?R^{*}&space;=&space;\underset{R}{min}\sum_{i=1}^{n}\left\|p_{i}-p-R(p_{i}'-p')&space;\right\|^{2}&space;\\&space;=&space;\underset{R}{min}\sum_{i=1}^{n}-q_{i}^{T}Rq_{i}'&space;\\=-tr(R\sum_{i=1}^{n}q_{i}'q_{i}^{T})" title="https://latex.codecogs.com/svg.image?R^{*} = \underset{R}{min}\sum_{i=1}^{n}\left\|p_{i}-p-R(p_{i}'-p') \right\|^{2} \\ = \underset{R}{min}\sum_{i=1}^{n}-q_{i}^{T}Rq_{i}' \\=-tr(R\sum_{i=1}^{n}q_{i}'q_{i}^{T})" />
+</div>
+
+<div align="center"> 
+  <br />  
+</div>
+
+<div align="center"> 
+  <br />  
+</div>
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
