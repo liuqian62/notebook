@@ -732,14 +732,27 @@ ICP问题的求解包含两种方式:
 <div align="center"> 
   <br /><img src="https://latex.codecogs.com/svg.image?R^{*}&space;=&space;\underset{R}{min}\sum_{i=1}^{n}\left\|p_{i}-p-R(p_{i}'-p')&space;\right\|^{2}&space;\\&space;=&space;\underset{R}{min}\sum_{i=1}^{n}-q_{i}^{T}Rq_{i}'&space;\\=-tr(R\sum_{i=1}^{n}q_{i}'q_{i}^{T})" title="https://latex.codecogs.com/svg.image?R^{*} = \underset{R}{min}\sum_{i=1}^{n}\left\|p_{i}-p-R(p_{i}'-p') \right\|^{2} \\ = \underset{R}{min}\sum_{i=1}^{n}-q_{i}^{T}Rq_{i}' \\=-tr(R\sum_{i=1}^{n}q_{i}'q_{i}^{T})" />
 </div>
-
+定义矩阵:
 <div align="center"> 
-  <br />  
+  <br /><img src="https://latex.codecogs.com/svg.image?W=\sum_{i=1}^{n}q_{i}q_{i}'^{T}" title="https://latex.codecogs.com/svg.image?W=\sum_{i=1}^{n}q_{i}q_{i}'^{T}" />
+</div>
+对矩阵W WW进行SVD分解得到:
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?W=U\Sigma&space;V^{T}" title="https://latex.codecogs.com/svg.image?W=U\Sigma V^{T}" />
 </div>
 
+* 非线性优化方法
+使用李代数表达表达位姿,目标函数可以写成
+
 <div align="center"> 
-  <br />  
+  <br /><img src="https://latex.codecogs.com/svg.image?\underset{\xi&space;}{min}\frac{1}{2}\sum_{i=1}^{n}\left\|(p_{i}-exp(\xi&space;^{\Lambda&space;})p_{i}')&space;\right\|_{2}^{2}" title="https://latex.codecogs.com/svg.image?\underset{\xi }{min}\frac{1}{2}\sum_{i=1}^{n}\left\|(p_{i}-exp(\xi ^{\Lambda })p_{i}') \right\|_{2}^{2}" />
 </div>
+误差项关于位姿的导数可以用李代数求导的扰动模型,计算导数得到:
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?\frac{\partial&space;e}{\partial&space;\delta&space;\xi&space;}=-(exp(\xi&space;^{\Lambda&space;})p_{i}')" title="https://latex.codecogs.com/svg.image?\frac{\partial e}{\partial \delta \xi }=-(exp(\xi ^{\Lambda })p_{i}')" />
+</div>
+可以直接使用最小二乘优化方法求解位姿.
+
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
