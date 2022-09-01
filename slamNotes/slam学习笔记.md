@@ -697,7 +697,68 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 ### 三角测量
 
 ### 3D-2D：PnP
+2D-2D的对极几何方法需要8个或8个以上的点对（以八点法为例），且存在着初始化、纯旋转和尺度的问题。然而，  
+如果两张图像中其中一张特征点的3D位置已知，那么最少只需3个点对（需要至少一个额外点验证结果）就可以估计相机运动。
 
+在双目或RGB-D的视觉里程计中，我们可以直接使用PnP估计相机运动。而在单目视觉里程计中，必须先进行初始化，然后才能使用PnP。
+
+PnP问题有多种解决方法:
+
+1. 直接线性表变换(DLT): 先求解相机位姿,再求解空间点位置  
+2. P3P: 先求解空间点位置,再求解相机位姿
+3. Bundle Adjustment: 最小化重投影误差,同时求解空间点位置和相机位姿
+
+* 直接线性变换(DLT): 先求解相机位姿,再求解空间点位置
+考虑某个空间点P PP的齐次世界坐标为P = ( X , Y , Z , 1 )^T .在图像I_1
+ 中投影到特征点的归一化像素坐标x 1 = ( u 1 , v 1 , 1 )^T .此时相机的位姿Rt是未知的,定义增广矩阵[R∣t](不同于变换矩阵T)
+ 为一个3×4的矩阵,包含了旋转与平移信息,展开形式如下:
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?s\begin{pmatrix}&space;u_{1}\\&space;v_{1}\\1\end{pmatrix}=\begin{pmatrix}&space;t_{1}&t_{2}&space;&space;&t_{3}&space;&space;&t_{4}&space;&space;\\&space;t_{5}&t_{6}&space;&space;&t_{7}&space;&space;&t_{8}&space;&space;\\&space;t_{9}&t_{10}&space;&space;&t_{11}&space;&space;&t_{12}&space;&space;\\\end{pmatrix}\begin{pmatrix}&space;X\\&space;Y\\&space;Z\\1\end{pmatrix}" title="https://latex.codecogs.com/svg.image?s\begin{pmatrix} u_{1}\\ v_{1}\\1\end{pmatrix}=\begin{pmatrix} t_{1}&t_{2} &t_{3} &t_{4} \\ t_{5}&t_{6} &t_{7} &t_{8} \\ t_{9}&t_{10} &t_{11} &t_{12} \\\end{pmatrix}\begin{pmatrix} X\\ Y\\ Z\\1\end{pmatrix}" />
+</div>
+ 用最后一行把s消去,得到两个约束:
+<div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}t_{1}^{T}P-t_{3}^{T}Pu_{1}=0&space;\\t_{2}^{T}P-t_{3}^{T}Pv_{1}=0\end{matrix}\right." title="https://latex.codecogs.com/svg.image?\left\{\begin{matrix}t_{1}^{T}P-t_{3}^{T}Pu_{1}=0 \\t_{2}^{T}P-t_{3}^{T}Pv_{1}=0\end{matrix}\right." />
+</div>
+其中t 1 = ( t 1 , t 2 , t 3 , t 4 ) ^T ,t 2 = ( t 5 , t 6 , t 7 , t 8 ) ^T  ,t 3 = ( t 9 , t 10 , t 11 , t 12 ) ^T .
+t 1 ,t 2  ,t 3 为待求量.将N NN对匹配的特征点代入方程中,得到线性方程组:
+<div align="center"> 
+  <br />
+</div>
+
+* P3P: 先求解空间点位置,再求解相机位姿
+
+<div align="center"> 
+  <br />
+</div>
+<div align="center"> 
+  <br />
+</div>
+* Bundle Adjustment: 最小化重投影误差,同时求解空间点位置和相机位姿
+
+<div align="center"> 
+  <br />
+</div>
+<div align="center"> 
+  <br />
+</div>
+<div align="center"> 
+  <br />
+</div>
+<div align="center"> 
+  <br />
+</div>
+<div align="center"> 
+  <br />
+</div>
+<div align="center"> 
+  <br />
+</div>
+<div align="center"> 
+  <br />
+</div>
+<div align="center"> 
+  <br />
+</div>
 ### 3D-3D：ICP
 对于一组已配对好的3D点:
 <div align="center"> 
