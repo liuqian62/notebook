@@ -30,7 +30,7 @@
 * [vscode使用教程](./vscode.md)
 ## 刷题找工作
 <details>
-<summary><b>点击查看：</b></summary>
+<summary><b>点击查看：刷题找工作</b></summary>
  
 * [面试总结](面经.md)
 
@@ -60,9 +60,6 @@
 
 </details>
 
-## latex
-
-* [在线编辑latex](https://cn.overleaf.com/project/62ac458c07f491436265c42c)
 
 
 
