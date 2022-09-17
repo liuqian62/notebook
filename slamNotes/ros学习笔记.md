@@ -32,8 +32,61 @@
 **ROS中的核心概念**
 
 **ROS命令行工具使用**
+* 常用命令
+  * rostopic
+  * rosservice
+  * rosnode
+  * rosparam
+  * rosmsg
+  * rossrv
+* 以小海龟为例
 
-
+启动ROS Master
+```bash
+roscore
+```
+启动小海龟仿真器
+```bash
+rosrun turtlesim turtlesim_node
+```
+启动海龟控制节点
+```bash
+rosrun turtlesim turtle_teleop_key
+```
+查看计算图
+```bash
+rqt_graph
+```
+查看话题列表
+```bash
+rostopic list
+```
+发布话题消息
+```bash
+rostopic pub -r 10 /turtle1/cmd_vel geometry_msgs/Twist "linear:
+x:1.0
+y:0.0
+x:0.0
+angular:
+x:0.0
+y:0.0
+z:0.0"
+```
+发布服务请求
+```bash
+rosservice call /spawn "x:5.0
+y:5.0
+theta:0.0
+name: 'tuttle1'"
+```
+话题记录
+```bash
+rosbag record -a -O cmd_record
+```
+话题复现
+```bash
+rosbag play cmd_record.bag
+```
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
 </div>
