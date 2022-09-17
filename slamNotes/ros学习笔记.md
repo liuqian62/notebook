@@ -42,14 +42,614 @@
 ### 编程基础
 
 **创建工作空间与功能包**
+* 工作空间（workspace）是一个存放工程开发相关文件的文件夹
+	* src:代码空间(Source Space)
+	* build:编译空间(Build Space)
+	* devel:开发空间(Development Space)
+	* install:安装空间(Install Space)
+* 创建工作空间
+```bash
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+```
+* 编译工作空间
+```bash
+cd ~/catkin_ws/
+catkin_make
+```
+* 设置环节变量
+```bash
+source devel/setup.bash
+```
+* 检查环节变量
+```bash
+echo $ROS_PACKAGE_PATH
+```
+* 创建功能包
+`catkin_create_pkg <package_name> [depend1] [depend2] [depend3]`
+  * 创建功能包
 
+```bash
+cd ~/catkin_ws/src
+catkin_create_pkg test_pkg std_msgs rospy roscpp
+```
+  * 编译功能包
+
+```bash
+cd ~/catkin_ws/src
+catkin_make
+source ~/catkin_ws/devel/setup.bash
+```
+
+同一个工作空间下，不允许存在同名功能包
 
 **话题编程**
+* 发布者Publisher的编程实现
+
+创建功能包
+```bash
+cd ~/catkin_ws/src
+catkin_create_pkg learning_topic roscpp rospy std_msgs geometry_msgs turtlesim
+```
+* velocity_publisher.cpp
+
+```cpp
+/**
+ * 该例程将发布turtle1/cmd_vel话题，消息类型geometry_msgs::Twist
+ */
+ 
+#include <ros/ros.h>
+#include <geometry_msgs/Twist.h>
+
+int main(int argc, char **argv)
+{
+	// ROS节点初始化
+	ros::init(argc, argv, "velocity_publisher");
+
+	// 创建节点句柄
+	ros::NodeHandle n;
+
+	// 创建一个Publisher，发布名为/turtle1/cmd_vel的topic，消息类型为geometry_msgs::Twist，队列长度10
+	ros::Publisher turtle_vel_pub = n.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 10);
+
+	// 设置循环的频率
+	ros::Rate loop_rate(10);
+
+	int count = 0;
+	while (ros::ok())
+	{
+	    // 初始化geometry_msgs::Twist类型的消息
+		geometry_msgs::Twist vel_msg;
+		vel_msg.linear.x = 0.5;
+		vel_msg.angular.z = 0.2;
+
+	    // 发布消息
+		turtle_vel_pub.publish(vel_msg);
+		ROS_INFO("Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]", 
+				vel_msg.linear.x, vel_msg.angular.z);
+
+	    // 按照循环频率延时
+	    loop_rate.sleep();
+	}
+
+	return 0;
+}
+```
+* CMakeLists.txt
+
+```cmake
+add_executable(velocity_publisher src/velocity_publisher.cpp)
+target_link_libraries(velocity_publisher ${catkin_LIBRARIES})
+```
+* 编译并运行发布者
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+roscore
+rosrun turtlesim turtlesim_node
+rosrun learning_topic velocity_publisher
+```
+* velocity_publisher.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+# 该例程将发布turtle1/cmd_vel话题，消息类型geometry_msgs::Twist
+
+import rospy
+from geometry_msgs.msg import Twist
+
+def velocity_publisher():
+	# ROS节点初始化
+    rospy.init_node('velocity_publisher', anonymous=True)
+
+	# 创建一个Publisher，发布名为/turtle1/cmd_vel的topic，消息类型为geometry_msgs::Twist，队列长度10
+    turtle_vel_pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+
+	#设置循环的频率
+    rate = rospy.Rate(10) 
+
+    while not rospy.is_shutdown():
+		# 初始化geometry_msgs::Twist类型的消息
+        vel_msg = Twist()
+        vel_msg.linear.x = 0.5
+        vel_msg.angular.z = 0.2
+
+		# 发布消息
+        turtle_vel_pub.publish(vel_msg)
+    	rospy.loginfo("Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]", 
+				vel_msg.linear.x, vel_msg.angular.z)
+
+		# 按照循环频率延时
+        rate.sleep()
+
+if __name__ == '__main__':
+    try:
+        velocity_publisher()
+    except rospy.ROSInterruptException:
+        pass
+
+```
+
+* 订阅者Subcriber的编程实现
+
+pose_subscriber.cpp
+```cpp
+/**
+ * 该例程将订阅/turtle1/pose话题，消息类型turtlesim::Pose
+ */
+ 
+#include <ros/ros.h>
+#include "turtlesim/Pose.h"
+
+// 接收到订阅的消息后，会进入消息回调函数
+void poseCallback(const turtlesim::Pose::ConstPtr& msg)
+{
+    // 将接收到的消息打印出来
+    ROS_INFO("Turtle pose: x:%0.6f, y:%0.6f", msg->x, msg->y);
+}
+
+int main(int argc, char **argv)
+{
+    // 初始化ROS节点
+    ros::init(argc, argv, "pose_subscriber");
+
+    // 创建节点句柄
+    ros::NodeHandle n;
+
+    // 创建一个Subscriber，订阅名为/turtle1/pose的topic，注册回调函数poseCallback
+    ros::Subscriber pose_sub = n.subscribe("/turtle1/pose", 10, poseCallback);
+
+    // 循环等待回调函数
+    ros::spin();
+
+    return 0;
+}
+```
+* CMakeLists.txt
+
+```cmake
+add_executable(pose_subscriber src/pose_subscriber.cpp)
+target_link_libraries(pose_subscriber ${catkin_LIBRARIES})
+```
+* 编译并运行订阅者
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+roscore
+rosrun turtlesim turtlesim_node
+rosrun learning_topic pose_subscriber
+```
+* pose_subcriber.py
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+# 该例程将订阅/turtle1/pose话题，消息类型turtlesim::Pose
+
+import rospy
+from turtlesim.msg import Pose
+
+def poseCallback(msg):
+    rospy.loginfo("Turtle pose: x:%0.6f, y:%0.6f", msg.x, msg.y)
+
+def pose_subscriber():
+	# ROS节点初始化
+    rospy.init_node('pose_subscriber', anonymous=True)
+
+	# 创建一个Subscriber，订阅名为/turtle1/pose的topic，注册回调函数poseCallback
+    rospy.Subscriber("/turtle1/pose", Pose, poseCallback)
+
+	# 循环等待回调函数
+    rospy.spin()
+
+if __name__ == '__main__':
+    pose_subscriber()
+
+```
+* 话题消息的定义与使用
+
+自定义话题消息
+Person.msg
+```
+string name
+uint8  age
+uint8  sex
+
+uint8 unknown = 0
+uint8 male    = 1
+uint8 female  = 2
+```
+* 在package.xml中添加功能包依赖
+
+```xml
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
+```
+* 在CMakeLists.txt添加编译选项
+
+```cmake
+find_package(...... message_generation)
+add_message_files(  FILES  Person.msg)
+
+generate_messages(  DEPENDENCIES  std_msgs)
+catkin_package(   ...... message_runtime)
+```
+* person_publisher.cpp
+
+```cpp
+/**
+ * 该例程将发布/person_info话题，自定义消息类型learning_topic::Person
+ */
+ 
+#include <ros/ros.h>
+#include "learning_topic/Person.h"
+
+int main(int argc, char **argv)
+{
+    // ROS节点初始化
+    ros::init(argc, argv, "person_publisher");
+
+    // 创建节点句柄
+    ros::NodeHandle n;
+
+    // 创建一个Publisher，发布名为/person_info的topic，消息类型为learning_topic::Person，队列长度10
+    ros::Publisher person_info_pub = n.advertise<learning_topic::Person>("/person_info", 10);
+
+    // 设置循环的频率
+    ros::Rate loop_rate(1);
+
+    int count = 0;
+    while (ros::ok())
+    {
+        // 初始化learning_topic::Person类型的消息
+    	learning_topic::Person person_msg;
+		person_msg.name = "Tom";
+		person_msg.age  = 18;
+		person_msg.sex  = learning_topic::Person::male;
+
+        // 发布消息
+		person_info_pub.publish(person_msg);
+
+       	ROS_INFO("Publish Person Info: name:%s  age:%d  sex:%d", 
+				  person_msg.name.c_str(), person_msg.age, person_msg.sex);
+
+        // 按照循环频率延时
+        loop_rate.sleep();
+    }
+
+    return 0;
+}
+
+```
+
+* person_subscriber.cpp
+
+```cpp
+/**
+ * 该例程将订阅/person_info话题，自定义消息类型learning_topic::Person
+ */
+ 
+#include <ros/ros.h>
+#include "learning_topic/Person.h"
+
+// 接收到订阅的消息后，会进入消息回调函数
+void personInfoCallback(const learning_topic::Person::ConstPtr& msg)
+{
+    // 将接收到的消息打印出来
+    ROS_INFO("Subcribe Person Info: name:%s  age:%d  sex:%d", 
+			 msg->name.c_str(), msg->age, msg->sex);
+}
+
+int main(int argc, char **argv)
+{
+    // 初始化ROS节点
+    ros::init(argc, argv, "person_subscriber");
+
+    // 创建节点句柄
+    ros::NodeHandle n;
+
+    // 创建一个Subscriber，订阅名为/person_info的topic，注册回调函数personInfoCallback
+    ros::Subscriber person_info_sub = n.subscribe("/person_info", 10, personInfoCallback);
+
+    // 循环等待回调函数
+    ros::spin();
+
+    return 0;
+}
+```
+* CMakeLists.txt
+
+```cmake
+add_executable(person_publisher src/person_publisher.cpp)
+target_link_libraries(person_publisher ${catkin_LIBRARIES})
+add_dependencies(person_publisher ${PROJECT_NAME}_generate_messages_cpp)
+
+add_executable(person_subscriber src/person_subscriber.cpp)
+target_link_libraries(person_subscriber ${catkin_LIBRARIES})
+add_dependencies(person_subscriber ${PROJECT_NAME}_generate_messages_cpp)
+```
+* 编译并运行发布者和订阅者
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+roscore
+rosrun learning_topic person_subscriber
+rosrun learning_topic person_publisher
+```
+* person_publisher.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+# 该例程将发布/person_info话题，自定义消息类型learning_topic::Person
+
+import rospy
+from learning_topic.msg import Person
+
+def velocity_publisher():
+	# ROS节点初始化
+    rospy.init_node('person_publisher', anonymous=True)
+
+	# 创建一个Publisher，发布名为/person_info的topic，消息类型为learning_topic::Person，队列长度10
+    person_info_pub = rospy.Publisher('/person_info', Person, queue_size=10)
+
+	#设置循环的频率
+    rate = rospy.Rate(10) 
+
+    while not rospy.is_shutdown():
+		# 初始化learning_topic::Person类型的消息
+    	person_msg = Person()
+    	person_msg.name = "Tom";
+    	person_msg.age  = 18;
+    	person_msg.sex  = Person.male;
+
+		# 发布消息
+        person_info_pub.publish(person_msg)
+    	rospy.loginfo("Publsh person message[%s, %d, %d]", 
+				person_msg.name, person_msg.age, person_msg.sex)
+
+		# 按照循环频率延时
+        rate.sleep()
+
+if __name__ == '__main__':
+    try:
+        velocity_publisher()
+    except rospy.ROSInterruptException:
+        pass
+```
+* person_subscriber.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+# 该例程将订阅/person_info话题，自定义消息类型learning_topic::Person
+
+import rospy
+from learning_topic.msg import Person
+
+def personInfoCallback(msg):
+    rospy.loginfo("Subcribe Person Info: name:%s  age:%d  sex:%d", 
+			 msg.name, msg.age, msg.sex)
+
+def person_subscriber():
+	# ROS节点初始化
+    rospy.init_node('person_subscriber', anonymous=True)
+
+	# 创建一个Subscriber，订阅名为/person_info的topic，注册回调函数personInfoCallback
+    rospy.Subscriber("/person_info", Person, personInfoCallback)
+
+	# 循环等待回调函数
+    rospy.spin()
+
+if __name__ == '__main__':
+    person_subscriber()
+```
+
 
 **服务编程**
 
 **参数的使用与编程方法**
 
+* 创建功能包
+
+```bash
+cd ~/catkin_ws/src
+catkin_create_pkg learning_parameter roscpp rospy std_srvs
+
+```
+YAML参数文件
+```yaml
+background_b: 255
+background_g: 86
+background_r: 69
+rosdistro: 'melodic'
+roslaunch:
+  uris: {host_hcx_vpc__43763: 'http://hcx-vpc:43763/'}
+rosversion: '1.14.3'
+run_id: 077058de-a38b-11e9-818b-000c29d22e4d
+```
+
+rosparam
+* 列出当前所有参数
+```bash
+rosparam list
+```
+* 显示某个参数值
+```bash
+rosparam get param_key
+```
+* 设置某个参数值
+```bash
+rosparam set param_key param_value
+```
+* 保存参数到文件
+```bash
+rosparam dump file_name
+```
+* 从文件读取参数
+```bash
+rosparam load file_name
+```
+* 删除参数
+```bash
+rosparam delete param_key
+```
+parameter_config.cpp
+```cpp
+/**
+ * 该例程设置/读取海龟例程中的参数
+ */
+#include <string>
+#include <ros/ros.h>
+#include <std_srvs/Empty.h>
+
+int main(int argc, char **argv)
+{
+	int red, green, blue;
+
+    // ROS节点初始化
+    ros::init(argc, argv, "parameter_config");
+
+    // 创建节点句柄
+    ros::NodeHandle node;
+
+    // 读取背景颜色参数
+	ros::param::get("/background_r", red);
+	ros::param::get("/background_g", green);
+	ros::param::get("/background_b", blue);
+
+	ROS_INFO("Get Backgroud Color[%d, %d, %d]", red, green, blue);
+
+	// 设置背景颜色参数
+	ros::param::set("/background_r", 255);
+	ros::param::set("/background_g", 255);
+	ros::param::set("/background_b", 255);
+
+	ROS_INFO("Set Backgroud Color[255, 255, 255]");
+
+    // 读取背景颜色参数
+	ros::param::get("/background_r", red);
+	ros::param::get("/background_g", green);
+	ros::param::get("/background_b", blue);
+
+	ROS_INFO("Re-get Backgroud Color[%d, %d, %d]", red, green, blue);
+
+	// 调用服务，刷新背景颜色
+	ros::service::waitForService("/clear");
+	ros::ServiceClient clear_background = node.serviceClient<std_srvs::Empty>("/clear");
+	std_srvs::Empty srv;
+	clear_background.call(srv);
+	
+	sleep(1);
+
+    return 0;
+}
+
+```
+CMakeLists.txt中配置代码编译规则
+* 设置需要编译的代码和生成的可执行文件
+* 设置链接库
+
+```CMake
+add_executable(parameter_config src/parameter_config.cpp)
+target_link_libraries(parameter_config ${catkin_LIBRARIES})
+```
+* 编译并运行发布者
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+roscore
+rosrun turtlesim turtlesim_node
+rosrun learning_parameter parameter_config
+```
+* parameter_config.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# 该例程设置/读取海龟例程中的参数
+
+import sys
+import rospy
+from std_srvs.srv import Empty
+
+def parameter_config():
+	# ROS节点初始化
+    rospy.init_node('parameter_config', anonymous=True)
+
+	# 读取背景颜色参数
+    red   = rospy.get_param('/background_r')
+    green = rospy.get_param('/background_g')
+    blue  = rospy.get_param('/background_b')
+
+    rospy.loginfo("Get Backgroud Color[%d, %d, %d]", red, green, blue)
+
+	# 设置背景颜色参数
+    rospy.set_param("/background_r", 255);
+    rospy.set_param("/background_g", 255);
+    rospy.set_param("/background_b", 255);
+
+    rospy.loginfo("Set Backgroud Color[255, 255, 255]");
+
+	# 读取背景颜色参数
+    red   = rospy.get_param('/background_r')
+    green = rospy.get_param('/background_g')
+    blue  = rospy.get_param('/background_b')
+
+    rospy.loginfo("Get Backgroud Color[%d, %d, %d]", red, green, blue)
+
+	# 发现/spawn服务后，创建一个服务客户端，连接名为/spawn的service
+    rospy.wait_for_service('/clear')
+    try:
+        clear_background = rospy.ServiceProxy('/clear', Empty)
+
+		# 请求服务调用，输入请求数据
+        response = clear_background()
+        return response
+    except rospy.ServiceException, e:
+        print "Service call failed: %s"%e
+
+if __name__ == "__main__":
+    parameter_config()
+
+```
 
 
 <div align="right">
