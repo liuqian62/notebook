@@ -482,6 +482,451 @@ if __name__ == '__main__':
 
 
 **服务编程**
+* 客户端Client的编程实现
+  * 创建功能包
+
+```bash
+cd ~/catkin_ws/src
+catkin_create_pkg learning_service roscpp rospy std_msgs geometry_msgs turtlesim
+
+```
+
+* tuttle_spawn.cpp
+```cpp
+/**
+ * 该例程将请求/spawn服务，服务数据类型turtlesim::Spawn
+ */
+
+#include <ros/ros.h>
+#include <turtlesim/Spawn.h>
+
+int main(int argc, char** argv)
+{
+    // 初始化ROS节点
+	ros::init(argc, argv, "turtle_spawn");
+
+    // 创建节点句柄
+	ros::NodeHandle node;
+
+    // 发现/spawn服务后，创建一个服务客户端，连接名为/spawn的service
+	ros::service::waitForService("/spawn");
+	ros::ServiceClient add_turtle = node.serviceClient<turtlesim::Spawn>("/spawn");
+
+    // 初始化turtlesim::Spawn的请求数据
+	turtlesim::Spawn srv;
+	srv.request.x = 2.0;
+	srv.request.y = 2.0;
+	srv.request.name = "turtle2";
+
+    // 请求服务调用
+	ROS_INFO("Call service to spwan turtle[x:%0.6f, y:%0.6f, name:%s]", 
+			 srv.request.x, srv.request.y, srv.request.name.c_str());
+
+	add_turtle.call(srv);
+
+	// 显示服务调用结果
+	ROS_INFO("Spwan turtle successfully [name:%s]", srv.response.name.c_str());
+
+	return 0;
+};
+```
+* CMakeLists.txt
+
+```cmake
+add_executable(turtle_spawn src/turtle_spawn.cpp)
+target_link_libraries(turtle_spawn ${catkin_LIBRARIES})
+```
+* 编译并运行客户端
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+roscore
+rosrun turtlesim turtlesim_node
+rosrun learning_service turtle_spawn
+```
+
+* turtle_spawn.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+# 该例程将请求/spawn服务，服务数据类型turtlesim::Spawn
+
+import sys
+import rospy
+from turtlesim.srv import Spawn
+
+def turtle_spawn():
+	# ROS节点初始化
+    rospy.init_node('turtle_spawn')
+
+	# 发现/spawn服务后，创建一个服务客户端，连接名为/spawn的service
+    rospy.wait_for_service('/spawn')
+    try:
+        add_turtle = rospy.ServiceProxy('/spawn', Spawn)
+
+		# 请求服务调用，输入请求数据
+        response = add_turtle(2.0, 2.0, 0.0, "turtle2")
+        return response.name
+    except rospy.ServiceException, e:
+        print "Service call failed: %s"%e
+
+if __name__ == "__main__":
+	#服务调用并显示调用结果
+    print "Spwan turtle successfully [name:%s]" %(turtle_spawn())
+```
+* 服务端Server的编程实现
+
+* turtle_command_server.cpp
+
+```cpp
+/**
+ * 该例程将执行/turtle_command服务，服务数据类型std_srvs/Trigger
+ */
+ 
+#include <ros/ros.h>
+#include <geometry_msgs/Twist.h>
+#include <std_srvs/Trigger.h>
+
+ros::Publisher turtle_vel_pub;
+bool pubCommand = false;
+
+// service回调函数，输入参数req，输出参数res
+bool commandCallback(std_srvs::Trigger::Request  &req,
+         			std_srvs::Trigger::Response &res)
+{
+	pubCommand = !pubCommand;
+
+    // 显示请求数据
+    ROS_INFO("Publish turtle velocity command [%s]", pubCommand==true?"Yes":"No");
+
+	// 设置反馈数据
+	res.success = true;
+	res.message = "Change turtle command state!";
+
+    return true;
+}
+
+int main(int argc, char **argv)
+{
+    // ROS节点初始化
+    ros::init(argc, argv, "turtle_command_server");
+
+    // 创建节点句柄
+    ros::NodeHandle n;
+
+    // 创建一个名为/turtle_command的server，注册回调函数commandCallback
+    ros::ServiceServer command_service = n.advertiseService("/turtle_command", commandCallback);
+
+	// 创建一个Publisher，发布名为/turtle1/cmd_vel的topic，消息类型为geometry_msgs::Twist，队列长度10
+	turtle_vel_pub = n.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 10);
+
+    // 循环等待回调函数
+    ROS_INFO("Ready to receive turtle command.");
+
+	// 设置循环的频率
+	ros::Rate loop_rate(10);
+
+	while(ros::ok())
+	{
+		// 查看一次回调函数队列
+    	ros::spinOnce();
+		
+		// 如果标志为true，则发布速度指令
+		if(pubCommand)
+		{
+			geometry_msgs::Twist vel_msg;
+			vel_msg.linear.x = 0.5;
+			vel_msg.angular.z = 0.2;
+			turtle_vel_pub.publish(vel_msg);
+		}
+
+		//按照循环频率延时
+	    loop_rate.sleep();
+	}
+
+    return 0;
+}
+```
+CMakeLists.txt
+```cmake
+add_executable(turtle_command_server src/turtle_command_server.cpp)
+target_link_libraries(turtle_command_server ${catkin_LIBRARIES})
+```
+* 编译并运行服务器
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+roscore
+rosrun turtlesim turtlesim_node
+rosrun learning_service turtle_command_server
+rosservice call /turtle_command "{}"
+```
+* turtle_command_server.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# 该例程将执行/turtle_command服务，服务数据类型std_srvs/Trigger
+
+import rospy
+import thread,time
+from geometry_msgs.msg import Twist
+from std_srvs.srv import Trigger, TriggerResponse
+
+pubCommand = False;
+turtle_vel_pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+
+def command_thread():	
+	while True:
+		if pubCommand:
+			vel_msg = Twist()
+			vel_msg.linear.x = 0.5
+			vel_msg.angular.z = 0.2
+			turtle_vel_pub.publish(vel_msg)
+			
+		time.sleep(0.1)
+
+def commandCallback(req):
+	global pubCommand
+	pubCommand = bool(1-pubCommand)
+
+	# 显示请求数据
+	rospy.loginfo("Publish turtle velocity command![%d]", pubCommand)
+
+	# 反馈数据
+	return TriggerResponse(1, "Change turtle command state!")
+
+def turtle_command_server():
+	# ROS节点初始化
+    rospy.init_node('turtle_command_server')
+
+	# 创建一个名为/turtle_command的server，注册回调函数commandCallback
+    s = rospy.Service('/turtle_command', Trigger, commandCallback)
+
+	# 循环等待回调函数
+    print "Ready to receive turtle command."
+
+    thread.start_new_thread(command_thread, ())
+    rospy.spin()
+
+if __name__ == "__main__":
+    turtle_command_server()
+
+```
+
+* 服务数据的定义与使用
+
+自定义服务数据
+* Person.srv
+
+```
+string name
+uint8  age
+uint8  sex
+
+uint8 unknown = 0
+uint8 male    = 1
+uint8 female  = 2
+
+---
+string result
+```
+* 在package.xml中添加功能包依赖
+
+```xml
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+```
+* 在CMakeLists.txt中添加编译选项
+
+```cmake
+find_package(...... message_generation)
+
+add_service_file(FILES Person.srv)
+generate_messages(DEPENDENCIES std_msgs)
+
+catkin_package(...... message_runtime)
+
+```
+* person_server.cpp
+
+```cpp
+/**
+ * 该例程将执行/show_person服务，服务数据类型learning_service::Person
+ */
+ 
+#include <ros/ros.h>
+#include "learning_service/Person.h"
+
+// service回调函数，输入参数req，输出参数res
+bool personCallback(learning_service::Person::Request  &req,
+         			learning_service::Person::Response &res)
+{
+    // 显示请求数据
+    ROS_INFO("Person: name:%s  age:%d  sex:%d", req.name.c_str(), req.age, req.sex);
+
+	// 设置反馈数据
+	res.result = "OK";
+
+    return true;
+}
+
+int main(int argc, char **argv)
+{
+    // ROS节点初始化
+    ros::init(argc, argv, "person_server");
+
+    // 创建节点句柄
+    ros::NodeHandle n;
+
+    // 创建一个名为/show_person的server，注册回调函数personCallback
+    ros::ServiceServer person_service = n.advertiseService("/show_person", personCallback);
+
+    // 循环等待回调函数
+    ROS_INFO("Ready to show person informtion.");
+    ros::spin();
+
+    return 0;
+}
+```
+* person_client.cpp
+
+```cpp
+/**
+ * 该例程将请求/show_person服务，服务数据类型learning_service::Person
+ */
+
+#include <ros/ros.h>
+#include "learning_service/Person.h"
+
+int main(int argc, char** argv)
+{
+    // 初始化ROS节点
+	ros::init(argc, argv, "person_client");
+
+    // 创建节点句柄
+	ros::NodeHandle node;
+
+    // 发现/spawn服务后，创建一个服务客户端，连接名为/spawn的service
+	ros::service::waitForService("/show_person");
+	ros::ServiceClient person_client = node.serviceClient<learning_service::Person>("/show_person");
+
+    // 初始化learning_service::Person的请求数据
+	learning_service::Person srv;
+	srv.request.name = "Tom";
+	srv.request.age  = 20;
+	srv.request.sex  = learning_service::Person::Request::male;
+
+    // 请求服务调用
+	ROS_INFO("Call service to show person[name:%s, age:%d, sex:%d]", 
+			 srv.request.name.c_str(), srv.request.age, srv.request.sex);
+
+	person_client.call(srv);
+
+	// 显示服务调用结果
+	ROS_INFO("Show person result : %s", srv.response.result.c_str());
+
+	return 0;
+};
+```
+* 在CMakeLists.txt中配置编译规则
+
+```cmake
+add_executable(person_server src/person_server.cpp)
+target_link_libraries(person_server ${catkin_LIBRARIES})
+add_dependencies(person_server ${PROJECT_NAME}_gencpp)
+
+add_executable(person_client src/person_client.cpp)
+target_link_libraries(person_client ${catkin_LIBRARIES})
+add_dependencies(person_client ${PROJECT_NAME}_gencpp)
+
+```
+* 编译并运行客户端和服务端
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+roscore
+rosrun learning_service person_server
+rosrun learning_service person_client
+
+```
+
+* person_server.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+# 该例程将执行/show_person服务，服务数据类型learning_service::Person
+
+import rospy
+from learning_service.srv import Person, PersonResponse
+
+def personCallback(req):
+	# 显示请求数据
+    rospy.loginfo("Person: name:%s  age:%d  sex:%d", req.name, req.age, req.sex)
+
+	# 反馈数据
+    return PersonResponse("OK")
+
+def person_server():
+	# ROS节点初始化
+    rospy.init_node('person_server')
+
+	# 创建一个名为/show_person的server，注册回调函数personCallback
+    s = rospy.Service('/show_person', Person, personCallback)
+
+	# 循环等待回调函数
+    print "Ready to show person informtion."
+    rospy.spin()
+
+if __name__ == "__main__":
+    person_server()
+```
+* person_client.py
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# 该例程将请求/show_person服务，服务数据类型learning_service::Person
+
+import sys
+import rospy
+from learning_service.srv import Person, PersonRequest
+
+def person_client():
+	# ROS节点初始化
+    rospy.init_node('person_client')
+
+	# 发现/spawn服务后，创建一个服务客户端，连接名为/spawn的service
+    rospy.wait_for_service('/show_person')
+    try:
+        person_client = rospy.ServiceProxy('/show_person', Person)
+
+		# 请求服务调用，输入请求数据
+        response = person_client("Tom", 20, PersonRequest.male)
+        return response.result
+    except rospy.ServiceException, e:
+        print "Service call failed: %s"%e
+
+if __name__ == "__main__":
+	#服务调用并显示调用结果
+    print "Show person result : %s" %(person_client())
+```
+
+
 
 **参数的使用与编程方法**
 
