@@ -214,7 +214,7 @@ launch文件内部的局部变量，仅限于launch文件使用
   * [ROSCon2012~2019](https://roscon.ros.org/2022/)
   * [ROS Robots](https://robots.ros.org/)
   * [Ubuntu Wiki](https://wiki.ubuntu.com/)
-  * [古月居](https://www.gyj.ai)
+  * [古月居](https://www.gyh.ai)
   * [zhangerlay的专栏](https://blog.csdn.net/zhangrelay)
   * [易科机器人实验室](https://blog.exbot.net/)
   * [开源机器人学学习指南](https://github.com/qqfly/how-to-learn-robotics)
