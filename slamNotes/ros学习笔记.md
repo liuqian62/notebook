@@ -121,9 +121,34 @@ launch文件内部的局部变量，仅限于launch文件使用
 ```launch
 <remap from="/turtlebot/cmd_vel"   to="/cmd_vel"/>
 ```
-   * from:
-   * to:
+   * from:原命名
+   * to:映射之后的命名
 
+* 嵌套
+  * `<include>`
+包含其他launch文件，类似C语言中的头文件包含
+```launch
+<include file="$(dirname)/other.launch"/>
+```
+   * file:包含的其他launch文件的路径
+
+示例
+```launch
+<launch>
+
+	<param name="/turtle_number"   value="2"/>
+
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node">
+		<param name="turtle_name1"   value="Tom"/>
+		<param name="turtle_name2"   value="Jerry"/>
+
+		<rosparam file="$(find learning_launch)/config/param.yaml" command="load"/>
+	</node>
+
+    <node pkg="turtlesim" type="turtle_teleop_key" name="turtle_teleop_key" output="screen"/>
+
+</launch>
+```
 
 
 
@@ -179,6 +204,21 @@ launch文件内部的局部变量，仅限于launch文件使用
 ### 进阶展望
 
 **课程总结与进阶攻略**
+
+* 机器人仿真与控制
+* 同时定位与建图
+* 运动规划
+* 资源整理
+  * [ROS](https://www.ros.org/)
+  * [ROS Wiki](http://wiki.ros.org/cn)
+  * [ROSCon2012~2019](https://roscon.ros.org/2022/)
+  * [ROS Robots](https://robots.ros.org/)
+  * [Ubuntu Wiki](https://wiki.ubuntu.com/)
+  * [古月居](https://www.gyj.ai)
+  * [zhangerlay的专栏](https://blog.csdn.net/zhangrelay)
+  * [易科机器人实验室](https://blog.exbot.net/)
+  * [开源机器人学学习指南](https://github.com/qqfly/how-to-learn-robotics)
+
 
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
