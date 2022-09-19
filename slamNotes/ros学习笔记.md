@@ -18,7 +18,61 @@
 **C++/Python极简基础**
 
 **安装ROS系统**
+不同版本ubuntu对应的ros
+|ubuntu版本|ros版本|
+|：---:|:---：|
+|16.04|Kinetic|
+|18.04|Melodic|
+|20.04|Noetic|
 
+* 以安装18.04的`Melodic`为例
+1. 设置软件源：
+```bash
+sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main" > /etc/apt/sources.list.d/ros-latest.list'
+
+```
+2. 添加密钥
+```bash
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C654
+
+```
+3. 安装ROS
+```bash
+sudo apt-get update
+
+sudo apt-get install ros-melodic-desktop-full
+
+sudo apt-get install ros-melodic-rqt*
+
+```
+4. 初始化
+```bash
+sudo rosdep init
+rosdep update
+
+```
+5. 设置环节变量
+```bash
+echo "source /opt/ros/melodic/setup.bash">>~/.bashrc
+source ~/.bashrc
+```
+6. 安装rosinstall
+```bash
+sudo apt install python-rosinstall python-rosintsall-generator python-wstool build-essential
+```
+海龟示例
+* 启动ROS Master
+```bash
+roscore
+```
+* 启动小海龟仿真器
+```bash
+rosrun turtlesim turtlesim_node
+```
+* 启动海龟控制节点
+```bash
+rosrun turtlesim turtle_teleop_keye_teleop_key
+```
 
 <div align="right">
     <b><a href="#目录">↥ Back To Top</a></b>
@@ -30,6 +84,62 @@
 **ROS是什么**
 
 **ROS中的核心概念**
+
+* 节点与节点管理器
+  * 节点（Node）--执行单元
+    * 执行具体任务的进程、独立运行的可执行文件；
+    * 不同节点可使用不同的编程语言，可分布式运行在不同的主机；
+    * 节点在系统中的名称必须是唯一的。
+  * 节点管理器（ROS Master）--控制中心
+    * 为节点提供命名和注册服务；
+    * 跟踪和记录话题/服务通信，辅助节点相互查找、建立连接；
+    * 提供参数服务器，节点使用此服务器存储和检索运行时的参数。
+* 话题通信
+  * 话题（Topic）--异步通信机制
+    * 节点间用来传输数据的重要总线；
+    * 使用发布/订阅模型，数据由发布者传输到订阅者，同一个话题的订阅者或发布者可以不唯一。
+  * 消息（Message）--话题数据
+    * 具有一定的类型和数据结构，包括ROS提供的标准类型和用户自定义类型；
+    * 使用编程语言无关的.msg文件定义，编译过程中生成对应的代码文件。
+* 服务通信
+  * 服务（Service）--同步通信机制
+    * 使用客户端/服务器（C/S）模型，客户端发送请求数据，服务器完成处理后返回应答数据；
+    * 使用编程语言无关的.srv文件定义请求和应答数据结构，编译过程中生成对应的代码文件。  
+
+* 话题vs服务
+<div align="center">
+	
+||话题|服务|  
+|:---:|:---:|:---:|
+|同步性|异步|同步|
+|通信模型|发布/订阅|服务器/客户端|
+|底层协议|ROSTCP/TOSUDP|ROSTCP/ROSUDP|
+|反馈机制|无|有|
+|缓冲区|有|无|
+|实时性|弱|强|
+|节点关系|多对多|一对多（一个server）|
+|适用场景|数据传输|逻辑处理|
+	
+</div>
+
+* 参数
+  * 参数（Parameter）--全局共享字典
+    * 可通过网络访问的共享、多变量字典；
+    * 节点使用此服务器来存储和检索运行时的参数；
+    * 适合存储静态、非二进制的配置参数，不适合存储动态配置的数据。
+
+* 文件系统
+  * 功能包（Package）
+    * ROS软件中的基本单元，包含节点源码、配置文件、数据定义等
+  * 功能包清单（Package manifest）
+    * 记录功能包的基本信息，包含作者信息，许可信息、依赖选项、编译标志等
+  * 元功能包（Meta Packages）
+    * 组织多个用于同一目的的功能包      
+
+
+
+
+
 
 **ROS命令行工具使用**
 * 常用命令
