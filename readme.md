@@ -54,7 +54,7 @@
 |[力扣](https://leetcode.cn/problemset/all/)|[智联招聘](http://www.zhaopin.com/)| 
 | [牛客网](https://www.nowcoder.com/exam/oj) | [BOSS直聘](https://www.zhipin.com/chengdu/) |
 | [菜鸟](https://www.runoob.com/)  | [拉钩网](http://www.lagou.com/) |
-| [电子书(4321)](https://github.com/imarvinle/awesome-cs-books) | [猎聘网](http://www.liepin.com/) |
+| [电子书(解压密码：4321)](https://github.com/imarvinle/awesome-cs-books) | [猎聘网](http://www.liepin.com/) |
 | [河畔就业](https://bbs.uestc.edu.cn/forum.php?mod=forumdisplay&fid=174) | [百度百聘](https://zhaopin.baidu.com/) |
 | [图解计算机基础](https://xiaolincoding.com/) | [58同城](http://www.58.com/) |
 </div>
