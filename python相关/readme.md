@@ -24,6 +24,8 @@ python-dateutil==2.8.2
 ```bash
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.douban.com
 ```
+
+* [python图形界面示例](https://github.com/liuqian62/loopmark)
 # [mmdetetion](https://github.com/liuqian62/notebook/blob/main/python%E7%9B%B8%E5%85%B3/mmdetection.md)
 # OpenCV教程
 * [OpenCV中文官方文档](https://woshicver.com/)
