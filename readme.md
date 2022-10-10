@@ -17,8 +17,7 @@
 
 # This is my notebook
 
-## [slam资料和笔记](/slamNotes)
-## [毕业设计](./slamNotes/毕业设计.md)
+
 
 
 
@@ -136,3 +135,5 @@ $\frac{n!}{k!(n-k)!} = {n \choose k}$ -->
 
 - [发现一个卷王](https://github.com/LiCaoZ)
 - [体重管理](./体重管理.md)
+- [slam资料和笔记](/slamNotes)
+- [毕业设计](./slamNotes/毕业设计.md)
