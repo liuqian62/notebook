@@ -23,6 +23,23 @@
 
 ## 服务器连接
 
+* 内网穿透
+```bash
+apt install wget
+wget https://github.com/fatedier/frp/releases/download/v0.44.0/frp_0.44.0_linux_amd64.tar.gz
+tar -xzvf frp_0.44.0_linux_amd64.tar.gz
+cd frp_0.44.0_linux_amd64/
+./frps -c ./frps.ini
+#关闭防火墙
+ufw disable
+
+#客户端common添加tls_enable=true
+
+ssh -oPort=6000 mii2@140.82.40.39
+
+
+```
+
 ```bash
 ssh mii@192.168.0.123
 ```
