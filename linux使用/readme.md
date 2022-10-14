@@ -39,6 +39,23 @@ ssh -oPort=6000 mii2@140.82.40.39
 
 
 ```
+* screen避免断网杀进程
+```bash
+
+#查看现有screen会话
+screen -ls
+
+#新建一个screen会话
+screen -S rich
+#恢复现有screen会话
+screen -r rich
+或者
+screen -X rich
+
+#推出当前screen会话
+ctrl+a 再按D
+
+```
 
 ```bash
 ssh mii@192.168.0.123
