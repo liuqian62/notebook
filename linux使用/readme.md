@@ -35,7 +35,8 @@ ufw disable
 
 #客户端common添加tls_enable=true
 
-ssh -oPort=6000 mii2@140.82.40.39
+ssh  mii2@140.82.40.39 -p 6000
+ssh  mii@140.82.40.39 -p 6009
 
 
 ```
