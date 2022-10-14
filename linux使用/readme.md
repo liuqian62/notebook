@@ -56,7 +56,7 @@ screen -X rich
 ctrl+a 再按D
 
 ```
-
+[部署网页](https://blog.csdn.net/qq_43596067/article/details/123443945?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AA%E6%AD%A3%E5%B8%B8%E7%9A%84%E7%BD%91%E9%A1%B5&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-5-123443945.142^v56^new_blog_pos_by_title,201^v3^add_ask&spm=1018.2226.3001.4187)
 ```bash
 ssh mii@192.168.0.123
 ```
