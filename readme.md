@@ -59,6 +59,8 @@
 | [图解计算机基础](https://xiaolincoding.com/) | [58同城](http://www.58.com/) |
 </div>
 
+
+* [校招避雷](https://github.com/forthespada/CampusShame)
 </details>
 
 
