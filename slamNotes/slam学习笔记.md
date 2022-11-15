@@ -697,7 +697,7 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 
 * 对极约束
 
-![7-7](../images/7-7.png)
+![7-7](./images/7-7.png)
 我们希望求取两帧图像 I1; I2 之间的运动，设第一帧到第二帧的运动为 R; t。两
 个相机中心分别为 O1; O2。现在，考虑 I1 中有一个特征点 p1，它在 I2 中对应着特征点 p2。我们知道
 两者是通过特征匹配得到的。如果匹配正确，说明它们确实是同一个空间点在两个成像平面上的投
@@ -804,44 +804,99 @@ E 具有 5 个自由度的事实，表明我们最少可以用 5 对点来求解
 </div>
 同理，对于其他点对也有相同的表示。我们把所有点都放到一个方程中，变成线性方程组(ui,vi表示第i个特征点)：
  <div align="center"> 
-  <br />
+  <br /><img src="https://latex.codecogs.com/svg.image?\begin{pmatrix}&space;u_{2}^{1}u_{1}^{1}&u_{2}^{1}v_{1}^{1}&space;&space;&u_{2}^{1}&space;&space;&v_{2}^{1}u_{1}^{1}&space;&space;&v_{2}^{1}v_{1}^{1}&space;&space;&v_{2}^{1}&space;&space;&u_{1}^{1}&space;&space;&v_{1}^{1}&space;&space;&1&space;&space;\\&space;u_{2}^{2}u_{1}^{2}&u_{2}^{2}v_{1}^{2}&space;&space;&u_{2}^{2}&space;&space;&v_{2}^{2}u_{1}^{2}&space;&space;&v_{2}^{2}v_{1}^{2}&space;&space;&v_{2}^{2}&space;&space;&u_{1}^{2}&space;&space;&v_{1}^{2}&space;&space;&1&space;&space;\\&space;\vdots&space;&\vdots&space;&space;&space;&\vdots&space;&space;&space;&\vdots&space;&space;&space;&\vdots&space;&space;&space;&\vdots&space;&space;&space;&\vdots&space;&space;&space;&\vdots&space;&space;&space;&\vdots&space;&space;&space;\\&space;u_{2}^{8}u_{1}^{8}&u_{2}^{8}v_{1}^{8}&space;&space;&u_{2}^{8}&space;&space;&v_{2}^{8}u_{1}^{8}&space;&space;&v_{2}^{8}v_{1}^{8}&space;&space;&v_{2}^{8}&space;&space;&u_{1}^{8}&space;&space;&v_{1}^{8}&space;&space;&1&space;&space;\\\end{pmatrix}\begin{pmatrix}&space;e_{1}\\&space;e_{2}\\&space;e_{3}\\&space;e_{4}\\&space;e_{5}\\&space;e_{6}\\&space;e_{7}\\&space;e_{8}\\e_{9}\end{pmatrix}=0" title="https://latex.codecogs.com/svg.image?\begin{pmatrix} u_{2}^{1}u_{1}^{1}&u_{2}^{1}v_{1}^{1} &u_{2}^{1} &v_{2}^{1}u_{1}^{1} &v_{2}^{1}v_{1}^{1} &v_{2}^{1} &u_{1}^{1} &v_{1}^{1} &1 \\ u_{2}^{2}u_{1}^{2}&u_{2}^{2}v_{1}^{2} &u_{2}^{2} &v_{2}^{2}u_{1}^{2} &v_{2}^{2}v_{1}^{2} &v_{2}^{2} &u_{1}^{2} &v_{1}^{2} &1 \\ \vdots &\vdots &\vdots &\vdots &\vdots &\vdots &\vdots &\vdots &\vdots \\ u_{2}^{8}u_{1}^{8}&u_{2}^{8}v_{1}^{8} &u_{2}^{8} &v_{2}^{8}u_{1}^{8} &v_{2}^{8}v_{1}^{8} &v_{2}^{8} &u_{1}^{8} &v_{1}^{8} &1 \\\end{pmatrix}\begin{pmatrix} e_{1}\\ e_{2}\\ e_{3}\\ e_{4}\\ e_{5}\\ e_{6}\\ e_{7}\\ e_{8}\\e_{9}\end{pmatrix}=0" />
 </div>
-
+这 8 个方程构成了一个线性方程组。它的系数矩阵由特征点位置构成，大小为 8  9。e 位于该
+矩阵的零空间中。如果系数矩阵是满秩的（即秩为 8），那么它的零空间维数为 1，也就是 e 构成一
+条线。这与 e 的尺度等价性是一致的。如果 8 对匹配点组成的矩阵满足秩为 8 的条件，那么 E 的各
+元素就可由上述方程解得。
+接下来的问题是如何根据已经估得的本质矩阵 E，恢复出相机的运动 R; t。这个过程是由奇异
+值分解（SVD）得到的。设 E 的 SVD 分解为
  <div align="center"> 
-  <br />
+  <br /><img src="https://latex.codecogs.com/svg.image?E=U\Sigma&space;&space;V^{T}" title="https://latex.codecogs.com/svg.image?E=U\Sigma V^{T}" />
 </div>
-
+其中 U ; V 为正交阵，Σ 为奇异值矩阵。根据 E 的内在性质，我们知道 Σ = diag(; ; 0)。在 SVD
+分解中，对于任意一个 E，存在两个可能的 t; R 与它对应：
  <div align="center"> 
-  <br />
+  <br /><img src="https://latex.codecogs.com/svg.image?\begin{matrix}&space;t_{1}^{\wedge&space;}=UR_{Z}(\frac{\pi&space;}{2})\Sigma&space;U^{T},R_{1}=UR_{Z}^{T}(\frac{\pi&space;}{2})V^{T}\\t_{2}^{\wedge&space;}=UR_{Z}(-\frac{\pi&space;}{2})\Sigma&space;U^{T},R_{2}=UR_{Z}^{T}(-\frac{\pi&space;}{2})V^{T}\end{matrix}" title="https://latex.codecogs.com/svg.image?\begin{matrix} t_{1}^{\wedge }=UR_{Z}(\frac{\pi }{2})\Sigma U^{T},R_{1}=UR_{Z}^{T}(\frac{\pi }{2})V^{T}\\t_{2}^{\wedge }=UR_{Z}(-\frac{\pi }{2})\Sigma U^{T},R_{2}=UR_{Z}^{T}(-\frac{\pi }{2})V^{T}\end{matrix}" />
 </div>
+其中 RZ ( π
+2 ) 表示沿 Z 轴旋转 90◦ 得到的旋转矩阵。同时，由于 E 和 E 等价，所以对任意一
+个 t 取负号，也会得到同样的结果。因此，从 E 分解到 t; R 时，一共存在 4 个可能的解。
 
+![7-10](./images/7-10.png)
+
+剩下的问题还有一个：根据线性方程解出的 E，可能不满足 E 的内在性质——它的奇异值不一
+定为 ; ; 0 的形式。这时，我们会刻意地把 Σ 矩阵调整成上面的样子。通常的做法是，对八点法求
+得的 E 进行 SVD 分解后，会得到奇异值矩阵 Σ = diag(1; 2; 3)，不妨设 1 ⩾ 2 ⩾ 3。取：
  <div align="center"> 
-  <br />
+  <br /><img src="https://latex.codecogs.com/svg.image?E=Udiag(\frac{\sigma&space;_{1}&plus;\sigma&space;_{2}}{2},\frac{\sigma&space;_{1}&plus;\sigma&space;_{2}}{2},0)V^{T}" title="https://latex.codecogs.com/svg.image?E=Udiag(\frac{\sigma _{1}+\sigma _{2}}{2},\frac{\sigma _{1}+\sigma _{2}}{2},0)V^{T}" />
 </div>
 
+这相当于是把求出来的矩阵投影到了 E 所在的流形上。当然，更简单的做法是将奇异值矩阵取成
+diag(1; 1; 0)，因为 E 具有尺度等价性，所以这样做也是合理的。
 
 * 单应矩阵
 
+除了基本矩阵和本质矩阵，二视图几何中还存在另一种常见的矩阵：单应矩阵（Homography）
+H，它描述了两个平面之间的映射关系。若场景中的特征点都落在同一平面上（比如墙、地面等），
+则可以通过单应性来进行运动估计。这种情况在无人机携带的俯视相机或扫地机携带的顶视相机中
+比较常见。由于之前没有提到过单应，因此这里稍微介绍一下。
+单应矩阵通常描述处于共同平面上的一些点在两张图像之间的变换关系。考虑在图像 I1 和 I2
+有一对匹配好的特征点 p1 和 p2。这些特征点落在平面 P 上，设这个平面满足方程：
  <div align="center"> 
-  <br />
+  <br /><img src="https://latex.codecogs.com/svg.image?n^{T}P&plus;d=0" title="https://latex.codecogs.com/svg.image?n^{T}P+d=0" />
 </div>
+即
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?-\frac{n^{T}P}{d}=1" title="https://latex.codecogs.com/svg.image?-\frac{n^{T}P}{d}=1" />
+</div>
+得
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?\begin{align*}&space;p_{2}&=K(RP&plus;t)&space;\\&space;&=K(RP&plus;t\cdot&space;(-\frac{n^{T}P}{d}))&space;\\&space;&=K(R-\frac{tn^{T}}{d})P&space;\\&space;&=K(R-\frac{tn^{T}}{d})K^{-1}p_{1}\end{align*}" title="https://latex.codecogs.com/svg.image?\begin{align*} p_{2}&=K(RP+t) \\ &=K(RP+t\cdot (-\frac{n^{T}P}{d})) \\ &=K(R-\frac{tn^{T}}{d})P \\ &=K(R-\frac{tn^{T}}{d})K^{-1}p_{1}\end{align*}" />
+</div>
+于是，我们得到了一个直接描述图像坐标 p1 和 p2 之间的变换，把中间这部分记为 H，于是:
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?p_{2}\simeq&space;Hp_{1}" title="https://latex.codecogs.com/svg.image?p_{2}\simeq Hp_{1}" />
+</div>
+它的定义与旋转、平移及平面的参数有关。与基础矩阵 F 类似，单应矩阵 H 也是一个 3 x3 的
+矩阵，求解时的思路也和 F 类似，同样可以先根据匹配点计算 H，然后将它分解以计算旋转和平
+移。把上式展开，得：
 
  <div align="center"> 
-  <br />
+  <br /><img src="https://latex.codecogs.com/svg.image?\begin{pmatrix}&space;u_{2}\\&space;v_{2}\\1\end{pmatrix}=\begin{pmatrix}&space;h_{1}&h_{2}&space;&space;&h_{3}&space;&space;\\&space;h_{4}&h_{5}&space;&space;&h_{6}&space;&space;\\&space;h_{7}&h_{8}&space;&space;&h_{9}&space;&space;\\\end{pmatrix}\begin{pmatrix}u_{1}&space;\\v_{1}&space;\\1\end{pmatrix}" title="https://latex.codecogs.com/svg.image?\begin{pmatrix} u_{2}\\ v_{2}\\1\end{pmatrix}=\begin{pmatrix} h_{1}&h_{2} &h_{3} \\ h_{4}&h_{5} &h_{6} \\ h_{7}&h_{8} &h_{9} \\\end{pmatrix}\begin{pmatrix}u_{1} \\v_{1} \\1\end{pmatrix}" />
 </div>
+请注意，这里的等号是在非零因子下成立的。我们在实际处理中通常乘以一个非零因子使得
+h9 = 1（在它取非零值时）。然后根据第 3 行，去掉这个非零因子，于是有:
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?\begin{matrix}&space;u_{2}=\frac{h_{1}u_{1}&plus;h_{2}v_{1}&plus;h_{3}}{h_{7}u_{1}&plus;h_{8}v_{1}&plus;h_{9}}\\&space;v_{2}=\frac{h_{4}u_{1}&plus;h_{5}v_{1}&plus;h_{6}}{h_{7}u_{1}&plus;h_{8}v_{1}&plus;h_{9}}\end{matrix}" title="https://latex.codecogs.com/svg.image?\begin{matrix} u_{2}=\frac{h_{1}u_{1}+h_{2}v_{1}+h_{3}}{h_{7}u_{1}+h_{8}v_{1}+h_{9}}\\ v_{2}=\frac{h_{4}u_{1}+h_{5}v_{1}+h_{6}}{h_{7}u_{1}+h_{8}v_{1}+h_{9}}\end{matrix}" />
+</div>
+整理得:
 
  <div align="center"> 
-  <br />
+  <br /><img src="https://latex.codecogs.com/svg.image?\begin{matrix}&space;h_{1}u_{1}&plus;h_{2}v_{1}&plus;h_{3}-h_{7}u_{1}u_{2}-h_{8}v_{1}u_{2}=u_{2}\\&space;h_{4}u_{1}&plus;h_{5}v_{1}&plus;h_{6}-h_{7}u_{1}v_{2}-h_{8}v_{1}v_{2}=v_{2}\end{matrix}" title="https://latex.codecogs.com/svg.image?\begin{matrix} h_{1}u_{1}+h_{2}v_{1}+h_{3}-h_{7}u_{1}u_{2}-h_{8}v_{1}u_{2}=u_{2}\\ h_{4}u_{1}+h_{5}v_{1}+h_{6}-h_{7}u_{1}v_{2}-h_{8}v_{1}v_{2}=v_{2}\end{matrix}" />
 </div>
-
+这样一组匹配点对就可以构造出两项约束（事实上有三个约束，但是因为线性相关，只取前两
+个），于是自由度为 8 的单应矩阵可以通过 4 对匹配特征点算出（注意，这些特征点不能有三点共
+线的情况），即求解以下的线性方程组（当 h9 = 0 时，右侧为零）:
  <div align="center"> 
-  <br />
+  <br /><img src="https://latex.codecogs.com/svg.image?\begin{pmatrix}&space;u_{1}^{1}&v_{1}^{1}&space;&space;&1&space;&space;&0&space;&space;&0&space;&space;&0&space;&space;&-u_{1}^{1}u_{2}^{1}&space;&space;&-v_{1}^{1}u_{2}^{1}&space;&space;\\&space;0&0&space;&space;&0&space;&space;&u_{1}^{1}&v_{1}^{1}&space;&space;&1&space;&space;&-u_{1}^{1}v_{2}^{1}&space;&space;&-v_{1}^{1}v_{2}^{1}&space;&space;\\&space;u_{1}^{2}&v_{1}^{2}&space;&space;&1&space;&space;&0&space;&space;&0&space;&space;&0&space;&space;&-u_{1}^{2}u_{2}^{2}&space;&space;&-v_{1}^{2}u_{2}^{2}&space;&space;\\&space;0&0&space;&space;&0&space;&space;&u_{1}^{2}&v_{1}^{2}&space;&space;&1&space;&space;&-u_{1}^{2}v_{2}^{2}&space;&space;&-v_{1}^{2}v_{2}^{2}&space;&space;\\&space;u_{1}^{3}&v_{1}^{3}&space;&space;&1&space;&space;&0&space;&space;&0&space;&space;&0&space;&space;&-u_{1}^{3}u_{2}^{3}&space;&space;&-v_{1}^{3}u_{2}^{3}&space;&space;\\&space;0&0&space;&space;&0&space;&space;&u_{1}^{3}&v_{1}^{3}&space;&space;&1&space;&space;&-u_{1}^{3}v_{2}^{3}&space;&space;&-v_{1}^{3}v_{2}^{3}&space;&space;\\&space;u_{1}^{4}&v_{1}^{4}&space;&space;&1&space;&space;&0&space;&space;&0&space;&space;&0&space;&space;&-u_{1}^{4}u_{2}^{4}&space;&space;&-v_{1}^{4}u_{2}^{4}&space;&space;\\&space;0&0&space;&space;&0&space;&space;&u_{1}^{4}&v_{1}^{4}&space;&space;&1&space;&space;&-u_{1}^{4}v_{2}^{4}&space;&space;&-v_{1}^{4}v_{2}^{4}&space;&space;\\\end{pmatrix}\begin{pmatrix}&space;h_{1}\\&space;h_{2}\\&space;h_{3}\\&space;h_{4}\\&space;h_{5}\\&space;h_{6}\\&space;h_{7}\\h_{8}\end{pmatrix}=\begin{pmatrix}&space;u_{2}^{1}\\&space;v_{2}^{1}\\&space;u_{2}^{2}\\&space;v_{2}^{2}\\&space;u_{2}^{3}\\&space;v_{2}^{3}\\&space;u_{2}^{4}\\v_{2}^{4}\end{pmatrix}" title="https://latex.codecogs.com/svg.image?\begin{pmatrix} u_{1}^{1}&v_{1}^{1} &1 &0 &0 &0 &-u_{1}^{1}u_{2}^{1} &-v_{1}^{1}u_{2}^{1} \\ 0&0 &0 &u_{1}^{1}&v_{1}^{1} &1 &-u_{1}^{1}v_{2}^{1} &-v_{1}^{1}v_{2}^{1} \\ u_{1}^{2}&v_{1}^{2} &1 &0 &0 &0 &-u_{1}^{2}u_{2}^{2} &-v_{1}^{2}u_{2}^{2} \\ 0&0 &0 &u_{1}^{2}&v_{1}^{2} &1 &-u_{1}^{2}v_{2}^{2} &-v_{1}^{2}v_{2}^{2} \\ u_{1}^{3}&v_{1}^{3} &1 &0 &0 &0 &-u_{1}^{3}u_{2}^{3} &-v_{1}^{3}u_{2}^{3} \\ 0&0 &0 &u_{1}^{3}&v_{1}^{3} &1 &-u_{1}^{3}v_{2}^{3} &-v_{1}^{3}v_{2}^{3} \\ u_{1}^{4}&v_{1}^{4} &1 &0 &0 &0 &-u_{1}^{4}u_{2}^{4} &-v_{1}^{4}u_{2}^{4} \\ 0&0 &0 &u_{1}^{4}&v_{1}^{4} &1 &-u_{1}^{4}v_{2}^{4} &-v_{1}^{4}v_{2}^{4} \\\end{pmatrix}\begin{pmatrix} h_{1}\\ h_{2}\\ h_{3}\\ h_{4}\\ h_{5}\\ h_{6}\\ h_{7}\\h_{8}\end{pmatrix}=\begin{pmatrix} u_{2}^{1}\\ v_{2}^{1}\\ u_{2}^{2}\\ v_{2}^{2}\\ u_{2}^{3}\\ v_{2}^{3}\\ u_{2}^{4}\\v_{2}^{4}\end{pmatrix}" />
 </div>
 
+这种做法把 H 矩阵看成了向量，通过解该向量的线性方程来恢复 H，又称直接线性变换法
+（Direct Linear Transform）。与本质矩阵相似，求出单应矩阵以后需要对其进行分解，才可以得到相
+应的旋转矩阵 R 和平移向量 t。分解的方法包括数值法[52, 53] 与解析法[54]。与本质矩阵的分解类似，
+单应矩阵的分解同样会返回 4 组旋转矩阵与平移向量，并且同时可以计算出它们分别对应的场景点
+所在平面的法向量。如果已知成像的地图点的深度全为正值（即在相机前方），则又可以排除两组
+解。最后仅剩两组解，这时需要通过更多的先验信息进行判断。通常我们可以通过假设已知场景平
+面的法向量来解决，如场景平面与相机平面平行，那么法向量 n 的理论值为 1T。
+单应性在 SLAM 中具有重要意义。当特征点共面或者相机发生纯旋转时，基础矩阵的自由度下
+降，这就出现了所谓的退化（degenerate）。现实中的数据总包含一些噪声，这时候如果继续使用八
+点法求解基础矩阵，基础矩阵多余出来的自由度将会主要由噪声决定。为了能够避免退化现象造成
+的影响，通常我们会同时估计基础矩阵 F 和单应矩阵 H，选择重投影误差比较小的那个作为最终
+的运动估计矩阵。
 
- <div align="center"> 
-  <br />
-</div>
+
 
 
 
