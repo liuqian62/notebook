@@ -695,6 +695,14 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 
 ### 2D-2D：对极几何
 
+* 对极约束
+
+* 本质矩阵
+
+* 单应矩阵
+
+
+
 ### 三角测量
 
 ### 3D-2D：PnP
