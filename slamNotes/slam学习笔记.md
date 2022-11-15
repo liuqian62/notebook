@@ -697,9 +697,151 @@ target_link_libraries(g2oCurveFitting ${OpenCV_LIBS} ${G2O_CORE_LIBRARY} ${G2O_S
 
 * 对极约束
 
+![7-7](../images/7-7.png)
+我们希望求取两帧图像 I1; I2 之间的运动，设第一帧到第二帧的运动为 R; t。两
+个相机中心分别为 O1; O2。现在，考虑 I1 中有一个特征点 p1，它在 I2 中对应着特征点 p2。我们知道
+两者是通过特征匹配得到的。如果匹配正确，说明它们确实是同一个空间点在两个成像平面上的投
+影。这里需要一些术语来描述它们之间的几何关系。首先，连线 !
+O1p1 和连线 !
+O2p2 在三维空间中会
+相交于点 P 。这时候点 O1; O2; P 三个点可以确定一个平面，称为极平面（Epipolar plane）。O1O2 连
+线与像平面 I1; I2 的交点分别为 e1; e2。e1; e2 称为极点（Epipoles），O1O2 被称为基线（Baseline）。
+我们称极平面与两个像平面 I1; I2 之间的相交线 l1; l2 为极线（Epipolar line）。
+直观讲，从第一帧的角度看，射线 !
+O1p1 是某个像素可能出现的空间位置——因为该射线上的
+所有点都会投影到同一个像素点。同时，如果不知道 P 的位置，那么当我们在第二幅图像上看时，
+连线 !e2p2（也就是第二幅图像中的极线）就是 P 可能出现的投影的位置，也就是射线 !
+O1p1 在第二
+个相机中的投影。现在，由于我们通过特征点匹配确定了 p2 的像素位置，所以能够推断 P 的空间位
+置，以及相机的运动。要提醒读者的是，这多亏了正确的特征匹配。如果没有特征匹配，我们就没
+法确定 p2 到底在极线的哪个位置了。那时，就必须在极线上搜索以获得正确的匹配，这将在第 12
+讲中提到。
+现在，我们从代数角度来看一下这里的几何关系。在第一帧的坐标系下，设 P 的空间位置为
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?P=[X,Y,Z]^T" title="https://latex.codecogs.com/svg.image?P=[X,Y,Z]^T" />
+</div>
+根据针孔相机模型，我们知道两个像素点 p1; p2 的像素位置为
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?s_{1}p_{1}=KP,s_{2}p_{2}=K(RP&plus;t)" title="https://latex.codecogs.com/svg.image?s_{1}p_{1}=KP,s_{2}p_{2}=K(RP+t)" />
+</div>
+这里 K 为相机内参矩阵，R; t 为两个坐标系的相机运动。具体来说，这里计算的是 R21 和 t21，
+因为它们把第一个坐标系下的坐标转换到第二个坐标系下。如果我们愿意，也可以把它们写成李代
+数形式。
+有时候，我们会使用齐次坐标表示像素点。在使用齐次坐标时，一个向量将等于它自身乘上任
+意的非零常数。这通常用于表达一个投影关系。例如 s1p1 和 p1 成投影关系，它们在齐次坐标的意
+义下是相等的。我们称这种相等关系为尺度意义下相等（equal up to a scale），记作
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?sp\simeq&space;p" title="https://latex.codecogs.com/svg.image?sp\simeq p" />
+</div>
+那么，上述两个投影关系可写为：
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?p_{1}\simeq&space;KP,p_{2}\simeq&space;K(RP&plus;t)" title="https://latex.codecogs.com/svg.image?p_{1}\simeq KP,p_{2}\simeq K(RP+t)" />
+</div>
+现在，取:
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?x_{1}=K^{-1}P_{1},x_{2}=K^{-1}P_{2}" title="https://latex.codecogs.com/svg.image?x_{1}=K^{-1}P_{1},x_{2}=K^{-1}P_{2}" />
+</div>
+这里的 x1; x2 是两个像素点的归一化平面上的坐标。代入上式，得:
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?x_{2}\simeq&space;Rx_{1}&plus;t" title="https://latex.codecogs.com/svg.image?x_{2}\simeq Rx_{1}+t" />
+</div>
+两边同时左乘 t^。回忆 ^ 的定义，这相当于两侧同时与 t 做外积：
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?t^{\wedge&space;}x_{2}\simeq&space;t^{\wedge&space;}Rx_{1}" title="https://latex.codecogs.com/svg.image?t^{\wedge }x_{2}\simeq t^{\wedge }Rx_{1}" />
+</div>
+然后，两侧同时左乘 $ x_{2}^{T} $ ：
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?x_{2}^{T}t^{\wedge&space;}x_{2}\simeq&space;x_{2}^{T}t^{\wedge&space;}Rx_{1}" title="https://latex.codecogs.com/svg.image?x_{2}^{T}t^{\wedge }x_{2}\simeq x_{2}^{T}t^{\wedge }Rx_{1}" />
+</div>
+观察等式左侧，t^x2 是一个与 t 和 x2 都垂直的向量。把它再和 x2 做内积时，将得到 0。由于
+等式左侧严格为零，那么乘以任意非零常数之后也为零，于是我们可以把 ≃ 写成通常的等号。因此，
+我们就得到了一个简洁的式子
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?x_{2}^{T}t^{\wedge&space;}Rx_{1}=0" title="https://latex.codecogs.com/svg.image?x_{2}^{T}t^{\wedge }Rx_{1}=0" />
+</div>
+重新代入 p1; p2，有:
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?p_{2}^{T}K^{-T}t^{\wedge&space;}RK^{-1}p_{1}=0" title="https://latex.codecogs.com/svg.image?p_{2}^{T}K^{-T}t^{\wedge }RK^{-1}p_{1}=0" />
+</div>
+这两个式子都称为对极约束，它以形式简洁著名。它的几何意义是 O1; P; O2 三者共面。对极约
+束中同时包含了平移和旋转。我们把中间部分记作两个矩阵：基础矩阵（Fundamental Matrix）F 和
+本质矩阵（Essential Matrix）E，于是可以进一步简化对极约束：
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?E=t^{\wedge&space;}R,F=K^{-T}EK^{-1},x_{2}^{T}Ex_{2}=p_{2}^{T}Fp_{1}=0" title="https://latex.codecogs.com/svg.image?E=t^{\wedge }R,F=K^{-T}EK^{-1},x_{2}^{T}Ex_{2}=p_{2}^{T}Fp_{1}=0" />
+</div>
+
+对极约束简洁地给出了两个匹配点的空间位置关系。于是，相机位姿估计问题变为以下两步：
+1.根据配对点的像素位置求出 E 或者 F 
+2.根据 E 或者 F 求出 R; t
+由于 E 和 F 只相差了相机内参，而内参在 SLAM 中通常是已知的，所以实践当中往往使用
+形式更简单的 E。
+
 * 本质矩阵
 
+根据定义，本质矩阵 E = t^R。它是一个 3 x3 的矩阵，内有 9 个未知数。那么，是不是任意
+一个 3 x3 的矩阵都可以被当成本质矩阵呢？从 E 的构造方式上看，有以下值得注意的地方：
+• 本质矩阵是由对极约束定义的。由于对极约束是等式为零的约束，所以对 E 乘以任意非零
+常数后，对极约束依然满足。我们把这件事情称为 E 在不同尺度下是等价的。
+• 根据 E = t^R，可以证明，本质矩阵 E 的奇异值必定是 [; ; 0]T 的形式。这称为本质矩
+阵的内在性质。
+• 另一方面，由于平移和旋转各有 3 个自由度，故 t^R 共有 6 个自由度。但由于尺度等价性，
+故 E 实际上有 5 个自由度。
+E 具有 5 个自由度的事实，表明我们最少可以用 5 对点来求解 E。但是，E 的内在性质是一
+种非线性性质，在估计时会带来麻烦，因此，也可以只考虑它的尺度等价性，使用 8 对点来估计 E
+——这就是经典的八点法（Eight-point-algorithm）。八点法只利用了 E 的线性性质，因此可
+以在线性代数框架下求解。下面我们来看八点法是如何工作的。
+考虑一对匹配点，它们的归一化坐标为 x1 = [u1; v1; 1]T, x2 = [u2; v2; 1]T。根据对极约束，有
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?(u_{2},v_{2},1)\begin{pmatrix}e_{1}&space;&e_{2}&space;&space;&e_{3}&space;&space;\\e_{4}&space;&e_{5}&space;&space;&e_{6}&space;&space;\\e_{7}&space;&e_{8}&space;&space;&e_{9}&space;\\\end{pmatrix}\begin{pmatrix}u_{1}&space;\\v_{1}&space;\\1\end{pmatrix}=0" title="https://latex.codecogs.com/svg.image?(u_{2},v_{2},1)\begin{pmatrix}e_{1} &e_{2} &e_{3} \\e_{4} &e_{5} &e_{6} \\e_{7} &e_{8} &e_{9} \\\end{pmatrix}\begin{pmatrix}u_{1} \\v_{1} \\1\end{pmatrix}=0" />
+</div>
+我们把矩阵 E 展开，写成向量的形式:
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?e=[e_{1},e_{2},e_{3},e_{4},e_{5},e_{6},e_{7},e_{8},e_{9}]^{T}" title="https://latex.codecogs.com/svg.image?e=[e_{1},e_{2},e_{3},e_{4},e_{5},e_{6},e_{7},e_{8},e_{9}]^{T}" />
+</div>
+那么对极约束可以写成与 e 有关的线性形式:
+ <div align="center"> 
+  <br /><img src="https://latex.codecogs.com/svg.image?[u_{2}u_{1},u_{2}v_{1},u_{2},v_{2}u_{1},v_{2}v_{1},v_{2},u_{1},v_{1},1]\cdot&space;e=0" title="https://latex.codecogs.com/svg.image?[u_{2}u_{1},u_{2}v_{1},u_{2},v_{2}u_{1},v_{2}v_{1},v_{2},u_{1},v_{1},1]\cdot e=0" />
+</div>
+同理，对于其他点对也有相同的表示。我们把所有点都放到一个方程中，变成线性方程组(ui,vi表示第i个特征点)：
+ <div align="center"> 
+  <br />
+</div>
+
+ <div align="center"> 
+  <br />
+</div>
+
+ <div align="center"> 
+  <br />
+</div>
+
+ <div align="center"> 
+  <br />
+</div>
+
+
 * 单应矩阵
+
+ <div align="center"> 
+  <br />
+</div>
+
+ <div align="center"> 
+  <br />
+</div>
+
+ <div align="center"> 
+  <br />
+</div>
+
+ <div align="center"> 
+  <br />
+</div>
+
+
+ <div align="center"> 
+  <br />
+</div>
 
 
 
