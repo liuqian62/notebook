@@ -8,6 +8,39 @@
 * [常用组件](#常用组件)
 * [进阶展望](#进阶展望)
 
+任务：在rich目录下创建工作空间，然后创建一个test包，实现velcity_publisher
+```bash
+cd rich
+mkdir -p catkin_ws/src
+cd catkin_ws
+catkin_make
+cd src
+catkin_create_pkg test roscpp rospy std_msgs geometry_msgs turtlesim
+
+```
+* cpp版
+```bash
+cd test/src
+touch velocity_publisher.cpp
+写入相应程序
+修改CMakeLists.txt
+add_executable(velocity_publisher src/velocity_publisher.cpp)
+target_link_libraries(velocity_publisher ${catkin_LIBRARIES})
+
+编译
+运行
+
+roscore
+
+```
+* python版
+
+```bash
+
+
+```
+
+
 ### 基础概述
 **课程介绍**
 
