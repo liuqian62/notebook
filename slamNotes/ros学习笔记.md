@@ -31,12 +31,24 @@ target_link_libraries(velocity_publisher ${catkin_LIBRARIES})
 运行
 
 roscore
-
+rosrun test velocity_publisher
 ```
 * python版
 
 ```bash
+cd test
+mkdir scripts
+cd scripts
+touch velocity_publisher.py
+chmod +x velocity_publisher.py
 
+修改CMakeLists.txt
+catkin_install_python(PROGRAMS scripts/velocity_publisher.py
+    DESTINATION{CATKIN_PACKAGE_BIN_DESTINATION})
+    
+编译运行
+roscore
+rosrun test velocity_publisher
 
 ```
 
