@@ -43,8 +43,10 @@ touch velocity_publisher.py
 chmod +x velocity_publisher.py
 
 修改CMakeLists.txt
-catkin_install_python(PROGRAMS scripts/velocity_publisher.py
-    DESTINATION{CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS
+  scripts/velocity_publisher.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
     
 编译运行
 roscore
@@ -382,7 +384,7 @@ def velocity_publisher():
     turtle_vel_pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
 
 	#设置循环的频率
-    rate = rospy.Rate(10) 
+    rate = rospy.Rate(3) 
 
     while not rospy.is_shutdown():
 		# 初始化geometry_msgs::Twist类型的消息
@@ -392,9 +394,8 @@ def velocity_publisher():
 
 		# 发布消息
         turtle_vel_pub.publish(vel_msg)
-    	rospy.loginfo("Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]", 
-				vel_msg.linear.x, vel_msg.angular.z)
-
+        rospy.loginfo("Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]", vel_msg.linear.x, vel_msg.angular.z)
+    	# rospy.loginfo("Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]", vel_msg.linear.x, vel_msg.angular.z)
 		# 按照循环频率延时
         rate.sleep()
 
