@@ -1,5 +1,6 @@
 # ros学习笔记
 [ros21讲](https://github.com/huchunxu/ros_21_tutorials)
+[ros控制小乌龟走弓字形](https://github.com/liuqian62/turtlesim_plan)
 
 ## 目录
 * [基础概述](#基础概述)
