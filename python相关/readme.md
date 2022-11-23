@@ -1,5 +1,8 @@
 # python 相关笔记
-## 环境配置
+
+[python基础](https://www.runoob.com/python3/python3-tutorial.html)  
+
+## 虚拟环境配置
 ```bash
 conda create -n rich python=3.7  #创建环境
 conda activate rich  #激活环境
