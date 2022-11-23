@@ -1,6 +1,7 @@
 # python 相关笔记
 
 [python基础](https://www.runoob.com/python3/python3-tutorial.html)  
+[python100天](https://www.bookstack.cn/read/Python-100-Days/README.md)  
 
 ## 虚拟环境配置
 ```bash
