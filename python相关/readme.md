@@ -8,7 +8,7 @@ conda remove -n rich --all  #删除环境
 ```
 ## requirements
 ```
-pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 例如
 ```
