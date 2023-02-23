@@ -2,7 +2,7 @@
 
 ## 常用激光SLAM方案
 
-* [Cartographer](/#Cartographer)
+* [Cartographer](#Cartographer)
 * [LOAM]()
 * [Lego-LOAM]()
 * [LIO-SAM]()
