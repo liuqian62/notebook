@@ -26,9 +26,11 @@
 ## 学习笔记
 * [python相关](./python相关)
 * [Linux使用](./linux使用)
+* [vscode使用教程](./vscode.md)
 * [slam学习笔记](./slamNotes/slam学习笔记.md)
 * [slam资料和笔记](/slamNotes)
-* [vscode使用教程](./vscode.md)
+* [激光SLAM](/slamNotes/激光SLAM/readme.md)
+
 ## 刷题找工作
 <details>
 <summary><b>点击查看：刷题找工作</b></summary>
