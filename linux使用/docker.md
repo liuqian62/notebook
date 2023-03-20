@@ -242,6 +242,12 @@ docker exec -it redis001 /bin/bash
 docker attach 容器名/容器ID
 ```
 
+* 复制文件到容器
+
+```
+docker cp 你的文件路径 容器长ID:docker容器路径
+sudo docker cp LIO-SAM.zip  0ee1df0e92f3:LIO.zip
+```
 * 退出容器
 
 ```bash
