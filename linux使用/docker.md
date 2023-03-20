@@ -93,6 +93,8 @@ sudo docker run hello-world
 
 ## 常用命令
 
+[常用命令](https://blog.csdn.net/weixin_45698637/article/details/124213429?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167930369916800182761750%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167930369916800182761750&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-124213429-null-null.142^v74^insert_down2,201^v4^add_ask,239^v2^insert_chatgpt&utm_term=docker%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8%E5%91%BD%E4%BB%A4&spm=1018.2226.3001.4187)
+
 * 启动docker
 
 ```bash
