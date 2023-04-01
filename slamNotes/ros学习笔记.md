@@ -102,7 +102,7 @@ sudo rosdep init
 rosdep update
 
 ```
-5. 设置环节变量
+5. 设置环境变量
 ```bash
 echo "source /opt/ros/melodic/setup.bash">>~/.bashrc
 source ~/.bashrc
@@ -272,11 +272,11 @@ catkin_init_workspace
 cd ~/catkin_ws/
 catkin_make
 ```
-* 设置环节变量
+* 设置环境变量
 ```bash
 source devel/setup.bash
 ```
-* 检查环节变量
+* 检查环境变量
 ```bash
 echo $ROS_PACKAGE_PATH
 ```
