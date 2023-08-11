@@ -6,7 +6,7 @@
 * [LVI-SAM](https://github.com/TixiaoShan/LVI-SAM)
 * [LVI-SAM注释版](https://github.com/kvlton/LVI-SAM)
 * [FAST_LIO2](https://github.com/hku-mars/FAST_LIO)
-* []()
+* [Point-LIO](https://github.com/hku-mars/Point-LIO)
 * []()
 * []()
 * []()
