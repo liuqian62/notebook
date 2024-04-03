@@ -138,7 +138,3 @@ $\frac{n!}{k!(n-k)!} = {n \choose k}$ -->
   <br />  
 </div>
 ```
-
-- [发现一个卷王](https://github.com/LiCaoZ)
-- [体重管理](./体重管理.md)
-- [毕业设计](./slamNotes/毕业设计.md)
