@@ -30,6 +30,7 @@
 * [slam学习笔记](./slamNotes/slam学习笔记.md)
 * [slam资料和笔记](/slamNotes)
 * [激光SLAM](/slamNotes/激光SLAM/readme.md)
+* [3dGauss](/slamNotes/3dGauss_splatting/readme.md)
 
 ## 刷题找工作
 <details>
