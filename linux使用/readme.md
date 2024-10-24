@@ -63,27 +63,8 @@ ctrl+a 再按D
 [个人网站](http://140.82.40.39/)
 
 
-* 局域网内连接mii服务器
-```bash
-ssh mii@192.168.0.123
-```
 
-软件推荐使用MobaXterm
-新建session    ssh连接   输入ip地址（192.168.0.123）和名字（mii）  端口默认22（ssh服务器是22，web服务器是80） 然后ok 
-密码是123456 （输入时不会显示，输入完成直接enter）
 
-新建session    ssh连接   输入ip地址（192.168.0.148）和名字（mii2）  端口默认22（ssh服务器是22，web服务器是80） 然后ok 
-密码是2 （输入时不会显示，输入完成直接enter）
-
-连接车组的服务器：
-```
-ssh -l dl1 icv-server.tpddns.cn -p 1111
-ssh dl1@icv-server.tpddns.cn -p 1111
-ssh dl4@icv-server.tpddns.cn -p 4444
-```
-
-ssh srw@192.168.50.151
-密码是``
 
 创建服务器远程连接：
 ```
