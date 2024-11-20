@@ -11,7 +11,7 @@
   
 > @Author： [李琦](https://github.com/liuqian62) , [陈玥锦](https://github.com/210-297) , [周林峰](https://github.com/against43) ，[才昌照](https://github.com/caichangzhao) ，[荀钰婷](https://github.com/iredawen) ，[钟志超](https://github.com/WillenChung)  ，[夏青云](https://github.com/delecloud)，[李金洋](https://github.com/nankelli)，[张亚东](https://github.com/WestMemoery)，[杜凯](https://github.com/kayky233)，[王轶](https://github.com/ybyzy) , [李天晓](https://github.com/EwrinCat)  
 
-> [![joinus](./joinus/joinusnow.png)](./joinus)
+
 <!-- @E-mail ：lirich674@gmail.com    
 @github ：[liuqian62](https://github.com/liuqian62) -->
 
@@ -26,7 +26,6 @@
 ## 学习笔记
 * [python相关](./python相关)
 * [Linux使用](./linux使用)
-* [vscode使用教程](./vscode.md)
 * [slam学习笔记](./slamNotes/slam学习笔记.md)
 * [slam资料和笔记](/slamNotes)
 * [激光SLAM](/slamNotes/激光SLAM/readme.md)
@@ -36,7 +35,7 @@
 <details>
 <summary><b>点击查看：刷题找工作</b></summary>
  
-* [面试总结](面经.md)
+* [面试总结](./learnCpp/面经.md)
 
 * [基础四大件](https://github.com/liuqian62/notebook/tree/main/%E5%9F%BA%E7%A1%80%E5%9B%9B%E5%A4%A7%E4%BB%B6)
 * [c++](https://github.com/liuqian62/notebook/tree/main/learn%20c%2B%2B)

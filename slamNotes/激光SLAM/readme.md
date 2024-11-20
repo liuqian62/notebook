@@ -8,7 +8,7 @@
 * [FAST_LIO2](https://github.com/hku-mars/FAST_LIO)
 * [Point-LIO](https://github.com/hku-mars/Point-LIO)
 * [FAST_LIO_SAM](https://github.com/kahowang/FAST_LIO_SAM)
-* []()
+* [FAST-LIVO2](https://github.com/hku-mars/FAST-LIVO2)
 * []()
 * []()
 
