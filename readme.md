@@ -18,6 +18,10 @@
 # This is my notebook
 
 
+* [一键安装ros等](https://fishros.github.io/install/#/)
+```
+wget http://fishros.com/install -O fishros && . fishros
+```
 
 
 
