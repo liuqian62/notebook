@@ -17,12 +17,20 @@ SLAM / ROS / 机器人方向学习笔记总目录。
 
 - [slam 开源方案](./slam开源方案/readme.md)
 - [激光 SLAM](./激光SLAM/readme.md)
+- [SLAM 技术路线与资料索引](./SLAM技术路线与资料索引.md)
+- [SLAM 数据集与评测指标](./SLAM数据集与评测指标.md)
+- [SLAM 回环检测](./SLAM回环检测.md)
+- [VIO 与 LIO 对比](./VIO与LIO对比.md)
+- [初始化与标定](./初始化与标定.md)
+- [地图表达与稀疏稠密隐式表示](./地图表达与稀疏稠密隐式表示.md)
+- [动态SLAM与语义SLAM](./动态SLAM与语义SLAM.md)
 - [SLAM 面试问题整理](./SLAM面试问题整理.md)
 
 ### 如果想查工具和格式
 
 - [g2o 使用](./use_g2o.md)
 - [Ceres 使用](./use_ceres.md)
+- [OpenCV / Eigen / g2o / Ceres 在 SLAM 中的角色](./OpenCV_Eigen_g2o_Ceres在SLAM中的角色.md)
 - [保存为 TUM / KITTI 格式](./TUM_KITTI.md)
 
 ### 如果想看项目和研究记录
@@ -46,6 +54,13 @@ SLAM / ROS / 机器人方向学习笔记总目录。
 
 - [slam学习笔记](./slam学习笔记.md)
 - [SLAM十四讲摘记](./14讲.md)
+- [SLAM 技术路线与资料索引](./SLAM技术路线与资料索引.md)
+- [SLAM 数据集与评测指标](./SLAM数据集与评测指标.md)
+- [SLAM 回环检测](./SLAM回环检测.md)
+- [VIO 与 LIO 对比](./VIO与LIO对比.md)
+- [初始化与标定](./初始化与标定.md)
+- [地图表达与稀疏稠密隐式表示](./地图表达与稀疏稠密隐式表示.md)
+- [动态SLAM与语义SLAM](./动态SLAM与语义SLAM.md)
 - [ROS 学习笔记](./ros学习笔记.md)
 - [ROS 常用消息](./ros常用消息.md)
 - [SLAM 面试问题整理](./SLAM面试问题整理.md)
@@ -54,10 +69,10 @@ SLAM / ROS / 机器人方向学习笔记总目录。
 
 - [g2o 使用](./use_g2o.md)
 - [Ceres 使用](./use_ceres.md)
+- [OpenCV / Eigen / g2o / Ceres 在 SLAM 中的角色](./OpenCV_Eigen_g2o_Ceres在SLAM中的角色.md)
 - [轨迹格式导出：TUM / KITTI](./TUM_KITTI.md)
 
 说明：
-- `use_ceres.md` 当前还是一个占位入口，后续可以继续补充
 - `image.png` 目前主要被 `use_g2o.md` 引用
 
 ## 项目记录
