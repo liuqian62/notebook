@@ -1,16 +1,31 @@
-# python 相关笔记
+# python相关
+
+这个目录主要放 Python 环境、常用库和工具类笔记。
+
+## 目录导航
+
+- [mmdetection](./mmdetection.md)
+
+## 使用说明
+
+- 当前这个 `readme.md` 既是入口页，也保留了一部分速查内容
+- 如果后面继续增加新主题，建议按“一个主题一篇笔记”的方式继续拆分
+
+---
+
+## python 相关笔记
 
 [python基础](https://www.runoob.com/python3/python3-tutorial.html)  
 [python100天](https://www.bookstack.cn/read/Python-100-Days/README.md)  
 
-## 虚拟环境配置
+### 虚拟环境配置
 ```bash
 conda create -n rich python=3.7  #创建环境
 conda activate rich  #激活环境
 conda deactivate rich  #退出环境
 conda remove -n rich --all  #删除环境
 ```
-## requirements
+### requirements
 ```
 pip install -r requirements.txt
 ```
@@ -30,15 +45,15 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/ --t
 ```
 
 * [python图形界面示例](https://github.com/liuqian62/loopmark)
-# [mmdetetion](https://github.com/liuqian62/notebook/blob/main/python%E7%9B%B8%E5%85%B3/mmdetection.md)
-# OpenCV教程
+### [mmdetection](./mmdetection.md)
+### OpenCV 教程
 * [OpenCV中文官方文档](https://woshicver.com/)
 * [OpenCV 4.0 中文文档](https://opencv.apachecn.org/#/)
 
-# pyechart
-* [pyechart中文文档](https://gallery.pyecharts.org/#/README)
-* [pyechart的github地址](https://github.com/pyecharts/pyecharts)
-* [pyechart图库](https://github.com/pyecharts/pyecharts-gallery)
+### pyecharts
+* [pyecharts 中文文档](https://gallery.pyecharts.org/#/README)
+* [pyecharts GitHub](https://github.com/pyecharts/pyecharts)
+* [pyecharts 图库](https://github.com/pyecharts/pyecharts-gallery)
 
 
 

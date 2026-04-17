@@ -1,65 +1,46 @@
 # 激光SLAM
 
-## 代码链接
-* [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM)
-* [LIO-SAM注释版](https://github.com/smilefacehh/LIO-SAM-DetailedNote)
-* [LVI-SAM](https://github.com/TixiaoShan/LVI-SAM)
-* [LVI-SAM注释版](https://github.com/kvlton/LVI-SAM)
-* [FAST_LIO2](https://github.com/hku-mars/FAST_LIO)
-* [Point-LIO](https://github.com/hku-mars/Point-LIO)
-* [FAST_LIO_SAM](https://github.com/kahowang/FAST_LIO_SAM)
-* [FAST-LIVO2](https://github.com/hku-mars/FAST-LIVO2)
-* []()
-* []()
+这个目录用于集中放激光 SLAM、激光惯导融合和相关扩展方向的资料入口。
 
+当前本地笔记还不多，主要以方案索引和两篇学习笔记为主。
 
-# NeRF
+## 本地笔记
 
-* [awesome-NeRF](https://github.com/DoongLi/awesome-Implicit-NeRF-SLAM)
+- [LIO-SAM 学习笔记](./LIO-SAM学习笔记.md)
+- [LVI-SAM 学习笔记](./LVI-SAM学习笔记.md)
 
-## 常用激光SLAM方案
+## 推荐阅读顺序
 
-### 目录
+1. 先看 `LIO-SAM`
+2. 再看 `LVI-SAM`
+3. 之后按需要扩展到 FAST-LIO、Point-LIO、Cartographer、LOAM 等方案
 
-* [Cartographer](#Cartographer)
-* [LOAM](#LOAM)
-* [Lego-LOAM](#Lego-LOAM)
-* [LIO-SAM](#LIO-SAM学习笔记)
-* [LVI-SAM](#LVI-SAM学习笔记)
-* [livox-LOAM](#livox-LOAM)
+## 常见开源方案
 
-# [LIO-SAM学习笔记](./LIO-SAM学习笔记.md)
+### 激光 / 激光惯导
 
-# [LVI-SAM学习笔记](./LVI-SAM学习笔记.md)
+- [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM)
+- [LIO-SAM 注释版](https://github.com/smilefacehh/LIO-SAM-DetailedNote)
+- [LVI-SAM](https://github.com/TixiaoShan/LVI-SAM)
+- [LVI-SAM 注释版](https://github.com/kvlton/LVI-SAM)
+- [FAST_LIO2](https://github.com/hku-mars/FAST_LIO)
+- [Point-LIO](https://github.com/hku-mars/Point-LIO)
+- [FAST_LIO_SAM](https://github.com/kahowang/FAST_LIO_SAM)
+- [FAST-LIVO2](https://github.com/hku-mars/FAST-LIVO2)
 
-# Cartographer
-* [代码链接](https://github.com/cartographer-project/cartographer)
+### 经典激光 SLAM
 
-</details>
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
+- [Cartographer](https://github.com/cartographer-project/cartographer)
+- [A-LOAM](https://github.com/HKUST-Aerial-Robotics/A-LOAM)
+- [LeGO-LOAM](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM)
+- [loam_livox](https://github.com/hku-mars/loam_livox)
 
-# LOAM
-* [代码链接](https://github.com/HKUST-Aerial-Robotics/A-LOAM)
+### 扩展阅读
 
-</details>
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
+- [awesome-NeRF / implicit-NeRF-SLAM](https://github.com/DoongLi/awesome-Implicit-NeRF-SLAM)
 
-# Lego-LOAM
-* [代码链接](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM)
+## 目录说明
 
-</details>
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-# livox-LOAM
-* [代码链接](https://github.com/hku-mars/loam_livox)
-
-</details>
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
+- 这层目录优先维护“方案入口”和“本地学习笔记”
+- 具体到某个方案的长笔记，继续拆成单独 Markdown 文件
+- 如果后续增加更多激光方案，建议优先按“方案名.md”继续扩展

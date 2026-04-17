@@ -1,140 +1,84 @@
-# slam notes
-## 目录
+# slamNotes
 
-- [资料](#资料)
-- [环境安装](#环境安装)
-- [各种库的使用](#各种库的使用)
-- [大佬的博客](#大佬的博客)
-- [我的主要工作](#我的主要工作)
-- [SLAM评估工具](#SLAM评估工具)
-- [SLAM找工作](#SLAM找工作)
+SLAM / ROS / 机器人方向学习笔记总目录。
 
-## 资料
-- [常用开源方案简介和对比](./slam开源方案)
-- [视觉SLAM相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
-- [SLAM十四讲](https://github.com/liuqian62/notebook/blob/main/slamNotes/14%E8%AE%B2.md)
-- [多传感器融合定位知乎专栏](https://zhuanlan.zhihu.com/c_1114864226103037952)
-- [深蓝学院视觉slam](https://github.com/zhouyong1234/VIO-Course)
-- [深蓝学院激光slam](https://github.com/zhouyong1234/Laser-SLAM-Course)
+这里既有学习笔记，也有开源方案索引、论文阅读入口、工具使用记录和阶段性项目总结。为了更容易查找，建议把这个目录当作一个独立知识域来使用。
+
+## 推荐阅读顺序
+
+### 如果想从基础开始
+
+- [slam学习笔记](./slam学习笔记.md)
+- [SLAM十四讲摘记](./14讲.md)
+- [ROS 学习笔记](./ros学习笔记.md)
+- [ROS 常用消息](./ros常用消息.md)
+
+### 如果想快速了解方向和方案
+
+- [slam 开源方案](./slam开源方案/readme.md)
+- [激光 SLAM](./激光SLAM/readme.md)
+- [SLAM 面试问题整理](./SLAM面试问题整理.md)
+
+### 如果想查工具和格式
+
+- [g2o 使用](./use_g2o.md)
+- [Ceres 使用](./use_ceres.md)
+- [保存为 TUM / KITTI 格式](./TUM_KITTI.md)
+
+### 如果想看项目和研究记录
+
+- [毕业设计](./毕业设计.md)
+- [2021 年项目记录](./2021.md)
+- [2022 年项目记录](./2022.md)
+- [2023 年项目记录](./2023.md)
+
+## 目录导航
+
+| 路径 | 内容 | 入口说明 |
+| --- | --- | --- |
+| `激光SLAM/` | 激光 SLAM / LIO / LVI 相关资料与笔记 | [激光SLAM/readme.md](./激光SLAM/readme.md) |
+| `slam开源方案/` | 常见视觉、VIO、回环、融合方案的索引和速记 | [slam开源方案/readme.md](./slam开源方案/readme.md) |
+| `slam论文阅读/` | 论文阅读入口和待补阅读清单 | [slam论文阅读/readme.md](./slam论文阅读/readme.md) |
+| `3dGauss_splatting/` | 3D Gaussian Splatting 相关资料入口 | [3dGauss_splatting/readme.md](./3dGauss_splatting/readme.md) |
+| `images/` | 本目录下笔记所用图片资源 | [images/readme.md](./images/readme.md) |
+
+## 主笔记
+
+- [slam学习笔记](./slam学习笔记.md)
+- [SLAM十四讲摘记](./14讲.md)
+- [ROS 学习笔记](./ros学习笔记.md)
+- [ROS 常用消息](./ros常用消息.md)
+- [SLAM 面试问题整理](./SLAM面试问题整理.md)
+
+## 工具与实现细节
+
+- [g2o 使用](./use_g2o.md)
+- [Ceres 使用](./use_ceres.md)
+- [轨迹格式导出：TUM / KITTI](./TUM_KITTI.md)
+
+说明：
+- `use_ceres.md` 当前还是一个占位入口，后续可以继续补充
+- `image.png` 目前主要被 `use_g2o.md` 引用
+
+## 项目记录
+
+- [毕业设计](./毕业设计.md)
+- [2021 年工作记录](./2021.md)
+- [2022 年工作记录](./2022.md)
+- [2023 年工作记录](./2023.md)
+
+## 历史收集资料
+
+下面这些链接主要作为历史收集入口保留，适合继续扩展到对应子目录：
+
+- [视觉 SLAM 相关研究](https://github.com/wuxiaolang/Visual_SLAM_Related_Research)
+- [深蓝学院视觉 SLAM](https://github.com/zhouyong1234/VIO-Course)
+- [深蓝学院激光 SLAM](https://github.com/zhouyong1234/Laser-SLAM-Course)
 - [古月居](https://www.guyuehome.com/)
+- [FishROS](http://fishros.com/#/fish_home)
 
-<!-- - [如何使用g2o](use_g2o.md)
-- [如何使用Ceres](use_ceres.md) -->
+## 整理约定
 
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-
-## 环境安装
-* [ubuntu安装](https://blog.csdn.net/baidu_36602427/article/details/86548203?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266749016782395341493%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266749016782395341493&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-86548203-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=ubuntu18.04%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4449)
-* [ros安装](https://blog.csdn.net/weixin_50060664/article/details/121781535?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266766216782350951349%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266766216782350951349&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-3-121781535-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=ubuntu%E5%AE%89%E8%A3%85ros&spm=1018.2226.3001.4449)
-* [ros常用命令](https://blog.csdn.net/u010585964/article/details/78715130?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165551422316780366549949%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165551422316780366549949&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-78715130-null-null.142^v17^pc_rank_34,157^v15^new_3&utm_term=ros%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&spm=1018.2226.3001.4187)
-* [各种库的安装](https://blog.csdn.net/Night___Raid/article/details/105113617?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266819116782350993650%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266819116782350993650&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-3-105113617-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=slam%E7%9A%84%E5%90%84%E7%A7%8D%E5%BA%93%E5%AE%89%E8%A3%85&spm=1018.2226.3001.4449)
-* [安装多个版本OpenCV](https://heyijia.blog.csdn.net/article/details/54575245?spm=1001.2014.3001.5502)
-* [d435i驱动安装和标定](https://blog.csdn.net/qq_35616298/article/details/116171823?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162942123216780271562120%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162942123216780271562120&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-1-116171823.first_rank_v2_pc_rank_v29&utm_term=%E9%94%99%E8%AF%AF%3A+%E6%97%A0%E6%B3%95%E9%AA%8C%E8%AF%81+faculty.cse.tamu.edu+%E7%9A%84%E7%94%B1+%E2%80%9CCN%3DInCommon+RSA+Server+CA%2COU%3DInCommon%2CO%3DInternet2%2CL%3DAnn+Arbor%2CST%3DMI%2CC%3DUS%E2%80%9D+%E9%A2%81%E5%8F%91%E7%9A%84%E8%AF%81%E4%B9%A6%3A&spm=1018.2226.3001.4187)
-* [ros2教程](http://fishros.com/#/fish_home)
-* [ros2交流社区](https://fishros.org.cn/forum/)
-
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-## ros使用
-[ros学习笔记](ros学习笔记.md)  
-
-[ros常用消息](ros常用消息.md)
-
-
-
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-
-## 各种库的使用
-
---[代码](https://github.com/liuqian62/lib_use)
-* [Eigen使用](https://blog.csdn.net/yxpandjay/article/details/80587916?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266842616782248567999%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266842616782248567999&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-80587916-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=eigen%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
-  * [Eigen平移旋转](https://blog.csdn.net/u011092188/article/details/77430988) 
-* [g2o使用](https://blog.csdn.net/He3he3he/article/details/110007973?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266856216782246426329%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266856216782246426329&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-9-110007973-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=g2o%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
-* [Ceres使用](https://blog.csdn.net/zzyczzyc/article/details/88937558?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266905516782395383342%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266905516782395383342&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-5-88937558-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=ceres%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
-* [OpenCV使用](https://blog.csdn.net/zzx2016zzx/article/details/108691235?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165266957316781683948705%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165266957316781683948705&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-6-108691235-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=opencv%E6%95%99%E7%A8%8Bc%2B%2B&spm=1018.2226.3001.4449)
-  * [OpenCV官方文档](https://docs.opencv.org/3.4.4/index.html)
-* [Sophus使用](https://blog.csdn.net/u011092188/article/details/77833022?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165267053516780357263815%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165267053516780357263815&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-5-77833022-null-null.142^v9^pc_search_result_cache,157^v4^control&utm_term=Sophus%E4%BD%BF%E7%94%A8&spm=1018.2226.3001.4449)
-
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-
-## 大佬的博客
-* [高翔](https://www.cnblogs.com/gaoxiang12/)
-* [贺一家](https://blog.csdn.net/heyijia0327?type=blog)
-* [紫薯萝卜](https://www.zhihu.com/people/mao-shu-yuan/posts)
-* [小吴同学](https://wym.netlify.app/)
-
-
-<!-- ## slam 后端一般分为两种处理方法
-* 扩展卡尔曼滤波（滤波方法）
-* 图优化（非线性优化方法）
-
-## 图优化
-1. 构建图。机器人位姿作为顶点，位姿间关系作为边。
-2. 优化图。调整机器人的位姿（顶点）来尽量满足边的约束，使得误差最小。 -->
-
-
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-
-## 我的主要工作
-* [SLAM学习笔记](slam学习笔记.md)
-* [论文阅读](./slam论文阅读/)
-* [2021](2021.md)
-  * 回环检测所需数据生成和发布
-  * 双目改单目
-  * 回环检测节点移植
-  * 传感器数据发布和时间戳对齐
-* [2022](2022.md)
-  * 特征跟踪改进（光流法改间接匹配方法、特征均匀化、运动信息加入）
-  * 回环检测改进（前后帧贝叶斯推理、图像内和图像间相似性评分抑制）
-* [2023](2023.md)
-  * do something 
-
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-
-## SLAM评估工具
-* [保存为TUM和KITTI格式](TUM_KITTI.md)
-* [博客教程](https://blog.csdn.net/weixin_41469272/article/details/119885449?ops_request_misc=&request_id=&biz_id=102&utm_term=rpg_trajectory_evaluation%E5%A4%9A%E8%BD%A8%E8%BF%B9&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-2-119885449.142^v66^control,201^v3^add_ask,213^v2^t3_esquery_v2&spm=1018.2226.3001.4187)
-
-
-* [evo](https://github.com/MichaelGrupp/evo)
-  * [evo使用教程](https://blog.csdn.net/u011341856/article/details/104594392?spm=1001.2014.3001.5501) 
-* [rpg_trajectory_evaluation](https://github.com/uzh-rpg/rpg_trajectory_evaluation) 
-* [数据集](https://blog.csdn.net/crp997576280/article/details/103340020?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165284191416781432971813%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165284191416781432971813&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-103340020-null-null.142^v10^pc_search_result_control_group,157^v4^control&utm_term=slam%E6%95%B0%E6%8D%AE%E9%9B%86%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98&spm=1018.2226.3001.4187)
-* [tum](https://vision.in.tum.de/data/datasets/rgbd-dataset/download)
-* [newcollge](https://drive.google.com/drive/u/0/folders/15lTH5osZzZlDpcW7oXfR_2t8TNssNARS)
-* [awesome-slam-datasets](https://github.com/youngguncho/awesome-slam-datasets)
-
-
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
-
-## SLAM找工作
-* [面试问题整理](https://github.com/liuqian62/notebook/blob/main/slamNotes/SLAM%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86.md)
-* [视觉slam面试题总结](https://blog.csdn.net/weixin_44580210/article/details/91790044)
-* [slam常见面试题](https://zhuanlan.zhihu.com/p/46694678)
-* [slam求职分享](https://zhuanlan.zhihu.com/p/68858564)
-* [面试SLAM算法实习生总结](https://zhuanlan.zhihu.com/p/76280626)
-
-<div align="right">
-    <b><a href="#目录">↥ Back To Top</a></b>
-</div>
-
+- 目录下的 `readme.md` 优先只做导航和资料汇总
+- 具体学习内容尽量写在独立 Markdown 文件中
+- 专题专属图片优先放在对应专题目录；公共图片再放到 `images/`
