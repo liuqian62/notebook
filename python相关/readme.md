@@ -9,13 +9,15 @@
 
 ## 目录导航
 
+- [专题索引](./专题索引.md)
 - [Python 环境与工具速查](./Python环境与工具速查.md)
 - [mmdetection](./mmdetection.md)
 
 ## 推荐阅读顺序
 
-1. 想先把环境装起来：看 [Python 环境与工具速查](./Python环境与工具速查.md)
-2. 想看具体专题：看 [mmdetection](./mmdetection.md)
+1. 想先看整体分类：看 [专题索引](./专题索引.md)
+2. 想先把环境装起来：看 [Python 环境与工具速查](./Python环境与工具速查.md)
+3. 想看具体专题：看 [mmdetection](./mmdetection.md)
 
 ## 目录说明
 

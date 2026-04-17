@@ -1,4 +1,12 @@
 # mmdetection
+
+## 这篇讲什么
+
+- mmdetection 的资料入口
+- 分布式训练、单机训练和性能测试常用命令
+- 返回本目录的主导航页：见 [readme.md](./readme.md)
+- 想看专题分层：见 [专题索引](./专题索引.md)
+
 ## 教程
 * [博客链接](https://blog.csdn.net/qq_16137569/article/details/121316235)
 * [官网链接](https://github.com/open-mmlab/mmdetection)
@@ -61,3 +69,8 @@ git pull --rebase origin master
 git push origin master
 
 ```
+
+## 适合什么时候看
+
+- 已经配好 Python / CUDA 环境，准备开始训练或测试检测模型时
+- 需要临时查命令行模板时
