@@ -6,7 +6,6 @@
 - C++、算法刷题与面试准备
 - 计算机基础四大件
 - Linux / Python 常用笔记
-- 少量生活记录与通用图片资源
 
 这个仓库现在更偏“知识库”而不是单一项目，所以整理的重点放在导航、归类和入口说明上，尽量让每一层目录都能顺着找下去。
 
@@ -26,8 +25,6 @@
 | `learnCpp/` | C++ 学习笔记、面经、英语相关记录 | [learnCpp/readme.md](./learnCpp/readme.md) |
 | `linux使用/` | Linux 常用命令、服务器连接、Git、Docker、开发环境 | [linux使用/readme.md](./linux使用/readme.md) |
 | `python相关/` | Python 基础、虚拟环境、requirements、OpenCV、mmdetection | [python相关/readme.md](./python相关/readme.md) |
-| `WLB/` | 生活管理类记录，目前以体重管理为主 | [WLB/readme.md](./WLB/readme.md) |
-| `images/` | 根目录共用图片资源 | [images/readme.md](./images/readme.md) |
 
 ## 按目标快速找内容
 
@@ -50,7 +47,7 @@ wget http://fishros.com/install -O fishros && . fishros
 
 - 新内容优先放进最接近主题的一级目录，不轻易新增新的同级分类
 - 一级目录尽量维护自己的 `readme.md`，作为该目录的总入口
-- 主题专属图片放在主题目录内，共用资源再放到根目录的 `images/`
+- 主题相关图片优先放在对应主题目录内，避免根目录堆积零散资源
 - 旧路径尽量保持稳定，优先补索引和说明，避免大规模改名导致原有链接失效
 
 ## 附加文档
