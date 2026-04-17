@@ -951,7 +951,7 @@ PnP问题有多种解决方法:
 
 * 直接线性变换(DLT): 先求解相机位姿,再求解空间点位置
 考虑某个空间点P PP的齐次世界坐标为P = ( X , Y , Z , 1 )^T .在图像I_1
- 中投影到特征点的归一化像素坐标x 1 = ( u 1 , v 1 , 1 )^T .此时相机的位姿Rt是未知的,定义增广矩阵[R∣t](不同于变换矩阵T)
+ 中投影到特征点的归一化像素坐标x 1 = ( u 1 , v 1 , 1 )^T .此时相机的位姿Rt是未知的,定义增广矩阵 [R∣t]（不同于变换矩阵 T）
  为一个3×4的矩阵,包含了旋转与平移信息,展开形式如下:
  <div align="center"> 
   <br /><img src="https://latex.codecogs.com/svg.image?s\begin{pmatrix}&space;u_{1}\\&space;v_{1}\\1\end{pmatrix}=\begin{pmatrix}&space;t_{1}&t_{2}&space;&space;&t_{3}&space;&space;&t_{4}&space;&space;\\&space;t_{5}&t_{6}&space;&space;&t_{7}&space;&space;&t_{8}&space;&space;\\&space;t_{9}&t_{10}&space;&space;&t_{11}&space;&space;&t_{12}&space;&space;\\\end{pmatrix}\begin{pmatrix}&space;X\\&space;Y\\&space;Z\\1\end{pmatrix}" title="https://latex.codecogs.com/svg.image?s\begin{pmatrix} u_{1}\\ v_{1}\\1\end{pmatrix}=\begin{pmatrix} t_{1}&t_{2} &t_{3} &t_{4} \\ t_{5}&t_{6} &t_{7} &t_{8} \\ t_{9}&t_{10} &t_{11} &t_{12} \\\end{pmatrix}\begin{pmatrix} X\\ Y\\ Z\\1\end{pmatrix}" />

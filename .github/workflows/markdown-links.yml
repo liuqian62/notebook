@@ -1,0 +1,20 @@
+name: Markdown Links
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  check-local-links:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check markdown links
+        shell: pwsh
+        run: ./scripts/check-markdown-links.ps1
