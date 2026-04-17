@@ -35,6 +35,7 @@ SLAM / ROS / 机器人方向学习笔记总目录。
 
 ### 如果想看项目和研究记录
 
+- [按年份索引](./按年份索引.md)
 - [2021 年项目记录](./2021.md)
 - [2022 年项目记录](./2022.md)
 - [2023 年项目记录](./2023.md)
@@ -48,6 +49,7 @@ SLAM / ROS / 机器人方向学习笔记总目录。
 | `slam论文阅读/` | 论文阅读入口和待补阅读清单 | [slam论文阅读/readme.md](./slam论文阅读/readme.md) |
 | `3dGauss_splatting/` | 3D Gaussian Splatting 相关资料入口 | [3dGauss_splatting/readme.md](./3dGauss_splatting/readme.md) |
 | `images/` | 本目录下笔记所用图片资源 | [images/readme.md](./images/readme.md) |
+| `按年份索引.md` | 按年度串联项目记录与专题入口 | [按年份索引.md](./按年份索引.md) |
 
 ## 主笔记
 
@@ -76,6 +78,7 @@ SLAM / ROS / 机器人方向学习笔记总目录。
 
 ## 项目记录
 
+- [按年份索引](./按年份索引.md)
 - [2021 年工作记录](./2021.md)
 - [2022 年工作记录](./2022.md)
 - [2023 年工作记录](./2023.md)

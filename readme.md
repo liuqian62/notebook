@@ -14,6 +14,7 @@
 - 从根目录先选主题，再进入对应一级目录的 `readme.md`
 - 一级目录负责“导航”，具体内容尽量放到独立笔记文件里
 - 想快速定位内容时，优先看 [仓库地图](./docs/仓库地图.md)
+- 想继续整理或补内容时，优先看 [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## 一级目录导航
 
@@ -52,7 +53,9 @@ wget http://fishros.com/install -O fishros && . fishros
 
 ## 附加文档
 
+- [docs/readme.md](./docs/readme.md)
 - [仓库地图](./docs/仓库地图.md)
+- [仓库维护](./docs/仓库维护.md)
 - [README 写作备忘](./docs/README写作备忘.md)
 - [文档整理约定](./docs/文档整理约定.md)
 

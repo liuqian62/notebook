@@ -2,6 +2,13 @@
 
 这份笔记整理常用的 Python 环境配置、依赖安装和工具入口，适合做速查页。
 
+## 这篇讲什么
+
+- Python 入门资料入口
+- 虚拟环境和 `requirements` 的基础用法
+- OpenCV、pyecharts 这类常见工具的资料入口
+- 返回本目录的主导航页：见 [readme.md](./readme.md)
+
 ## 入门资料
 
 - [Python 基础](https://www.runoob.com/python3/python3-tutorial.html)
@@ -64,3 +71,8 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 - 如果新增的是环境类内容，优先继续补到这份速查页
 - 如果新增的是某个库或框架的深度笔记，优先拆成独立文件
 
+## 适合什么时候看
+
+- 新机器刚开始配 Python 环境时
+- 需要快速回忆 `conda` / `pip` / `requirements` 常见命令时
+- 想从环境速查跳到某个具体框架笔记时
